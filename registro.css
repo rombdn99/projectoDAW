@@ -1,0 +1,14 @@
+.formulario{
+	display: flex;
+	flex-direction: column;
+	
+}
+.login{
+	display: flex;
+    /*height: 70vh;*/
+    justify-content: center;
+}
+.fondoblanco{
+	padding-bottom: 3vh !important;
+	padding-top: 3vh !important;
+}

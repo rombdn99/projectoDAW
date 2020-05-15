@@ -1,0 +1,22 @@
+.producto:hover img{
+	transform: scale(1.15);
+}
+.imgprod{
+	overflow: hidden;
+}
+.producto img{
+	 -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+.producto .nombre{
+	border-bottom: 0px solid red
+	-webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+.producto:hover .nombre{
+	border-bottom: 1px solid red
+}
