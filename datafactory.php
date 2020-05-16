@@ -67,5 +67,5 @@ function eliminarcuenta($id,$objPDO){
     $usuario=new usuario($objPDO,$id);
     $usuario->MarkForDeletion();
     unset($usuario);
-    header("Location: logout.php");
+    return "good";
 }

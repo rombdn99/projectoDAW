@@ -125,14 +125,14 @@ $("#editar").click(function(){
 })
 $("#eliminarcuenta").click(function(){
 	console.log("eliminar");
-	$.post('updatecuenta.php',{})
+	$.post('eliminarcuenta.php',{direccion: $("#direc").val(), telf:$("#tel").val()})
 			.done(function(data,textStatus,jqXHR){
 
 				console.log("Solicitud se ha completado correctamente "+ textStatus);
 				console.log(data);
 				
 				//$("#sesion").html(data)
-				// location.replace("login.html")
+				location.replace("logout.php")
 				
 
 			})

@@ -119,7 +119,8 @@ abstract class DataBoundObject {
    public function __destruct() {
       if (isset($this->ID)) {   
          if ($this->blForDeletion == true) {
-            $strQuery = 'DELETE FROM "' . $this->strTableName . '" WHERE "id" = :eid';
+            echo "Entra";
+            $strQuery = "DELETE FROM `" . $this->strTableName . "` WHERE `id` = :eid";
             $objStatement = $this->objPDO->prepare($strQuery);
             $objStatement->bindValue(':eid', $this->ID, PDO::PARAM_INT);   
             $objStatement->execute();
