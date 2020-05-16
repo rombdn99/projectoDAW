@@ -50,6 +50,22 @@ function datosuser($id,$objPDO){
 
 function cambiarcontra($id,$contra,$objPDO){
     $usuario= new usuario($objPDO,$id);
-    $usuario->setcontra(str_replace("$","?",password_hash($contra, PASSWORD_DEFAULT)));
+
+    if(password_verify($contra, str_replace("?","$",$usuario->getcontra() ) ) ) {
+        return "bad";
+    }else{
+        $usuario->setcontra(str_replace("$","?",password_hash($contra, PASSWORD_DEFAULT)))->Save();
+        return "good";
+    }
+}
+function cambiardatos($id,$direccion,$telefono,$objPDO){
+    $usuario= new usuario($objPDO,$id);
+    $usuario->settelefono($telefono)->setdireccion($direccion)->SAVE();
     return "good";
+}
+function eliminarcuenta($id,$objPDO){
+    $usuario=new usuario($objPDO,$id);
+    $usuario->MarkForDeletion();
+    unset($usuario);
+    header("Location: logout.php");
 }

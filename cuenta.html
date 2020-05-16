@@ -107,16 +107,21 @@
         <div class="container bg-light p-5 ">
             <h1 class="text-center">Administracion de cuenta</h1>
             <div class="row justify-content-center">
-                    <div class="mt-3 col-md-5 col-12 mr-5 paddinginput"><label for="" class="col-5">Nombre: </label><input class="col-7" type="text" id="nombre"></div>
-                    <div class="mt-3 col-md-5 col-12 mr-5 paddinginput"><label for="" class="col-5">Apellido: </label><input class="col-7" type="text" id="apellido"></div>
-                    <div class="mt-3 col-md-5 col-12 mr-5 paddinginput"><label for="" class="col-5">Telefono: </label><input class="col-7" type="text" id="tel"> </div>
-                    <div class="mt-3 col-md-5 col-12 mr-5 paddinginput"><label for="" class="col-5">Email:</label><input class="col-7" type="text" id="mail"></div>
-                    <div class="mt-3 col-md-5 col-12 mr-5 paddinginput"><label for="" class="col-5">Direccion: </label><input class="col-7" type="text" id="direc"></div>
+                    <div class="mt-3 col-md-5 col-12 mr-5 paddinginput"><label for="" class="col-5 font-weight-bold">Nombre: </label><input class="col-7" type="text" id="nombre" readonly></div>
+                    <div class="mt-3 col-md-5 col-12 mr-5 paddinginput"><label for="" class="col-5 font-weight-bold">Apellido: </label><input class="col-7" type="text" id="apellido"readonly></div>
+                    <div class="mt-3 col-md-5 col-12 mr-5 paddinginput"><label for="" class="col-5 font-weight-bold">Telefono: </label><input class="col-7" type="text" id="tel"> <div id="errorTelefono"></div>  </div>
+                    <div class="mt-3 col-md-5 col-12 mr-5 paddinginput"><label for="" class="col-5 font-weight-bold">Email:</label><input class="col-7" type="text" id="mail" readonly></div>
+                    <div class="mt-3 col-md-5 col-12 mr-5 paddinginput"><label for="" class="col-5 font-weight-bold">Direccion: </label><input class="col-7" type="text" id="direc"> <div id="errorDireccion"></div> </div>
                     <div class="mt-3 col-5 mr-5 cambiarcontra"><a type="button" data-toggle="modal" data-target="#cambiarContra"><input type="button" value="Cambiar Contraseña" class="botonCambiarContrasenya " id="nuevaContra"></a></div>
             </div>
-            <div class="row justify-content-around pt-5">
-                <button class="btn btn-danger"> Eliminar Cuenta</button>
-                <button class="btn btn-primary"> Editar</button>
+            <div class="row  pt-5">
+                <div class="col-6 justify-content-center d-flex">
+                    <a type="button"  data-toggle="modal" data-target="#eliminarcuenta"><input class="btn btn-danger" type="button" value="Eliminar Cuenta" class="botoneliminarcuenta " id="btneliminarcuenta"></a>
+                </div>
+                <div class="col-6  d-flex  justify-content-center">
+                    <button class="btn btn-primary " id="editar">Editar</button>
+                </div>
+                <div class="col-12 d-none d-flex justify-content-end" id="mensajeeditar"></div>
 
             </div>
         </div>
@@ -143,6 +148,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
+                        <div class="d-none " id="errorcontraigual"><i class='fa fa-close text-danger p-0 mt-1 col-1'></i><p class='text-dark col-11'>La contraseña debe contener una minuscula, una mayuscula y un numero, debe ser de una longitud de entre 6 y 10 caracteres</p></div>
 
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                         <button type="button" class="btn btn-primary" id="saveNuevaContra">Guardar</button>
@@ -152,6 +158,32 @@
         </div>
     </div>
   <!--FIN MODAL CAMBIAR CONTRASEÑA-->
+
+<!-- Modal Eliminar Cuenta -->
+<div class="modal fade" id="eliminarcuenta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel2">Eliminar Cuenta</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="cerrar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Al eliminar esta cuenta no podras volverla a recuperar,<br>
+                    Estas seguro de querer eliminarla?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-danger" id="eliminarcuenta">Eliminar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--FIN MODAL CAMBIAR CONTRASEÑA-->
+
 <!-- footer -->
     <div class="container-fluid footer">
         <div class="container">
@@ -198,14 +230,10 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/a1f3c267d8.js" crossorigin="anonymous"></script>
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <script src="header.js"></script>
-        <script>
-            $(".productoimg").click(function(){
-                $(".producto").attr("src",$(this).attr("src"));
-            })
-        </script>
+        <script src="header.js"></script>
+        
         <script src="cuenta.js"></script>
 </body>
 </html>
