@@ -104,3 +104,7 @@
   width: 100%; 
   left: 0; 
 }
+.especial div{
+  margin-left: -88% !important;
+
+}

@@ -1,0 +1,367 @@
+<!doctype html>
+
+<html lang="en"><head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="general.css">
+  <link rel="stylesheet" type="text/css" href="administracion.css">
+
+    <title>Tienda online inicio</title>
+    <style>
+
+    </style>
+  </head>
+  <body>
+  	<header class="header">
+  		<nav class="navbar navbar-expand-lg navbar-light textoh">
+  			<!-- logo -->
+  			<a class="navbar-brand col-2 text-light" href="#">Deportes Osuna</a>
+  			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  				<span class="navbar-toggler-icon"></span>
+  			</button>
+
+  			<div class="collapse navbar-collapse col p-0 menu" id="navbarSupportedContent">
+  				<!-- navegador -->
+  				<ul class="navbar-nav col-5">
+  					<li class="nav-item active">
+  						<a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+  					</li>
+  					<li class="nav-item dropdown">
+  						<a class="nav-link dropbtn" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  							Hombre
+  						</a>
+  						<div class="dropdown-content" aria-labelledby="navbarDropdown">
+  							<a class="dropdown-item" href="#">Ropa deportiva</a>
+  							<a class="dropdown-item" href="#">Calzado deportivo</a>
+  							<a class="dropdown-item" href="#">Accesorios deportivos</a>
+  							<a class="dropdown-item" href="#">Trajes de baño</a>
+  						</div>
+  					</li>
+  					<li class="nav-item dropdown">
+  						<a class="nav-link dropbtn" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  							Mujer
+  						</a>
+  						<div class="dropdown-content" aria-labelledby="navbarDropdown">
+  							<a class="dropdown-item" href="#">Ropa deportiva</a>
+  							<a class="dropdown-item" href="#">Calzado deportivo</a>
+  							<a class="dropdown-item" href="#">Accesorios deportivos</a>
+
+  						</div>
+  					</li>
+  					<li class="nav-item dropdown">
+  						<a class="nav-link dropbtn" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  							Equipamiento
+  						</a>
+  						<div class="dropdown-content" aria-labelledby="navbarDropdown">
+  							<a class="dropdown-item" href="#">Pelotas</a>
+  							<a class="dropdown-item" href="#">Mochilas</a>
+  							<a class="dropdown-item" href="#">Bolsas de deporte</a>
+
+  						</div>
+  					</li>
+  					<li class="nav-item dropdown">
+  						<a class="nav-link dropbtn" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  							Deportes
+  						</a>
+  						<div class="dropdown-content" aria-labelledby="navbarDropdown">
+  							<a class="submenu-item" href="#">Running</a>
+  							<a class="submenu-item" href="#">Ciclismo</a>
+  							<a class="submenu-item" href="#">Baloncesto</a>
+  							<a class="submenu-item" href="#">Futbol</a>
+
+  						</div>
+  					</li>
+  				</ul>
+  				<div class="col-md-4 col-12">
+  					<!-- buscador -->
+  					<form class="form-inline my-2 my-lg-0">
+  						<input class="form-control mr-sm-2 buscadori" type="search" placeholder="Search" aria-label="Search">
+  						<button class="btn btn-outline-success my-2 my-sm-0 buscar border-0" type="submit"><i class="fas fa-search"></i></button>
+  					</form>
+  				</div>
+  				<!-- botones usuarios -->
+  				<div class="col-12 col-md-2 d-flex justify-content-around p-0">
+					<ul class="navbar-nav ">
+
+	  					<li class="nav-item">
+  							<a class="nav-link" href="#"> <i class="fas fa-shopping-cart iconos"></i></a>
+  						</li>
+	  					</li>
+	  					<li class="nav-item dropdown especial" id="sesion">
+  							<a class="nav-link" href="#">Inicio de sesion</a>
+  						</li>
+  					</ul>
+  				</div>
+  			</div>
+
+  		</nav>
+  	</header>
+  	<div class="conteiner-fluid fondobody pb-5 pt-5" style="min-height: 90vh;">
+        <div class="container">
+            <h1 class="text-center">Administración</h1>
+            <div class="row justify-content-between pt-5 pb-5">
+				<h3 class="">Administracion de usuarios</h3>
+				<a href="adduser.html" class="btn btn-primary mb-2 mr-4">Añadir Usuario</a>
+			</div>
+            <div class="col-12">
+                <table class="col-12">
+                    <thead class="header text-light">
+                      <tr>
+                        <th scope="col" class="sortu " id="email">Email <i class="fas fa-angle-down flecha"></i></th>
+                        <th scope="col" class="sortu " id="nombre">Nombre <i class="fas fa-angle-down flecha"></i></th>
+                        <th scope="col" class="sortu " id="apellido">Apellido <i class="fas fa-angle-down flecha"></i></th>
+                        <th scope="col" class="sortu " id="direccion">Direccion <i class="fas fa-angle-down flecha"></i></th>
+                        <th scope="col" class="sortu " id="telefono">Telefono <i class="fas fa-angle-down flecha"></i></th>
+                        <th scope="col" class="sortu " id="tipo">Administrador <i class="fas fa-angle-down flecha"></i></th>
+                        <th scope="col" class="text-center">Eliminar</th>
+                      </tr>
+                    </thead>
+                  
+                    <tbody id="tusuarios" class="bg-light">
+                    </tbody>
+
+                </table>
+            </div>
+			<div class="row justify-content-between pt-5 pb-5">
+				<h3 class="">Administracion de productos</h3>
+				<a href="addproducto.html" class="btn btn-primary mb-2 mr-4">Añadir producto</a>
+			</div>
+            <div class="col-12">
+                <table class="col-12">
+                    <thead class="header text-light">
+                      <tr>
+                        <th scope="col" class="sortp " id="nombre">Nombre <i class="fas fa-angle-down flecha"></i></th>
+                        <th scope="col" class="sortp " id="imagen">Imagen <i class="fas fa-angle-down flecha"></i></th>
+                        <th scope="col" class="sortp " id="descripcion">Descripcion <i class="fas fa-angle-down flecha"></i></th>
+                        <th scope="col" class="sortp " id="precio">Precio <i class="fas fa-angle-down flecha"></i></th>
+                        <th scope="col" class="sortp " id="info_tecnica">Informacion tecnica <i class="fas fa-angle-down flecha"></i></th>
+                        <th scope="col">Categorias</th>
+                        
+
+                        <th scope="col" class="text-center">Opciones</th>
+                      </tr>
+                    </thead>
+                  
+                    <tbody id="tproductos" class="bg-light">
+                    </tbody>
+
+                </table>
+			</div>
+			<div class="row justify-content-between pt-5 pb-5">
+
+				<h3 class="">Categorias</h3>
+				<a href="addproducto.html" class="btn btn-primary mb-2 mr-4">Añadir Deporte</a>
+				<a href="addproducto.html" class="btn btn-primary mb-2 mr-4">Añadir Ropa</a>
+				<a href="addproducto.html" class="btn btn-primary mb-2 mr-4">Añadir Equipamiento</a>
+				<a href="addproducto.html" class="btn btn-primary mb-2 mr-4">Añadir Genero</a>
+
+			</div>
+			<div class="row">
+			<div class="col-3">
+
+                <table class="col-12">
+                    <thead class="header text-light">
+						<tr >
+							<th colspan="2" class="text-center">Deportes</th>
+						</tr>
+                      <tr>
+                        <th scope="col" class="sortp " id="nombre">Nombre <i class="fas fa-angle-down flecha"></i></th>
+                        <th scope="col" class="text-center">Eliminar</th>
+                      </tr>
+                    </thead>
+                  
+                    <tbody id="tdeportes" class="bg-light">
+                    </tbody>
+
+                </table>
+			</div>
+			<div class="col-3">
+                <table class="col-12">
+                    <thead class="header text-light">
+						<tr>
+							<th colspan='2' class="text-center">Ropa</th>
+						</tr>
+                      <tr>
+                        <th scope="col" class="sortp " id="nombre">Nombre <i class="fas fa-angle-down flecha"></i></th>
+                        <th scope="col" class="text-center">Eliminar</th>
+                      </tr>
+                    </thead>
+                  
+                    <tbody id="tropa" class="bg-light">
+                    </tbody>
+
+                </table>
+			</div>
+			<div class="col-3">
+                <table class="col-12">
+                    <thead class="header text-light">
+						<tr>
+							<th colspan='2' class="text-center">Equipamiento</th>
+						</tr>
+                      <tr>
+                        <th scope="col" class="sortp " id="nombre">Nombre <i class="fas fa-angle-down flecha"></i></th>
+                        <th scope="col" class="text-center">Eliminar</th>
+                      </tr>
+                    </thead>
+                  
+                    <tbody id="tequipamiento" class="bg-light">
+                    </tbody>
+
+                </table>
+			</div>
+			<div class="col-3">
+                <table class="col-12">
+                    <thead class="header text-light">
+						<tr>
+							<th colspan='2' class="text-center">Genero</th>
+						</tr>
+                      <tr>
+                        <th scope="col" class="sortp " id="nombre">Nombre <i class="fas fa-angle-down flecha"></i></th>
+                        <th scope="col" class="text-center">Eliminar</th>
+                      </tr>
+                    </thead>
+                  
+                    <tbody id="tgenero" class="bg-light">
+                    </tbody>
+
+                </table>
+			</div>
+		</div>
+        </div>
+  	</div>
+
+<!-- Modal Eliminar Cuenta -->
+<div class="modal fade" id="eliminarcuenta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel2">Eliminar Cuenta</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="cerrar2">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Al eliminar esta cuenta no podras volverla a recuperar,<br>
+                    Estas seguro de querer eliminarla?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="noeliminarc">Cerrar</button>
+                    <button type="button" class="btn btn-danger" id="eliminarcuenta2">Eliminar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--FIN MODAL CAMBIAR CONTRASEÑA-->
+
+
+<!-- Modal Eliminar producto -->
+<div class="modal fade" id="eliminarproducto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel2">Eliminar producto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="cerrar2">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Al eliminar esta producto no podras volverla a recuperar,<br>
+                    Estas seguro de querer eliminarla?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="noeliminarp"  data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-danger" id="eliminarproducto2">Eliminar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--FIN MODAL CAMBIAR CONTRASEÑA-->
+
+
+	<div class="container-fluid footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-4 bg-primary">
+					<h3>Contacta</h3>
+					<ul>
+						<li>
+							Telefono: +32 987 654 321
+						</li>
+						<li>
+							Email: 	  Email@gmail.com
+						</li>
+						<li></li>
+					</ul>
+				</div>
+				<div class="col-4 bg-secondary">
+					<h3>Sobre nosotros</h3>
+					<ul>
+						<li>Sobre nosotros</li>
+						
+					</ul>
+				</div>
+				<div class="col-4 bg-danger">
+					<h3>Redes sociales</h3>
+					<div class="d-flex justify-content-between">
+						<div class="col-3 pl-3">
+							<img src="img/facebook.svg" class="img-fluid" alt="">
+						</div>
+						<div class="col-3 pl-3">
+							<img src="img/twitter.svg" class="img-fluid" alt="">
+						</div>
+						<div class="col-3 pl-3">
+							<img src="img/instagram.svg" class="img-fluid" alt="">
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a1f3c267d8.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="administracion.js"></script>
+    <script src="header.js">
+    	//hace k el dropdown sea al hacer hover
+    	/*const $dropdown = $(".dropdown");
+		const $dropdownToggle = $(".dropdown-toggle");
+		const $dropdownMenu = $(".dropdown-menu");
+		const showClass = "show";
+
+		$(window).on("load resize", function() {
+		  if (this.matchMedia("(min-width: 768px)").matches) {
+		    $dropdown.hover(
+		      function() {
+		        const $this = $(this);
+		        $this.addClass(showClass);
+		        $this.find($dropdownToggle).attr("aria-expanded", "true");
+		        $this.find($dropdownMenu).addClass(showClass);
+		      },
+		      function() {
+		        const $this = $(this);
+		        $this.removeClass(showClass);
+		        $this.find($dropdownToggle).attr("aria-expanded", "false");
+		        $this.find($dropdownMenu).removeClass(showClass);
+		      }
+		    );
+		  } else {
+		    $dropdown.off("mouseenter mouseleave");
+		  }
+		});*/
+    </script>
+	
+  
+</body>
+</html>

@@ -1,6 +1,8 @@
 <?php
 include 'abstract.databoundobject.php';
 include 'class.usuarios.php';
+include 'class.producto.php';
+
 function insertuser($nombre,$apellido,$email,$telefono,$direccion,$contra,$objPDO){
 	$usuarionuevo= new usuario($objPDO);
 
@@ -68,4 +70,242 @@ function eliminarcuenta($id,$objPDO){
     $usuario->MarkForDeletion();
     unset($usuario);
     return "good";
+}
+
+function selectu($objPDO){
+    $html="";
+    $resultado=$objPDO->query("select * from usuarios");
+    if ($resultado->rowCount() > 0){
+    	foreach ($resultado as $row) {
+            $html.="<tr>";
+                $html.="<td>".$row['email']."</td>";
+                $html.="<td>".$row['nombre']."</td>";
+                $html.="<td>".$row['apellido']."</td>";
+                $html.="<td>".$row['direccion']."</td>";
+                $html.="<td>".$row['telefono']."</td>";
+                if($row['tipo']==1){
+                    $html.="<td>Administrador</td>";
+                }else{
+                    $html.="<td>Usuario</td>";
+                }
+                $html.="<td  class='text-center d-flex justify-content-center'><a type='button'  data-toggle='modal' data-target='#eliminarcuenta' class='eliminarc btn btn-danger' id='eliminarc".$row['id']."'><i class='fas fa-times '></i></a></td>";
+            $html.="</tr>";
+        }
+        return $html;
+    }else{
+        return "bad";
+    }
+}
+
+function order($sort,$by, $objPDO){
+    $query="select * from usuarios order by ".$sort." ".$by;
+    $html="";
+    $resultado=$objPDO->query($query);
+    if ($resultado->rowCount() > 0){
+    	foreach ($resultado as $row) {
+            $html.="<tr>";
+                $html.="<td>".$row['email']."</td>";
+                $html.="<td>".$row['nombre']."</td>";
+                $html.="<td>".$row['apellido']."</td>";
+                $html.="<td>".$row['direccion']."</td>";
+                $html.="<td>".$row['telefono']."</td>";
+                if($row['tipo']==1){
+                    $html.="<td>Administrador</td>";
+                }else{
+                    $html.="<td>Usuario</td>";
+                }
+                $html.="<td  class='text-center d-flex justify-content-center'><a type='button'  data-toggle='modal' data-target='#eliminarcuenta' class='eliminarc btn btn-danger' id='eliminarc".$row['id']."'><i class='fas fa-times '></i></a></td>";
+            $html.="</tr>";
+        }
+        return $html;
+    }else{
+        return "bad";
+    }
+}
+
+function selectp($objPDO){
+    $html="";
+    $resultado=$objPDO->query("select * from productos");
+    if ($resultado->rowCount() > 0){
+    	foreach ($resultado as $row) {
+            $html.="<tr>";
+                $html.="<td>".$row['nombre']."</td>";
+                $html.="<td>".$row['imagen']."</td>";
+                $html.="<td>".$row['descripcion']."</td>";
+                $html.="<td>".$row['precio']."</td>";
+                $html.="<td>".$row['info_tecnica']."</td>";
+                $html.="<td><ul>";
+                $resultado2=$objPDO->query("select * from deporte where id = ".$row['deporte']);
+                if ($resultado2->rowCount() > 0){
+                    foreach ($resultado2 as $row2) {
+                        $html.="<li>".$row2['nombre']."</li>";
+                    }
+                }
+                $resultado2=$objPDO->query("select * from genero where id = ".$row['genero']);
+                if ($resultado2->rowCount() > 0){
+                    foreach ($resultado2 as $row2) {
+                        $html.="<li>".$row2['genero']."</li>";
+                    }
+                }
+                if($row['ropa']!=0){
+                    $resultado2=$objPDO->query("select * from ropa where id = ".$row['ropa']);
+                    if ($resultado2->rowCount() > 0){
+                        foreach ($resultado2 as $row2) {
+                            $html.="<li>".$row2['tipo']."</li>";
+                        }
+                    }
+                }else{
+                    $html.="<li>-</li>";
+                }
+                if($row['equipamiento']!=0){
+                    $resultado2=$objPDO->query("select * from equipamiento where id = ".$row['equipamiento']);
+                    if ($resultado2->rowCount() > 0){
+                        foreach ($resultado2 as $row2) {
+                            $html.="<li>".$row2['tipo']."</li>";
+                        }
+                    }
+                }else{
+                    $html.="<li>-</li>";
+                }
+                $html.="</ul></td>";
+                $html.="<td  class='text-center d-flex justify-content-center'><div class='eliminarc btn btn-primary' id='eliminarp".$row['id']."'>Editar</div></td>";
+
+                $html.="<td  class='text-center d-flex justify-content-center'><a type='button'  data-toggle='modal' data-target='#eliminarproducto' class='eliminarp btn btn-danger' id='eliminarp".$row['id']."'><i class='fas fa-times '></i></a></td>";
+            $html.="</tr>";
+        }
+        return $html;
+    }else{
+        return "bad";
+    }
+}
+
+function orderp($sort,$by, $objPDO){
+    $query="select * from productos order by ".$sort." ".$by;
+    $html="";
+    $resultado=$objPDO->query($query);
+    if ($resultado->rowCount() > 0){
+    	foreach ($resultado as $row) {
+            $html.="<tr>";
+                $html.="<td>".$row['nombre']."</td>";
+                $html.="<td>".$row['imagen']."</td>";
+                $html.="<td>".$row['descripcion']."</td>";
+                $html.="<td>".$row['precio']."</td>";
+                $html.="<td>".$row['info_tecnica']."</td>";
+                $html.="<td><ul>";
+                $resultado2=$objPDO->query("select * from deporte where id = ".$row['deporte']);
+                if ($resultado2->rowCount() > 0){
+                    foreach ($resultado2 as $row2) {
+                        $html.="<li>".$row2['nombre']."</li>";
+                    }
+                }
+                $resultado2=$objPDO->query("select * from genero where id = ".$row['genero']);
+                if ($resultado2->rowCount() > 0){
+                    foreach ($resultado2 as $row2) {
+                        $html.="<li>".$row2['genero']."</li>";
+                    }
+                }
+                if($row['ropa']!=0){
+                    $resultado2=$objPDO->query("select * from ropa where id = ".$row['ropa']);
+                    if ($resultado2->rowCount() > 0){
+                        foreach ($resultado2 as $row2) {
+                            $html.="<li>".$row2['tipo']."</li>";
+                        }
+                    }
+                }else{
+                    $html.="<li>-</li>";
+                }
+                if($row['equipamiento']!=0){
+                    $resultado2=$objPDO->query("select * from equipamiento where id = ".$row['equipamiento']);
+                    if ($resultado2->rowCount() > 0){
+                        foreach ($resultado2 as $row2) {
+                            $html.="<li>".$row2['tipo']."</li>";
+                        }
+                    }
+                }else{
+                    $html.="<li>-</li>";
+                }
+                $html.="</ul></td>";
+                $html.="<td  class='text-center d-flex justify-content-center'><div class='eliminarc btn btn-primary' id='eliminarp".$row['id']."'>Editar</div></td>";
+                
+                $html.="<td  class='text-center d-flex justify-content-center'><a type='button'  data-toggle='modal' data-target='#eliminarproducto' class='eliminarp btn btn-danger' id='eliminarp".$row['id']."'><i class='fas fa-times '></i></a></td>";
+            $html.="</tr>";
+        }
+        return $html;
+    }else{
+        return "bad";
+    }
+}
+
+function eliminarproducto($id,$objPDO){
+    $producto=new producto($objPDO,$id);
+    $producto->MarkForDeletion();
+    unset($producto);
+    return "good";
+}
+
+function selectd($objPDO){
+    $resultado=$objPDO->query("Select * from deporte");
+    if ($resultado->rowCount() > 0){
+        $html="";
+    	foreach ($resultado as $row) {
+            $html.="<tr>";
+            $html.="<td>".$row['nombre']."</td>";
+            $html.="<td><i class='fas fa-times '></i></td>";
+
+            $html.="</tr>";
+        }
+        return $html;
+    }else{
+            return "bad";
+    }
+}
+
+function selectr($objPDO){
+    $resultado=$objPDO->query("Select * from ropa");
+    if ($resultado->rowCount() > 0){
+        $html="";
+    	foreach ($resultado as $row) {
+            $html.="<tr>";
+            $html.="<td>".$row['tipo']."</td>";
+            $html.="<td><i class='fas fa-times '></i></td>";
+
+            $html.="</tr>";
+        }
+        return $html;
+    }else{
+            return "bad";
+    }
+}
+
+function selecte($objPDO){
+    $resultado=$objPDO->query("Select * from equipamiento");
+    if ($resultado->rowCount() > 0){
+        $html="";
+    	foreach ($resultado as $row) {
+            $html.="<tr>";
+            $html.="<td>".$row['tipo']."</td>";
+            $html.="<td><i class='fas fa-times '></i></td>";
+
+            $html.="</tr>";
+        }
+        return $html;
+    }else{
+            return "bad";
+    }
+}
+function selectg($objPDO){
+    $resultado=$objPDO->query("Select * from genero");
+    if ($resultado->rowCount() > 0){
+        $html="";
+    	foreach ($resultado as $row) {
+            $html.="<tr>";
+            $html.="<td>".$row['genero']."</td>";
+            $html.="<td><i class='fas fa-times '></i></td>";
+
+            $html.="</tr>";
+        }
+        return $html;
+    }else{
+            return "bad";
+    }
 }
