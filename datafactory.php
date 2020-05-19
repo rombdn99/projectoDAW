@@ -62,7 +62,7 @@ function cambiarcontra($id,$contra,$objPDO){
 }
 function cambiardatos($id,$direccion,$telefono,$objPDO){
     $usuario= new usuario($objPDO,$id);
-    $usuario->settelefono($telefono)->setdireccion($direccion)->SAVE();
+    $usuario->settelefono($telefono)->setdireccion($direccion)->Save();
     return "good";
 }
 function eliminarcuenta($id,$objPDO){
@@ -133,7 +133,6 @@ function selectp($objPDO){
                 $html.="<td>".$row['imagen']."</td>";
                 $html.="<td>".$row['descripcion']."</td>";
                 $html.="<td>".$row['precio']."</td>";
-                $html.="<td>".$row['info_tecnica']."</td>";
                 $html.="<td><ul>";
                 $resultado2=$objPDO->query("select * from deporte where id = ".$row['deporte']);
                 if ($resultado2->rowCount() > 0){
@@ -190,7 +189,6 @@ function orderp($sort,$by, $objPDO){
                 $html.="<td>".$row['imagen']."</td>";
                 $html.="<td>".$row['descripcion']."</td>";
                 $html.="<td>".$row['precio']."</td>";
-                $html.="<td>".$row['info_tecnica']."</td>";
                 $html.="<td><ul>";
                 $resultado2=$objPDO->query("select * from deporte where id = ".$row['deporte']);
                 if ($resultado2->rowCount() > 0){
@@ -307,5 +305,108 @@ function selectg($objPDO){
         return $html;
     }else{
             return "bad";
+    }
+}
+
+function cargarcategorias($objPDO){
+    $resultado1=$objPDO->query("Select * from ropa");
+    $resultado2=$objPDO->query("Select * from deporte");
+    $resultado3=$objPDO->query("Select * from equipamiento");
+    $resultado4=$objPDO->query("Select * from genero");
+    $html="";
+    /*
+    <input type='radio' id='baloncesto' name='deporte' value='baloncesto'>
+    <label for='baloncesto'>Baloncesto</label><br>
+    <input type='radio' id='ciclismo' name='deporte' value='ciclismo'>
+    <label for='ciclismo'>Ciclismo</label><br>
+    <input type='radio' id='futbol' name='deporte' value='futbol'>
+    <label for='futbol'>Futbol</label>
+</div>*/
+    if ($resultado4->rowCount() > 0){
+        $html.=   " <div id='genero'>     
+        <div class='font-weight-bold text-capitalize'>genero</div>
+        ";
+
+        foreach ($resultado4 as $row) {
+            $html.="<input type='radio' id='".$row['genero']."' name='genero' value='".$row['id']."'>
+            <label for='".$row['genero']."'>".$row['genero']."</label><br>";
+        }
+        $html.="</div>";
+
+        if ($resultado2->rowCount() > 0){
+            $html.=   " <div id='deportes'>     
+                            <div class='font-weight-bold text-capitalize'>deportes</div>
+            ";
+
+            foreach ($resultado2 as $row) {
+                $html.="<input type='radio' id='".$row['nombre']."' name='deportes' value='".$row['id']."'>
+                <label for='".$row['nombre']."'>".$row['nombre']."</label><br>";
+            }
+            $html.="</div>";
+            if ($resultado1->rowCount() > 0){
+                $html.=   " <div id='ropa'>     
+                <div class='font-weight-bold text-capitalize'>Ropa</div>
+                ";
+        
+                foreach ($resultado1 as $row) {
+                    $html.="<input type='radio' id='".$row['tipo']."' name='ropa' value='".$row['id']."'>
+                    <label for='".$row['tipo']."'>".$row['tipo']."</label><br>";
+                }
+                $html.="</div>";
+                if ($resultado3->rowCount() > 0){
+                    $html.=   " <div id='equipamiento'>     
+                    <div class='font-weight-bold text-capitalize'>equipamiento</div>
+                    ";
+            
+                    foreach ($resultado3 as $row) {
+                        $html.="<input type='radio' id='".$row['tipo']."' name='equipamiento' value='".$row['id']."'>
+                        <label for='".$row['tipo']."'>".$row['tipo']."</label><br>";
+                    }
+                    $html.="</div>";
+                    
+                }
+            }
+
+
+        }
+    }
+        return $html;
+    
+}
+//echo nuevoprod($_POST['nombre'],$_POST['fichero'],$_POST['descripcion'],$_POST['precio'],$_POST['deporte'],$_POST['genero'],$_POST['ropa'],$_POST['equipamiento'], $objPDO);
+
+function nuevoprod($nombre,$imagen,$descripcion,$precio,$deporte,$genero,$ropa,$equipamiento,$objPDO){
+    
+    $resultado1=$objPDO->query("Select * from productos where nombre='".$nombre."'");
+
+    if ($resultado1->rowCount() <= 0){
+        $producto = new producto($objPDO);
+        $producto->setnombre($nombre)->setimagen($imagen)->setdescripcion($descripcion)->setprecio($precio)->setdeporte($deporte)->setgenero($genero)->setropa($ropa)->setequipamiento($equipamiento)->Save();
+        return "good";
+    }else{
+        return "bad";
+    }
+
+}
+
+function buscar($objPDO){
+    $resultado1=$objPDO->query("Select * from productos");
+    $html="";
+    if ($resultado1->rowCount() > 0){
+        foreach ($resultado1 as $row) {
+            $html.="<div class='col-3 pt-3'>";
+            $html.=    "<div class='bg-light producto'>";
+            $html.=        "<div class='imgprod'>";
+            $html.=            "<img src='".$row['imagen']."' class='col img-fluid p-0'>";
+            $html.=        "</div>";
+            $html.=        "<div class='col'>".$row['precio']." €</div>";
+            $html.=        "<div class='col nombre'>".$row['nombre']."</div>";
+            $html.=    "</div>";
+            $html.= "</div>";
+
+        }
+        return $html;
+    }else{
+        return "bad";
     }
 }

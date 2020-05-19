@@ -6,7 +6,6 @@ class producto extends DataBoundObject {
         protected $imagen;
         protected $descripcion;
         protected $precio;
-        protected $info_tecnica;
         protected $deporte;
         protected $genero;
         protected $ropa;
@@ -23,7 +22,6 @@ class producto extends DataBoundObject {
                         "imagen" => "imagen",
                         "descripcion" => "descripcion",
                         "precio" => "precio",
-                        "info_tecnica" => "info_tecnica",
                         "deporte" => "deporte",
                         "genero" => "genero",
                         "ropa" => "ropa",

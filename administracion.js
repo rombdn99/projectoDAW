@@ -60,7 +60,7 @@ $.post('administracion.php',{query: "selectu"})
                                                 }
                                                         // location.replace("login.html")
                                                 
-                                                
+                                                        eventos();
                                             })
                                             .fail(function(data,textStatus,jqXHR){
                                                 console.log("Error: " + textStatus + ": " + jqXHR);
@@ -112,6 +112,7 @@ $.post('administracion.php',{query: "selectu"})
 
 i=0;
 function eventos(){
+    console.log("eventos")
     //usuario
     $(".eliminarc").click(function(){
         console.log($(this).attr("id").replace('eliminarc',''));

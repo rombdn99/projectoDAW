@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_bTds4JhhEeqNL5Zru3dr-w" name="OsunaRaul_Classes">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_bwdx8JhhEeqNL5Zru3dr-w">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Class" xmi:id="_hLwV8JhhEeqNL5Zru3dr-w" name="deportes">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_GHTmQJhjEeqNL5Zru3dr-w" name="id"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_KVeP0JhjEeqNL5Zru3dr-w" name="nombre"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_hkfmEJhhEeqNL5Zru3dr-w" name="Usuarios">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_IuPzUJhjEeqNL5Zru3dr-w" name="id"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_9_0sUJhjEeqNL5Zru3dr-w" name="email"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_-yPnwJhjEeqNL5Zru3dr-w" name="nombre"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="__owZAJhjEeqNL5Zru3dr-w" name="apellido"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_AeuXsJhkEeqNL5Zru3dr-w" name="telefono"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_BOmVcJhkEeqNL5Zru3dr-w" name="direccion"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_CHVUQJhkEeqNL5Zru3dr-w" name="tipo"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_C45UEJhkEeqNL5Zru3dr-w" name="contrasenya"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_h0JLoJhhEeqNL5Zru3dr-w" name="productos">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_3D9i4JhiEeqNL5Zru3dr-w" name="id"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_4ZpjcJhiEeqNL5Zru3dr-w" name="nombre"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_7CNhIJhiEeqNL5Zru3dr-w" name="imagen"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_9WZKQJhiEeqNL5Zru3dr-w" name="descripcion"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_-tfgEJhiEeqNL5Zru3dr-w" name="precio"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="__pq0cJhiEeqNL5Zru3dr-w" name="info_tecnica"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Au4wEJhjEeqNL5Zru3dr-w" name="deporte"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_DSZOoJhjEeqNL5Zru3dr-w" name="genero"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_EEKCwJhjEeqNL5Zru3dr-w" name="ropa"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_EwMCUJhjEeqNL5Zru3dr-w" name="equipamiento"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_jB2U4JhhEeqNL5Zru3dr-w" name="equipamiento">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_HTQcAJhjEeqNL5Zru3dr-w" name="id"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Ne--cJhjEeqNL5Zru3dr-w" name="tipo"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_jdrf0JhiEeqNL5Zru3dr-w" name="genero">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Grkw8JhjEeqNL5Zru3dr-w" name="id"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_MjcjQJhjEeqNL5Zru3dr-w" name="genero"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_kg3bIJhiEeqNL5Zru3dr-w" name="ropa">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_OnA9gJhjEeqNL5Zru3dr-w" name="tipo"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_LBrZEJhkEeqNL5Zru3dr-w" name="id"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_b5oqIJhjEeqNL5Zru3dr-w" memberEnd="_b5uJsJhjEeqNL5Zru3dr-w _b5uwwJhjEeqNL5Zru3dr-w">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_b5s7kJhjEeqNL5Zru3dr-w" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_b5s7kZhjEeqNL5Zru3dr-w" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_b5uJsJhjEeqNL5Zru3dr-w" name="productos" type="_h0JLoJhhEeqNL5Zru3dr-w" association="_b5oqIJhjEeqNL5Zru3dr-w"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_b5uwwJhjEeqNL5Zru3dr-w" name="deportes" type="_hLwV8JhhEeqNL5Zru3dr-w" association="_b5oqIJhjEeqNL5Zru3dr-w"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_goC6AJhjEeqNL5Zru3dr-w" memberEnd="_goC6A5hjEeqNL5Zru3dr-w _goDhEJhjEeqNL5Zru3dr-w">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_goC6AZhjEeqNL5Zru3dr-w" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_goC6AphjEeqNL5Zru3dr-w" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_goC6A5hjEeqNL5Zru3dr-w" name="productos" type="_h0JLoJhhEeqNL5Zru3dr-w" association="_goC6AJhjEeqNL5Zru3dr-w"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_goDhEJhjEeqNL5Zru3dr-w" name="genero" type="_jdrf0JhiEeqNL5Zru3dr-w" association="_goC6AJhjEeqNL5Zru3dr-w"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_qQBg4JhjEeqNL5Zru3dr-w" memberEnd="_qQCH8phjEeqNL5Zru3dr-w _qQCH85hjEeqNL5Zru3dr-w">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qQCH8JhjEeqNL5Zru3dr-w" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qQCH8ZhjEeqNL5Zru3dr-w" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_qQCH8phjEeqNL5Zru3dr-w" name="productos" type="_h0JLoJhhEeqNL5Zru3dr-w" association="_qQBg4JhjEeqNL5Zru3dr-w"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_qQCH85hjEeqNL5Zru3dr-w" name="equipamiento" type="_jB2U4JhhEeqNL5Zru3dr-w" association="_qQBg4JhjEeqNL5Zru3dr-w"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_rNw7gJhjEeqNL5Zru3dr-w" memberEnd="_rNw7g5hjEeqNL5Zru3dr-w _rNxikJhjEeqNL5Zru3dr-w">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_rNw7gZhjEeqNL5Zru3dr-w" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rNw7gphjEeqNL5Zru3dr-w" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_rNw7g5hjEeqNL5Zru3dr-w" name="productos" type="_h0JLoJhhEeqNL5Zru3dr-w" association="_rNw7gJhjEeqNL5Zru3dr-w"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_rNxikJhjEeqNL5Zru3dr-w" name="ropa" type="_kg3bIJhiEeqNL5Zru3dr-w" association="_rNw7gJhjEeqNL5Zru3dr-w"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:AssociationClass" xmi:id="_4mU4EJhjEeqNL5Zru3dr-w" name="Pedidos" memberEnd="_4mWGMZhjEeqNL5Zru3dr-w _4mWtQJhjEeqNL5Zru3dr-w">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_4mVfIJhjEeqNL5Zru3dr-w" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_4mWGMJhjEeqNL5Zru3dr-w" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_UkH_sJhkEeqNL5Zru3dr-w" name="id"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_VeRTwJhkEeqNL5Zru3dr-w" name="id_usuario"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_WdmCwJhkEeqNL5Zru3dr-w" name="id_producto"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_XlISkJhkEeqNL5Zru3dr-w" name="fecha"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_YMemcJhkEeqNL5Zru3dr-w" name="hora"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_4mWGMZhjEeqNL5Zru3dr-w" name="usuarios" type="_hkfmEJhhEeqNL5Zru3dr-w" association="_4mU4EJhjEeqNL5Zru3dr-w"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_4mWtQJhjEeqNL5Zru3dr-w" name="productos" type="_h0JLoJhhEeqNL5Zru3dr-w" association="_4mU4EJhjEeqNL5Zru3dr-w"/>
+  </packagedElement>
+</uml:Model>
