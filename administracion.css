@@ -14,3 +14,6 @@
 table td, table th{
     padding: 20px;
 }
+.imgprod{
+    max-width: 150px;
+}

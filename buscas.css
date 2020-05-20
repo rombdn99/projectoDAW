@@ -1,8 +1,14 @@
-.producto:hover img{
-	transform: scale(1.15);
+.producto:hover .col{
+    background-size: 120%;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
 }
 .imgprod{
 	overflow: hidden;
+        height: 300px;
+    overflow: hidden;
 }
 .producto img{
 	 -webkit-transition: all .5s;
@@ -19,4 +25,20 @@
 }
 .producto:hover .nombre{
 	border-bottom: 1px solid red
+}
+
+.imgprod .col{
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+    background-position: center;
+}
+.activo{
+    background-color: #1e4b94;
+    color: white;
 }
