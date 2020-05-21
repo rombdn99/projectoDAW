@@ -106,7 +106,7 @@
             <div class=" justify-content-center col-6 pt-5 pb-5 ">
                 <div class=" bg-light p-3 ">
                     <h3 style="font-weight: bold;" class="text-center">Crear cuenta</h3>
-                    <div class="formulario">
+                    <div class="formulario col-12">
                         <p class="mb-0" style="font-weight:500;">Nombre</p>
                         <input class="inputRegistro mb-2" type="text" id="nombre"><p class="errorForm mb-0 row col-12" id="errorNombre"></p>
                         <p class="mb-0" style="font-weight:500;">Apellido</p>
@@ -119,7 +119,11 @@
                         <input type="text" class="mb-2 inputRegistro" id="direccion"><p class="errorForm mb-0 row col-12" id="errorDireccion"></p>
                         <p class="mb-0" style="font-weight:500;">Telefono</p>
                         <input type="text" class="mb-2 inputRegistro" id="telefono"><p class="errorForm mb-0 row col-12" id="errorTelefono"></p>
-                        <div id="error" style="color:red;"></div>
+                         <label for="admin"> Administrador <input type="checkbox" id="admin" name="admin"></label>
+
+                            
+                            <br>                        
+                            <div id="error" style="color:red;"></div>
                         <div class="pt-3 pb-3" style="position: relative;">
                             <input type="submit" value="Crear cuenta" class="botonLogger btn btn-primary" id="registrarse">
                         </div>
@@ -177,7 +181,7 @@
 <script src="https://kit.fontawesome.com/a1f3c267d8.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<script src="registro.js"></script>
+<script src="registroadmin.js"></script>
     <script src="header.js"></script>
 </body>
 </html>

@@ -130,19 +130,25 @@ function eventos(){
                         id: getParams(window.location.href)['id']
                     })
                         .done(function(data,textStatus,jqXHR){
-                            $.ajax({
-                                url: "subirimg.php",
-                                type: "post",
-                                dataType: "html",
-                                data: formData,
-                                cache: false,
-                                contentType: false,
-                                processData: false
-                            })
-                                .done(function(res){
-                                    console.log("Respuesta: " + res);
-                                    location.replace("administracion.html")
-                            });
+                            console.log(data)
+                            if(data=="good"){
+                                $.ajax({
+                                    url: "subirimg.php",
+                                    type: "post",
+                                    dataType: "html",
+                                    data: formData,
+                                    cache: false,
+                                    contentType: false,
+                                    processData: false
+                                })
+                                    .done(function(res){
+                                        console.log("Respuesta: " + res);
+                                        location.replace("administracion.html")
+                                });
+                            }else{
+                                $("#error").html("<i class='fa fa-close text-danger p-0 mt-1 col-1 mr-3'></i>Este producto ya existe o tiene el mismo nombre de uno existente")
+
+                            }
                         })
                         .fail(function(data,textStatus,jqXHR){
                             console.log("Error: " + textStatus + ": " + jqXHR);
@@ -169,9 +175,9 @@ function eventos(){
                         .done(function(data,textStatus,jqXHR){
                             if(data=="good"){
                                 
-                                //location.replace("administracion.html")
+                                location.replace("administracion.html")
                             }else{
-                                console.log(data);
+                                $("#error").html("<i class='fa fa-close text-danger p-0 mt-1 col-1 mr-3'></i>Este producto ya existe o tiene el mismo nombre de uno existente")
                             }
                         })
                         .fail(function(data,textStatus,jqXHR){

@@ -122,14 +122,18 @@ function Verificatelf(){
   
 }
 function Verificadireccion(){
-  //console.log("dir")
+  //console.log("dir");
+  var errores1 =  /^([A-Za-z0-9'\.\-\s\,]*)$/
+
+  var extepcion1 =errores1.test($("#direccion").val())
+
   $(this).attr("style","outline: initial");
-  if(($("#direccion").val()!="")){
+  if(($("#direccion").val()!="") && extepcion1){
       $("#errorDireccion").addClass("d-none");
       return true
   }else{
       $("#errorDireccion").removeClass("d-none");
-      $("#errorTelefono").html("<i class='fa fa-close text-danger p-0 mt-1 col-1'></i><p class='text-dark col-11'>La direccion no puede estar vacia</p>");
+      $("#errorDireccion").html("<i class='fa fa-close text-danger p-0 mt-1 col-1'></i><p class='text-dark col-11'>La direccion no puede tener los simbolos &(%#$^)</p>");
 
       return false
   }
@@ -159,11 +163,14 @@ if(Verificanombre() && Verificaapellido() && Verificaemail() && Verificacontra()
             .done(function(data,textStatus,jqXHR){
               console.log("Solicitud se ha completado correctamente "+ textStatus);
               console.log(data);
-              location.replace("login.html")
-
+              if(data=="good"){
+                location.replace("login.html")
+              }else{
+                $("#ejer3").html(data);
+              }
             })
             .fail(function(data,textStatus,jqXHR){
-              ("#ejer3").html("Error: " + textStatus + ": " + jqXHR);
+              $("#ejer3").html("Error: " + textStatus + ": " + jqXHR);
             })
             .always(function(data,textStatus,jqXHR){
               console.log("registro.php")

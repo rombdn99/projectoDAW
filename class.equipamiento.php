@@ -2,7 +2,7 @@
 class equipamiento extends DataBoundObject {
 
         protected $id;
-        protected $nombre;
+        protected $tipo;
 
 
 
@@ -13,7 +13,7 @@ class equipamiento extends DataBoundObject {
         protected function DefineRelationMap() {
                 return(array(
                         "id" => "id",
-                        "nombre" => "nombre",
+                        "tipo" => "tipo",
 
                 ));
         }

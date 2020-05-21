@@ -153,10 +153,9 @@
 			<div class="row justify-content-between pt-5 pb-5">
 
 				<h3 class="">Categorias</h3>
-				<a href="addproducto.html" class="btn btn-primary mb-2 mr-4">Añadir Deporte</a>
-				<a href="addproducto.html" class="btn btn-primary mb-2 mr-4">Añadir Ropa</a>
-				<a href="addproducto.html" class="btn btn-primary mb-2 mr-4">Añadir Equipamiento</a>
-				<a href="addproducto.html" class="btn btn-primary mb-2 mr-4">Añadir Genero</a>
+				<a data-toggle='modal' data-target='#insertardeporte' class='insertd btn btn-primary btn text-light mb-2 mr-4'>Añadir Deporte</a>
+				<a data-toggle='modal' data-target='#insertarropa' class='insertr btn btn-primary btn text-light mb-2 mr-4'>Añadir Ropa</a>
+				<a data-toggle='modal' data-target='#insertarequipamiento' class='inserte btn btn-primary btn text-light mb-2 mr-4'>Añadir Equipamiento</a>
 
 			</div>
 			<div class="row">
@@ -168,7 +167,7 @@
 							<th colspan="2" class="text-center">Deportes</th>
 						</tr>
                       <tr>
-                        <th scope="col" class="sortp " id="nombre">Nombre <i class="fas fa-angle-down flecha"></i></th>
+                        <th scope="col" class="sortd " id="nombre">Nombre <i class="fas fa-angle-down flecha"></i></th>
                         <th scope="col" class="text-center">Eliminar</th>
                       </tr>
                     </thead>
@@ -185,7 +184,7 @@
 							<th colspan='2' class="text-center">Ropa</th>
 						</tr>
                       <tr>
-                        <th scope="col" class="sortp " id="nombre">Nombre <i class="fas fa-angle-down flecha"></i></th>
+                        <th scope="col" class="sortr " id="tipo">Tipo <i class="fas fa-angle-down flecha"></i></th>
                         <th scope="col" class="text-center">Eliminar</th>
                       </tr>
                     </thead>
@@ -202,7 +201,7 @@
 							<th colspan='2' class="text-center">Equipamiento</th>
 						</tr>
                       <tr>
-                        <th scope="col" class="sortp " id="nombre">Nombre <i class="fas fa-angle-down flecha"></i></th>
+                        <th scope="col" class="sorte " id="tipo">Tipo <i class="fas fa-angle-down flecha"></i></th>
                         <th scope="col" class="text-center">Eliminar</th>
                       </tr>
                     </thead>
@@ -215,13 +214,11 @@
 			<div class="col-3">
                 <table class="col-12">
                     <thead class="header text-light">
-						<tr>
-							<th colspan='2' class="text-center">Genero</th>
-						</tr>
-                      <tr>
-                        <th scope="col" class="sortp " id="nombre">Nombre <i class="fas fa-angle-down flecha"></i></th>
-                        <th scope="col" class="text-center">Eliminar</th>
-                      </tr>
+						
+                      <tr rowspan="2">
+                        <th  scope="col" class="sortg " id="genero">Genero <i class="fas fa-angle-down flecha"></i></th>
+					  </tr>
+					  
                     </thead>
                   
                     <tbody id="tgenero" class="bg-light">
@@ -283,6 +280,158 @@
     </div>
 </div>
 <!--FIN MODAL CAMBIAR CONTRASEÑA-->
+
+<!-- Modal Insertar deporte -->
+<div class="modal fade" id="insertardeporte" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel2">Insertar deporte</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="cerrar2">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label for="dnombre">Nombre de deporte: </label>
+					  <input type="text" id="dnombre" name="dnombre">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="noinsertarp"  data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-danger" id="insertardeporte2">Insertar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--FIN MODAL CAMBIAR deporte-->
+<!-- Modal Insertar ropa -->
+<div class="modal fade" id="insertarropa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel2">Insertar ropa</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="cerrar2">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label for="dtipo">Tipo de ropa: </label>
+					  <input type="text" id="dtipor" name="dtipo">
+					  <div class="errorropa"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="noinsertarp"  data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" id="insertarropa2">Insertar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--FIN MODAL CAMBIAR ropa-->
+<!-- Modal Insertar equipamiento -->
+<div class="modal fade" id="insertarequipamiento" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel2">Insertar equipamiento</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="cerrar2">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label for="dtipo">Tipo de equipamiento: </label>
+					  <input type="text" id="dtipoe" name="dtipo">
+					  <div class="errorequipamiento"></div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="noinsertarp"  data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" id="insertarequipamiento2">Insertar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--FIN MODAL CAMBIAR equipamiento-->
+<!-- Modal eliminar equipamiento -->
+<div class="modal fade" id="eliminarequip" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel2">Eliminar equipamiento</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="cerrar2">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+					Al eliminar este categoria de equipamiento no podras volverla a recuperar,<br>
+                    Estas seguro de querer eliminarla?
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="noeliminare"  data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" id="eliminarequipamiento2">eliminar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--FIN MODAL CAMBIAR equipamiento-->
+<!-- Modal eliminar ropa -->
+<div class="modal fade" id="eliminarropa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel2">Eliminar Ropa</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="cerrar2">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+					Al eliminar este categoria de ropa no podras volverla a recuperar,<br>
+                    Estas seguro de querer eliminarla?
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="noeliminare"  data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-danger" id="eliminarropa2">eliminar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--FIN MODAL CAMBIAR deporte-->
+<!-- Modal eliminar deporte -->
+<div class="modal fade" id="eliminardeporte" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel2">Eliminar Deporte</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="cerrar2">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+					Al eliminar este categoria de deporte no podras volverla a recuperar,<br>
+                    Estas seguro de querer eliminarla?
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="noeliminare"  data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-danger" id="eliminardeporte2">eliminar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--FIN MODAL CAMBIAR deporte-->
+
 
 
 	<div class="container-fluid footer">

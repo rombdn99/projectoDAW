@@ -163,20 +163,20 @@ function Verificatelf(){
 	 
    }
    function Verificadireccion(){
-	 //console.log("dir")
-	 $(this).attr("style","outline: initial");
-	 if(($("#direccion").val()!="")){
-		$("#errorDireccion").removeClass("d-flex");
-
-		 $("#errorDireccion").addClass("d-none");
-		 return true
-	 }else{
-		$("#errorDireccion").addClass("d-flex");
-
-		 $("#errorDireccion").removeClass("d-none");
-		 $("#errorDireccion").html("<i class='fa fa-close text-danger p-0 mt-1 col-1'></i><p class='text-dark col-11'>La direccion no puede estar vacia</p>");
-   
-		 return false
-	 }
-	 
-   }
+	//console.log("dir");
+	var errores1 =  /^([A-Za-z0-9'\.\-\s\,]*)$/
+  
+	var extepcion1 =errores1.test($("#direccion").val())
+  
+	$(this).attr("style","outline: initial");
+	if(($("#direccion").val()!="") && extepcion1){
+		$("#errorDireccion").addClass("d-none");
+		return true
+	}else{
+		$("#errorDireccion").removeClass("d-none");
+		$("#errorDireccion").html("<i class='fa fa-close text-danger p-0 mt-1 col-1'></i><p class='text-dark col-11'>La direccion no puede tener los simbolos &(%#$^)</p>");
+  
+		return false
+	}
+	
+  }

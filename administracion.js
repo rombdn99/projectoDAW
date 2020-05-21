@@ -301,6 +301,445 @@ function eventos(){
         })
 
     })
+
+    //categorias
+    $(".sortd").click(function(){
+        if($(this).hasClass("ASC") || $(this).hasClass("DESC")){
+            if($(this).hasClass("DESC")){
+                $(this).addClass("ASC");
+                $(this).removeClass("DESC");
+                sort="ASC";
+            }else{
+                $(this).addClass("DESC");
+                $(this).removeClass("ASC");
+                sort="DESC";
+
+            }     
+        }else{
+            sort="ASC";
+            $(".DESC").removeClass("DESC");
+            $(".ASC").removeClass("ASC");
+            $(this).addClass("ASC");
+        }
+        console.log(sort);
+        $.post('administracion.php',{query: "sortd", sort: $(this).attr("id"), direccion: sort})
+            .done(function(data,textStatus,jqXHR){
+                //console.log("Solicitud se ha completado correctamente "+ textStatus);
+                //console.log(data);
+                if(data!="bad"){
+                    $("#tdeportes").html(data)
+                }else{
+                    console.log(data)
+                }
+                        // location.replace("login.html")
+                //eventos();
+                
+            })
+            .fail(function(data,textStatus,jqXHR){
+                console.log("Error: " + textStatus + ": " + jqXHR);
+            })
+            .always(function(data,textStatus,jqXHR){
+                console.log("entra.php")
+            })
+            
+            //console.log("sortu"+$(this).attr("id"))
+    })
+    // $(".eliminard").click(function(){
+    //     //console.log($(this).attr("id").replace('eliminarp',''));
+    //     $(this).addClass("probable");
+    // })
+    $("#insertardeporte2").click(function(){
+        $.post('administracion.php',{query: "insertd", nombre: $("#dnombre").val()})
+        .done(function(data,textStatus,jqXHR){
+            //console.log("Solicitud se ha completado correctamente "+ textStatus);
+            console.log(data);
+            /*
+            if(data!="bad"){
+                $("#tproductos").html(data)
+            }else{
+                //console.log("No hay usuarios")
+            }
+                    // location.replace("login.html")
+            eventos();*/
+            $.post('administracion.php',{query: "selectd"})
+            .done(function(data,textStatus,jqXHR){
+                //console.log("Solicitud se ha completado correctamente "+ textStatus);
+                //console.log(data);
+                if(data!="bad"){
+                    $("#noeliminarp").click();
+                    $("#tdeportes").html(data)
+                    eventoseliminardeportes();
+                    $(".close").click()
+
+                }else{
+                    //console.log("No hay usuarios")
+                }
+                        // location.replace("login.html")
+                //eventos();
+                
+            })
+        })
+        .fail(function(data,textStatus,jqXHR){
+            //console.log("Error: " + textStatus + ": " + jqXHR);
+        })
+        .always(function(data,textStatus,jqXHR){
+            console.log("eliminarp")
+        })
+    })
+    $((".eliminard ")).click(function(){
+        $(this).addClass("probable");
+    })
+    $("#noeliminard").click(function(){
+        $(".probable").removeClass("probable");
+    })
+    $("#eliminardeporte").click(function(){
+        $(".probable").removeClass("probable");
+    })
+    $("#eliminardeporte2").click(function(){
+        console.log($(this).attr("id"));
+        $.post('administracion.php',{query: "eliminard", id:$(".probable").attr("id").replace('eliminard','') })
+        .done(function(data,textStatus,jqXHR){
+            //console.log("Solicitud se ha completado correctamente "+ textStatus);
+            console.log(data);
+            /*
+            if(data!="bad"){
+                $("#tproductos").html(data)
+            }else{
+                //console.log("No hay usuarios")
+            }
+                    // location.replace("login.html")
+            eventos();*/
+            $.post('administracion.php',{query: "selectd"})
+            .done(function(data,textStatus,jqXHR){
+                //console.log("Solicitud se ha completado correctamente "+ textStatus);
+                //console.log(data);
+                if(data!="bad"){
+                    $("#tdeportes").html(data)
+                    $(".close").click();
+                    eventoseliminardeportes();
+                }else{
+                    //console.log("No hay usuarios")
+                }
+                        // location.replace("login.html")
+                //eventos();
+                
+            })
+        })
+        .fail(function(data,textStatus,jqXHR){
+            //console.log("Error: " + textStatus + ": " + jqXHR);
+        })
+        .always(function(data,textStatus,jqXHR){
+            console.log("eliminare")
+        })
+
+    })
+
+    $(".sortr").click(function(){
+        if($(this).hasClass("ASC") || $(this).hasClass("DESC")){
+            if($(this).hasClass("DESC")){
+                $(this).addClass("ASC");
+                $(this).removeClass("DESC");
+                sort="ASC";
+            }else{
+                $(this).addClass("DESC");
+                $(this).removeClass("ASC");
+                sort="DESC";
+
+            }     
+        }else{
+            sort="ASC";
+            $(".DESC").removeClass("DESC");
+            $(".ASC").removeClass("ASC");
+            $(this).addClass("ASC");
+        }
+        console.log(sort);
+        $.post('administracion.php',{query: "sortr", sort: $(this).attr("id"), direccion: sort})
+            .done(function(data,textStatus,jqXHR){
+                //console.log("Solicitud se ha completado correctamente "+ textStatus);
+                //console.log(data);
+                if(data!="bad"){
+                    $("#tropa").html(data)
+                }else{
+                    console.log(data)
+                }
+                        // location.replace("login.html")
+                //eventos();
+                
+            })
+            .fail(function(data,textStatus,jqXHR){
+                console.log("Error: " + textStatus + ": " + jqXHR);
+            })
+            .always(function(data,textStatus,jqXHR){
+                console.log("entra.php")
+            })
+            
+            //console.log("sortu"+$(this).attr("id"))
+    })
+    $("#insertarropa2").click(function(){
+        console.log("afd")
+        if($("#dtipor").val()!=""){
+            $.post('administracion.php',{query: "insertr", nombre: $("#dtipor").val()})
+            .done(function(data,textStatus,jqXHR){
+                //console.log("Solicitud se ha completado correctamente "+ textStatus);
+                console.log(data);
+                /*
+                if(data!="bad"){
+                    $("#tproductos").html(data)
+                }else{
+                    //console.log("No hay usuarios")
+                }
+                        // location.replace("login.html")
+                eventos();*/
+                $.post('administracion.php',{query: "selectr"})
+                .done(function(data,textStatus,jqXHR){
+                    //console.log("Solicitud se ha completado correctamente "+ textStatus);
+                    //console.log(data);
+                    if(data!="bad"){
+                        $("#noeliminarp").click();
+                        $("#tropa").html(data)
+                        eventoseliminarropa();
+                        $(".close").click()
+
+                    }else{
+                        //console.log("No hay usuarios")
+                    }
+                            // location.replace("login.html")
+                    //eventos();
+                    
+                })
+            })
+            .fail(function(data,textStatus,jqXHR){
+                //console.log("Error: " + textStatus + ": " + jqXHR);
+            })
+            .always(function(data,textStatus,jqXHR){
+                console.log("eliminarp")
+            })
+        }else{
+            $(".errorropa").html("no puede estar vacio")
+        }
+    })
+    $((".eliminarr ")).click(function(){
+        $(this).addClass("probable");
+    })
+    $("#noeliminarr").click(function(){
+        $(".probable").removeClass("probable");
+    })
+    $("#eliminarropa").click(function(){
+        $(".probable").removeClass("probable");
+    })
+    $("#eliminarropa2").click(function(){
+        console.log($(this).attr("id"));
+        $.post('administracion.php',{query: "eliminarr", id:$(".probable").attr("id").replace('eliminarr','') })
+        .done(function(data,textStatus,jqXHR){
+            //console.log("Solicitud se ha completado correctamente "+ textStatus);
+            console.log(data);
+            /*
+            if(data!="bad"){
+                $("#tproductos").html(data)
+            }else{
+                //console.log("No hay usuarios")
+            }
+                    // location.replace("login.html")
+            eventos();*/
+            $.post('administracion.php',{query: "selectr"})
+            .done(function(data,textStatus,jqXHR){
+                //console.log("Solicitud se ha completado correctamente "+ textStatus);
+                //console.log(data);
+                if(data!="bad"){
+                    $("#tropa").html(data)
+                    $(".close").click();
+                    eventoseliminarropa();
+                }else{
+                    //console.log("No hay usuarios")
+                }
+                        // location.replace("login.html")
+                //eventos();
+                
+            })
+        })
+        .fail(function(data,textStatus,jqXHR){
+            //console.log("Error: " + textStatus + ": " + jqXHR);
+        })
+        .always(function(data,textStatus,jqXHR){
+            console.log("eliminare")
+        })
+
+    })
+
+    $(".sorte").click(function(){
+        if($(this).hasClass("ASC") || $(this).hasClass("DESC")){
+            if($(this).hasClass("DESC")){
+                $(this).addClass("ASC");
+                $(this).removeClass("DESC");
+                sort="ASC";
+            }else{
+                $(this).addClass("DESC");
+                $(this).removeClass("ASC");
+                sort="DESC";
+
+            }     
+        }else{
+            sort="ASC";
+            $(".DESC").removeClass("DESC");
+            $(".ASC").removeClass("ASC");
+            $(this).addClass("ASC");
+        }
+        console.log(sort);
+        $.post('administracion.php',{query: "sorte", sort: $(this).attr("id"), direccion: sort})
+            .done(function(data,textStatus,jqXHR){
+                //console.log("Solicitud se ha completado correctamente "+ textStatus);
+                //console.log(data);
+                if(data!="bad"){
+                    $("#tequipamiento").html(data)
+                }else{
+                    console.log(data)
+                }
+                        // location.replace("login.html")
+                //eventos();
+                
+            })
+            .fail(function(data,textStatus,jqXHR){
+                console.log("Error: " + textStatus + ": " + jqXHR);
+            })
+            .always(function(data,textStatus,jqXHR){
+                console.log("entra.php")
+            })
+            
+            //console.log("sortu"+$(this).attr("id"))
+    })
+    $("#insertarequipamiento2").click(function(){
+        console.log("afd")
+        if($("#dtipoe").val()!=""){
+            $.post('administracion.php',{query: "inserte", nombre: $("#dtipoe").val()})
+            .done(function(data,textStatus,jqXHR){
+                //console.log("Solicitud se ha completado correctamente "+ textStatus);
+                console.log(data);
+                /*
+                if(data!="bad"){
+                    $("#tproductos").html(data)
+                }else{
+                    //console.log("No hay usuarios")
+                }
+                        // location.replace("login.html")
+                eventos();*/
+                $.post('administracion.php',{query: "selecte"})
+                .done(function(data,textStatus,jqXHR){
+                    //console.log("Solicitud se ha completado correctamente "+ textStatus);
+                    //console.log(data);
+                    if(data!="bad"){
+                        $("#noeliminarp").click();
+                        $("#tequipamiento").html(data)
+                        eventoseliminarropa();
+                        $(".close").click()
+                    }else{
+                        //console.log("No hay usuarios")
+                    }
+                            // location.replace("login.html")
+                    //eventos();
+                    
+                })
+            })
+            .fail(function(data,textStatus,jqXHR){
+                //console.log("Error: " + textStatus + ": " + jqXHR);
+            })
+            .always(function(data,textStatus,jqXHR){
+                console.log("eliminarp")
+            })
+        }else{
+            $(".errorequipamiento").html("no puede estar vacio")
+        }
+    })
+    $((".eliminare ")).click(function(){
+        $(this).addClass("probable");
+    })
+    $("#noeliminare").click(function(){
+        $(".probable").removeClass("probable");
+    })
+    $("#eliminarequip").click(function(){
+        $(".probable").removeClass("probable");
+    })
+    $("#eliminarequipamiento2").click(function(){
+        //console.log($(this).attr("id").replace('eliminarp',''));
+        $.post('administracion.php',{query: "eliminare", id:$(".probable").attr("id").replace('eliminare','') })
+        .done(function(data,textStatus,jqXHR){
+            //console.log("Solicitud se ha completado correctamente "+ textStatus);
+            console.log(data);
+            /*
+            if(data!="bad"){
+                $("#tproductos").html(data)
+            }else{
+                //console.log("No hay usuarios")
+            }
+                    // location.replace("login.html")
+            eventos();*/
+            $.post('administracion.php',{query: "selecte"})
+            .done(function(data,textStatus,jqXHR){
+                //console.log("Solicitud se ha completado correctamente "+ textStatus);
+                //console.log(data);
+                if(data!="bad"){
+                    $("#noeliminarp").click();
+                    $("#tequipamiento").html(data)
+                    $(".close").click();
+                    eventoseliminarequipamiento();
+                }else{
+                    //console.log("No hay usuarios")
+                }
+                        // location.replace("login.html")
+                //eventos();
+                
+            })
+        })
+        .fail(function(data,textStatus,jqXHR){
+            //console.log("Error: " + textStatus + ": " + jqXHR);
+        })
+        .always(function(data,textStatus,jqXHR){
+            console.log("eliminare")
+        })
+
+    })
+    
+
+    $(".sortg").click(function(){
+        if($(this).hasClass("ASC") || $(this).hasClass("DESC")){
+            if($(this).hasClass("DESC")){
+                $(this).addClass("ASC");
+                $(this).removeClass("DESC");
+                sort="ASC";
+            }else{
+                $(this).addClass("DESC");
+                $(this).removeClass("ASC");
+                sort="DESC";
+
+            }     
+        }else{
+            sort="ASC";
+            $(".DESC").removeClass("DESC");
+            $(".ASC").removeClass("ASC");
+            $(this).addClass("ASC");
+        }
+        console.log(sort);
+        $.post('administracion.php',{query: "sortg", sort: $(this).attr("id"), direccion: sort})
+            .done(function(data,textStatus,jqXHR){
+                //console.log("Solicitud se ha completado correctamente "+ textStatus);
+                //console.log(data);
+                if(data!="bad"){
+                    $("#tgenero").html(data)
+                }else{
+                    console.log(data)
+                }
+                        // location.replace("login.html")
+                //eventos();
+                
+            })
+            .fail(function(data,textStatus,jqXHR){
+                console.log("Error: " + textStatus + ": " + jqXHR);
+            })
+            .always(function(data,textStatus,jqXHR){
+                console.log("entra.php")
+            })
+            
+            //console.log("sortu"+$(this).attr("id"))
+    })
 }
 function eventoseliminarproducto(){
     console.log("entra producto")
@@ -320,4 +759,13 @@ function eventoeliminaruser(){
         //console.log($(this).attr("id").replace('eliminarc',''));
         $(this).addClass("probable");
     })
+}
+function eventoseliminardeportes(){
+
+}
+function eventoseliminarropa(){
+
+}
+function eventoseliminarequipamiento(){
+
 }

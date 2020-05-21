@@ -2,12 +2,18 @@
 include 'abstract.databoundobject.php';
 include 'class.usuarios.php';
 include 'class.producto.php';
+include 'class.deporte.php';
+include 'class.equipamiento.php';
+include 'class.genero.php';
+include 'class.ropa.php';
 
-function insertuser($nombre,$apellido,$email,$telefono,$direccion,$contra,$objPDO){
+
+
+function insertuser($nombre,$apellido,$email,$telefono,$direccion,$contra,$admin,$objPDO){
 	$usuarionuevo= new usuario($objPDO);
 
 	$passwordh = str_replace("$","?",password_hash($contra, PASSWORD_DEFAULT));
-	 $usuarionuevo->setemail($email)->setnombre($nombre)->setapellido($apellido)->setcontra($passwordh)->setdireccion($direccion)->settelefono($telefono)->Save();
+	 $usuarionuevo->setemail($email)->setnombre($nombre)->setapellido($apellido)->setcontra($passwordh)->setdireccion($direccion)->settelefono($telefono)->settipo($admin)->Save();
 	 return "good";
 }
 
@@ -185,7 +191,7 @@ function orderp($sort,$by, $objPDO){
     $resultado=$objPDO->query($query);
     if ($resultado->rowCount() > 0){
     	foreach ($resultado as $row) {
-            $html.="<tr class='d-flex'>";
+            $html.="<tr >";
                 $html.="<td>".$row['nombre']."</td>";
                 $html.="<td><img src='".$row['imagen']."' class='img-fluid imgprod'></td>";
                 $html.="<td>".$row['descripcion']."</td>";
@@ -251,7 +257,7 @@ function selectd($objPDO){
     	foreach ($resultado as $row) {
             $html.="<tr>";
             $html.="<td>".$row['nombre']."</td>";
-            $html.="<td><i class='fas fa-times '></i></td>";
+            $html.="<td  class='text-center d-flex justify-content-center'><a type='button'  data-toggle='modal' data-target='#eliminardeporte' class='eliminard btn btn-danger' id='eliminard".$row['id']."'><i class='fas fa-times '></i></a></td>";
 
             $html.="</tr>";
         }
@@ -268,7 +274,7 @@ function selectr($objPDO){
     	foreach ($resultado as $row) {
             $html.="<tr>";
             $html.="<td>".$row['tipo']."</td>";
-            $html.="<td><i class='fas fa-times '></i></td>";
+            $html.="<td  class='text-center d-flex justify-content-center'><a type='button'  data-toggle='modal' data-target='#eliminarropa' class='eliminarr btn btn-danger' id='eliminarr".$row['id']."'><i class='fas fa-times '></i></a></td>";
 
             $html.="</tr>";
         }
@@ -285,7 +291,7 @@ function selecte($objPDO){
     	foreach ($resultado as $row) {
             $html.="<tr>";
             $html.="<td>".$row['tipo']."</td>";
-            $html.="<td><i class='fas fa-times '></i></td>";
+            $html.="<td  class='text-center d-flex justify-content-center'><a type='button'  data-toggle='modal' data-target='#eliminarequip' class='eliminare btn btn-danger' id='eliminare".$row['id']."'><i class='fas fa-times '></i></a></td>";
 
             $html.="</tr>";
         }
@@ -301,7 +307,6 @@ function selectg($objPDO){
     	foreach ($resultado as $row) {
             $html.="<tr>";
             $html.="<td>".$row['genero']."</td>";
-            $html.="<td><i class='fas fa-times '></i></td>";
 
             $html.="</tr>";
         }
@@ -408,6 +413,29 @@ function buscar($objPDO){
     }
 }
 
+function buscar2($objPDO){
+    $resultado1=$objPDO->query("Select * from productos");
+    $html="";
+    if ($resultado1->rowCount() > 0){
+        foreach ($resultado1 as $row) {
+            $html.="<div class='col-3 pt-3'>";
+            $html.=    "<div class='bg-light producto'>";
+            $html.=        "<div class='imgprod'>";
+            $html.=  "<div class='col img-fluid p-0' style='background-image: url(\"".$row['imagen']."\")'></div>";
+
+            $html.=        "</div>";
+            $html.=        "<div class='col'>".$row['precio']." €</div>";
+            $html.=        "<div class='col nombre'>".$row['nombre']."</div>";
+            $html.=    "</div>";
+            $html.= "</div>";
+
+        }
+        return $html;
+    }else{
+        return "bad";
+    }
+}
+
 function getproducto($objPDO,$id){
     $query="select * from productos where id=".$id;
     $resultado=$objPDO->query($query);
@@ -421,14 +449,49 @@ function getproducto($objPDO,$id){
     }
 }
 function updateproducto($nombre,$imagen,$descripcion,$precio,$deporte,$genero,$ropa,$equipamiento,$id,$objPDO){
-    $producto = new producto($objPDO,$id);
-    $producto->setnombre($nombre)->setimagen($imagen)->setdescripcion($descripcion)->setprecio($precio)->setdeporte($deporte)->setgenero($genero)->setropa($ropa)->setequipamiento($equipamiento)->Save();
-    return $nombre." ".$imagen." ".$descripcion." ".$precio." ".$deporte." ".$genero." ".$ropa." ".$equipamiento." ";
+    $resultado1=$objPDO->query("Select * from productos where nombre='".$nombre."'");
+
+        $producto = new producto($objPDO,$id);
+        $nombreantiguo=$producto->getnombre();
+        $imgantigua=$producto->getimagen();
+        $producto->setnombre($nombre)->setimagen($imagen)->setdescripcion($descripcion)->setprecio($precio)->setdeporte($deporte)->setgenero($genero)->setropa($ropa)->setequipamiento($equipamiento)->Save();
+        $resultado1=$objPDO->query("Select * from productos where nombre='".$nombre."'");
+        if ($resultado1->rowCount() <= 1){
+            return "good";
+        }else{
+            $producto->setnombre($nombreantiguo)->setimagen($imgantigua)->Save();
+
+            return "bad";
+        }
+
+        return $nombre." ".$imagen." ".$descripcion." ".$precio." ".$deporte." ".$genero." ".$ropa." ".$equipamiento." ";
+    
 }
 function updateproducto2($nombre,$imagen,$descripcion,$precio,$deporte,$genero,$ropa,$equipamiento,$id,$objPDO){
+    $resultado1=$objPDO->query("Select * from productos where nombre='".$nombre."'");
+
+    /*if ($resultado1->rowCount() <= 0){
+        $producto = new producto($objPDO,$id);
+        $producto->setnombre($nombre)->setimagen($imagen)->setdescripcion($descripcion)->setprecio($precio)->setdeporte($deporte)->setgenero($genero)->setropa($ropa)->setequipamiento($equipamiento)->Save();
+        return $nombre." ".$imagen." ".$descripcion." ".$precio." ".$deporte." ".$genero." ".$ropa." ".$equipamiento." ";
+    }else{
+        return "bad";
+    }*/
     $producto = new producto($objPDO,$id);
-    $producto->setnombre($nombre)->setimagen($imagen)->setdescripcion($descripcion)->setprecio($precio)->setdeporte($deporte)->setgenero($genero)->setropa($ropa)->setequipamiento($equipamiento)->Save();
-    return $nombre." ".$imagen." ".$descripcion." ".$precio." ".$deporte." ".$genero." ".$ropa." ".$equipamiento." ";
+
+    $nombreantiguo=$producto->getnombre();
+        $imgantigua=$producto->getimagen();
+        $producto->setnombre($nombre)->setimagen($imagen)->setdescripcion($descripcion)->setprecio($precio)->setdeporte($deporte)->setgenero($genero)->setropa($ropa)->setequipamiento($equipamiento)->Save();
+
+    $resultado1=$objPDO->query("Select * from productos where nombre='".$nombre."'");
+        if ($resultado1->rowCount() <= 1){
+            return "good";
+        }else{
+            $producto->setnombre($nombreantiguo)->setimagen($imgantigua)->Save();
+
+            return "bad";
+        }
+    return "good";
 }
 function getcategoria($objPDO){
     $html="";
@@ -476,6 +539,7 @@ function getcategoria($objPDO){
 }
 
 function filtro($select,$objPDO){
+    //return $select;
     $resultado1=$objPDO->query($select);
     $html="";
     if ($resultado1->rowCount() > 0){
@@ -496,4 +560,105 @@ function filtro($select,$objPDO){
     }else{
         return "bad";
     }
+}
+function sortd($sort,$direccion,$objPDO){
+    $resultado=$objPDO->query("Select * from deporte order by ".$sort." ".$direccion);
+    if ($resultado->rowCount() > 0){
+        $html="";
+    	foreach ($resultado as $row) {
+            $html.="<tr>";
+            $html.="<td>".$row['nombre']."</td>";
+            $html.="<td  class='text-center d-flex justify-content-center'><a type='button'  data-toggle='modal' data-target='#eliminardeporte' class='eliminard btn btn-danger' id='eliminard".$row['id']."'><i class='fas fa-times '></i></a></td>";
+
+            $html.="</tr>";
+        }
+        return $html;
+    }else{
+            return "bad";
+    }
+}
+function sortr($sort,$direccion,$objPDO){
+    $resultado=$objPDO->query("Select * from ropa order by ".$sort." ".$direccion);
+    if ($resultado->rowCount() > 0){
+        $html="";
+    	foreach ($resultado as $row) {
+            $html.="<tr>";
+            $html.="<td>".$row['tipo']."</td>";
+            $html.="<td  class='text-center d-flex justify-content-center'><a type='button'  data-toggle='modal' data-target='#eliminarropa' class='eliminarr btn btn-danger' id='eliminarr".$row['id']."'><i class='fas fa-times '></i></a></td>";
+            $html.="</tr>";
+        }
+        return $html;
+    }else{
+            return "bad";
+    }
+}
+function sorte($sort,$direccion,$objPDO){
+    $resultado=$objPDO->query("Select * from equipamiento order by ".$sort." ".$direccion);
+    if ($resultado->rowCount() > 0){
+        $html="";
+    	foreach ($resultado as $row) {
+            $html.="<tr>";
+            $html.="<td>".$row['tipo']."</td>";
+            $html.="<td  class='text-center d-flex justify-content-center'><a type='button'  data-toggle='modal' data-target='#eliminarequip' class='eliminare btn btn-danger' id='eliminare".$row['id']."'><i class='fas fa-times '></i></a></td>";
+
+            $html.="</tr>";
+        }
+        return $html;
+    }else{
+            return "bad";
+    }
+}
+function sortg($sort,$direccion,$objPDO){
+    $resultado=$objPDO->query("Select * from genero order by ".$sort." ".$direccion);
+    if ($resultado->rowCount() > 0){
+        $html="";
+    	foreach ($resultado as $row) {
+            $html.="<tr>";
+            $html.="<td>".$row['genero']."</td>";
+
+            $html.="</tr>";
+        }
+        return $html;
+    }else{
+            return "bad";
+    }
+}
+
+function insertd($nombre,$objPDO){
+    $deporte = new deporte($objPDO);
+    $deporte->setnombre($nombre)->Save();
+    return "good";
+}
+function inserte($nombre,$objPDO){
+    $equipamiento = new equipamiento($objPDO);
+    $equipamiento->settipo($nombre)->Save();
+    return "good";
+}
+function insertr($nombre,$objPDO){
+    $ropa = new ropa($objPDO);
+    $ropa->settipo($nombre)->Save();
+    return "good";
+}
+function insertg($nombre,$objPDO){
+    $ropa = new ropa($objPDO);
+    $ropa->setgenero($nombre)->Save();
+    return "good";
+}
+function eliminare($id,$objPDO){
+    $equipamiento=new equipamiento($objPDO,$id);
+    $equipamiento->MarkForDeletion();
+    unset($equipamiento);
+    return "good";
+}
+function eliminarr($id,$objPDO){
+    $ropa=new ropa($objPDO,$id);
+    $ropa->MarkForDeletion();
+    unset($ropa);
+    return "good";
+}
+function eliminard($id,$objPDO){
+    $deporte=new deporte($objPDO,$id);
+    $deporte->MarkForDeletion();
+    unset($deporte);
+    return "good";
 }
