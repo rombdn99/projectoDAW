@@ -59,8 +59,24 @@ $.post('administracion.php',{query: "selectu"})
                                                     //console.log("No hay usuarios")
                                                 }
                                                         // location.replace("login.html")
-                                                
-                                                        eventos();
+                                                        $.post('administracion.php',{query: "selectpe"})
+                                                            .done(function(data,textStatus,jqXHR){
+                                                                //console.log("Solicitud se ha completado correctamente "+ textStatus);
+                                                                //console.log(data);
+                                                                if(data!="bad"){
+                                                                    $("#tpedidos").html(data)
+                                                                }else{
+                                                                    //console.log("No hay usuarios")
+                                                                }
+                                                                        // location.replace("login.html")
+                                                                        eventos();
+                                                            })
+                                                            .fail(function(data,textStatus,jqXHR){
+                                                                //console.log("Error: " + textStatus + ": " + jqXHR);
+                                                            })
+                                                            .always(function(data,textStatus,jqXHR){
+                                                                //console.log("selectp.php")
+                                                            })
                                             })
                                             .fail(function(data,textStatus,jqXHR){
                                                 //console.log("Error: " + textStatus + ": " + jqXHR);
@@ -736,6 +752,48 @@ function eventos(){
             })
             .always(function(data,textStatus,jqXHR){
                 console.log("entra.php")
+            })
+            
+            //console.log("sortu"+$(this).attr("id"))
+    })
+
+    $(".sortpe").click(function(){
+        if($(this).hasClass("ASC") || $(this).hasClass("DESC")){
+            if($(this).hasClass("DESC")){
+                $(this).addClass("ASC");
+                $(this).removeClass("DESC");
+                sort="ASC";
+            }else{
+                $(this).addClass("DESC");
+                $(this).removeClass("ASC");
+                sort="DESC";
+
+            }     
+        }else{
+            sort="ASC";
+            $(".DESC").removeClass("DESC");
+            $(".ASC").removeClass("ASC");
+            $(this).addClass("ASC");
+        }
+        console.log(sort);
+        $.post('administracion.php',{query: "sortpe", sort: $(this).attr("id"), direccion: sort})
+            .done(function(data,textStatus,jqXHR){
+                //console.log("Solicitud se ha completado correctamente "+ textStatus);
+                //console.log(data);
+                if(data!="bad"){
+                    $("#tpedidos").html(data)
+                }else{
+                    console.log(data)
+                }
+                        // location.replace("login.html")
+                //eventos();
+                
+            })
+            .fail(function(data,textStatus,jqXHR){
+                console.log("Error: " + textStatus + ": " + jqXHR);
+            })
+            .always(function(data,textStatus,jqXHR){
+                console.log("sortp.php")
             })
             
             //console.log("sortu"+$(this).attr("id"))

@@ -1,7 +1,7 @@
 	$.post('header.php',{ contra: $("#contra").val(), email: $("#email").val() })
 		.done(function(data,textStatus,jqXHR){
 			console.log("Solicitud se ha completado correctamente "+ textStatus);
-			console.log(data);
+			//console.log(data);
 			$("#sesion").html(data)
 					// location.replace("login.html")
 

@@ -32,7 +32,7 @@ function inicial(){
                 $("#buscador").html("<h1>No hay resultados</h1>")
             }
                     // location.replace("login.html")
-            
+            eventosproductos();
         })
         .fail(function(data,textStatus,jqXHR){
             console.log("Error: " + textStatus + ": " + jqXHR);
@@ -51,7 +51,9 @@ function inicial(){
             }else{
                 $("#buscador").html("<h1>No hay resultados</h1>")
             }
-                    // location.replace("login.html")            
+                    // location.replace("login.html")      
+                    eventosproductos();
+      
         })
         .fail(function(data,textStatus,jqXHR){
             console.log("Error: " + textStatus + ": " + jqXHR);
@@ -79,7 +81,12 @@ function eventos(){
         console.log($(this).val())
     })
 }
-
+function eventosproductos(){
+    $(".productobody").click(function(){
+        console.log($(this).attr("id").replace('buscar',''));
+        location.replace("producto.html?id="+$(this).attr("id").replace('buscar',''))
+    })
+}
 
 function getParams (url) {
 	var params = {};

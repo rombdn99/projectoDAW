@@ -57,14 +57,7 @@
 .menu{
 	justify-content: space-between;
 }
-.chart{
-    position: absolute;
-    left: -288% !important;
-}
-.user{
-	position: absolute;
-    left: -242% !important;
-}
+
 .dropdown-item:hover{
 	background-color: blue;
 }
@@ -104,7 +97,7 @@
   width: 100%; 
   left: 0; 
 }
-.especial div{
+#sesion div{
   margin-left: -88% !important;
 
 }

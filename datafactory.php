@@ -451,20 +451,26 @@ function getproducto($objPDO,$id){
 function updateproducto($nombre,$imagen,$descripcion,$precio,$deporte,$genero,$ropa,$equipamiento,$id,$objPDO){
     $resultado1=$objPDO->query("Select * from productos where nombre='".$nombre."'");
 
-        $producto = new producto($objPDO,$id);
-        $nombreantiguo=$producto->getnombre();
-        $imgantigua=$producto->getimagen();
-        $producto->setnombre($nombre)->setimagen($imagen)->setdescripcion($descripcion)->setprecio($precio)->setdeporte($deporte)->setgenero($genero)->setropa($ropa)->setequipamiento($equipamiento)->Save();
-        $resultado1=$objPDO->query("Select * from productos where nombre='".$nombre."'");
-        if ($resultado1->rowCount() <= 1){
-            return "good";
-        }else{
-            $producto->setnombre($nombreantiguo)->setimagen($imgantigua)->Save();
+    $producto = new producto($objPDO,$id);
+    $nombreantiguo=$producto->getnombre();
+    $imgantigua=$producto->getimagen();
+    $descripcionantigua=$producto->getdescripcion();
+    $precionantigua=$producto->getprecio();
+    $deporteantigua=$producto->getdeporte();
+    $equipamientoantigua=$producto->getequipamiento();
+    $ropaantigua=$producto->getropa();
+    $generoantigua=$producto->getgenero();
+    $producto->setnombre($nombre)->setimagen($imagen)->setdescripcion($descripcion)->setprecio($precio)->setdeporte($deporte)->setgenero($genero)->setropa($ropa)->setequipamiento($equipamiento)->Save();
+    $resultado1=$objPDO->query("Select * from productos where nombre='".$nombre."'");
+    if ($resultado1->rowCount() <= 1){
+        return "good";
+    }else{
+        $producto->setnombre($nombreantiguo)->setimagen($imgantigua)-> setdescripcion($descripcionantigua)->setprecio($precionantigua)->setdeporte($deporteantigua)->setgenero($generoantigua)->setropa($ropaantigua)->setequipamiento($equipamientoantigua)->Save();
 
-            return "bad";
-        }
+        return "bad";
+    }
 
-        return $nombre." ".$imagen." ".$descripcion." ".$precio." ".$deporte." ".$genero." ".$ropa." ".$equipamiento." ";
+    return $nombre." ".$imagen." ".$descripcion." ".$precio." ".$deporte." ".$genero." ".$ropa." ".$equipamiento." ";
     
 }
 function updateproducto2($nombre,$imagen,$descripcion,$precio,$deporte,$genero,$ropa,$equipamiento,$id,$objPDO){
@@ -544,7 +550,7 @@ function filtro($select,$objPDO){
     $html="";
     if ($resultado1->rowCount() > 0){
         foreach ($resultado1 as $row) {
-            $html.="<div class='col-3 pt-3'>";
+            $html.="<div class='col-3 pt-3 productobody ' id='buscar".$row['id']."'>";
             $html.=    "<div class='bg-light producto'>";
             $html.=        "<div class='imgprod'>";
             $html.=  "<div class='col img-fluid p-0' style='background-image: url(\"".$row['imagen']."\")'></div>";
@@ -661,4 +667,46 @@ function eliminard($id,$objPDO){
     $deporte->MarkForDeletion();
     unset($deporte);
     return "good";
+}
+function selectpe($objPDO){
+    $query="select usuarios.`email`, productos.nombre,pedidos.fecha,pedidos.hora,pedidos.talla from usuarios, productos, pedidos where usuarios.id=pedidos.id_usuario and productos.id=pedidos.id_producto
+    ";
+    $resultado=$objPDO->query($query);
+
+    if ($resultado->rowCount() > 0){
+        $html="";
+    	foreach ($resultado as $row) {
+            $html.="<tr>";
+            $html.="<td>".$row['email']."</td>";
+            $html.="<td>".$row['nombre']."</td>";
+            $html.="<td>".$row['talla']."</td>";
+            $html.="<td>".$row['fecha']."</td>";
+            $html.="<td>".$row['hora']."</td>";
+            $html.="</tr>";
+        }
+        return $html;
+    }else{
+            return "bad";
+    }
+}
+function sortpe($sort,$by, $objPDO){
+    $query="select usuarios.`email`, productos.nombre,pedidos.fecha,pedidos.hora,pedidos.talla  from usuarios, productos, pedidos where usuarios.id=pedidos.id_usuario and productos.id=pedidos.id_producto order by ".$sort." ".$by;
+    $resultado=$objPDO->query($query);
+    $html="";
+    if ($resultado->rowCount() > 0){
+        $html="";
+    	foreach ($resultado as $row) {
+            $html.="<tr>";
+            $html.="<td>".$row['email']."</td>";
+            $html.="<td>".$row['nombre']."</td>";
+            $html.="<td>".$row['talla']."</td>";
+            $html.="<td>".$row['fecha']."</td>";
+            $html.="<td>".$row['hora']."</td>";
+            $html.="</tr>";
+        }
+        return $html;
+    }else{
+        return "bad";
+    }
+    
 }

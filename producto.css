@@ -1,3 +1,17 @@
-.algo{
-	
+#imgprod{
+	width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+    background-position: center;
+}
+
+#descripcion{
+    min-height: 280px;
+    background-color: white;
+    padding: 20px;
 }

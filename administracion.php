@@ -80,5 +80,14 @@ include 'datafactory.php';
             echo "entra";
             echo eliminare($_POST['id'],$objPDO);
         break;
+        case "selectpe":
+            echo  selectpe($objPDO);
+        break;
+        case "sortpe":
+            echo  sortpe($_POST['sort'],$_POST['direccion'],$objPDO);
+        break;
+        default:
+            echo "ERROR";
+        break;
     }
 ?>
