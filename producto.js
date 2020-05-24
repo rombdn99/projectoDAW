@@ -28,19 +28,26 @@ function getParams (url) {
 	}
 	return params;
 };
+const array1 = ["XXL", "XL", "L", "M", "S", "XS"];
 
 function eventos(){
     $("#addcesta").click(function(){
-        $.post('producto.php',{query: "cesta",id: getParams(window.location.href)['id'] })
-        .done(function(data,textStatus,jqXHR){
-            console.log(data);
-            
-        })
-        .fail(function(data,textStatus,jqXHR){
-            console.log("Error: " + textStatus + ": " + jqXHR);
-        })
-        .always(function(data,textStatus,jqXHR){
-            console.log("cesta")
-        })
+        talla=$("#talla").val()
+        talla =array1.find(element => element == talla)
+        if(talla!="" && talla != undefined){
+            console.log("Entra: "+talla)
+            $.post('producto.php',{query: "cesta",id: getParams(window.location.href)['id'], talla: talla })
+                .done(function(data,textStatus,jqXHR){
+                    $("#mensage").html(data);
+                })
+                .fail(function(data,textStatus,jqXHR){
+                    console.log("Error: " + textStatus + ": " + jqXHR);
+                })
+                .always(function(data,textStatus,jqXHR){
+                    console.log("cesta")
+                })
+        }else{
+            $("#mensage").html("<div class=''><i class='fas fa-times text-danger mr-2'></i>Tienes que seleccionar una fecha</div>")
+        }
     })
 }

@@ -16,12 +16,14 @@
 	.buscar{
 		position: relative;
 		margin-top: 0vh !important;
-    	margin-left: -5vh!important;
 		color: #9e9e9e;
 
 	}
  }
+.buscar{
+  margin-left: -5vh!important;
 
+}
 .form-control:focus {
     color: #495057;
     background-color: #fff;

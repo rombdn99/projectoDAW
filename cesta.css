@@ -1,0 +1,10 @@
+.imgcesta{
+    max-width: 150px;
+}
+table th,table td{
+    padding: 20px;
+    text-align: center;
+}
+.sortc{
+    min-width: 150px;
+}

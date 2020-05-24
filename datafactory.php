@@ -2,6 +2,8 @@
 include 'abstract.databoundobject.php';
 include 'class.usuarios.php';
 include 'class.producto.php';
+include 'class.hproducto.php';
+
 include 'class.deporte.php';
 include 'class.equipamiento.php';
 include 'class.genero.php';
@@ -383,6 +385,9 @@ function nuevoprod($nombre,$imagen,$descripcion,$precio,$deporte,$genero,$ropa,$
     if ($resultado1->rowCount() <= 0){
         $producto = new producto($objPDO);
         $producto->setnombre($nombre)->setimagen($imagen)->setdescripcion($descripcion)->setprecio($precio)->setdeporte($deporte)->setgenero($genero)->setropa($ropa)->setequipamiento($equipamiento)->Save();
+        $hproducto= new hproducto($objPDO);
+        $hproducto->setnombre($nombre)->setimagen($imagen)->setdescripcion($descripcion)->setprecio($precio)->setdeporte($deporte)->setgenero($genero)->setropa($ropa)->setequipamiento($equipamiento)->Save();
+
         return "good";
     }else{
         return "bad";
@@ -452,6 +457,7 @@ function updateproducto($nombre,$imagen,$descripcion,$precio,$deporte,$genero,$r
     $resultado1=$objPDO->query("Select * from productos where nombre='".$nombre."'");
 
     $producto = new producto($objPDO,$id);
+    
     $nombreantiguo=$producto->getnombre();
     $imgantigua=$producto->getimagen();
     $descripcionantigua=$producto->getdescripcion();
@@ -550,13 +556,13 @@ function filtro($select,$objPDO){
     $html="";
     if ($resultado1->rowCount() > 0){
         foreach ($resultado1 as $row) {
-            $html.="<div class='col-3 pt-3 productobody ' id='buscar".$row['id']."'>";
+            $html.="<div class='col-md-3 col-4 pt-3 productobody ' id='buscar".$row['id']."'>";
             $html.=    "<div class='bg-light producto'>";
             $html.=        "<div class='imgprod'>";
-            $html.=  "<div class='col img-fluid p-0' style='background-image: url(\"".$row['imagen']."\")'></div>";
+            $html.=  "<div class='col  img-fluid p-0' style='background-image: url(\"".$row['imagen']."\")'></div>";
 
             $html.=        "</div>";
-            $html.=        "<div class='col'>".$row['precio']." €</div>";
+            $html.=        "<div class='col precio'>".$row['precio']." €</div>";
             $html.=        "<div class='col nombre'>".$row['nombre']."</div>";
             $html.=    "</div>";
             $html.= "</div>";
@@ -709,4 +715,29 @@ function sortpe($sort,$by, $objPDO){
         return "bad";
     }
     
+}
+function masvendidos($objPDO){
+    $query="SELECT `id_producto`,COUNT(`id_producto`) as 'numero' FROM pedidos,productos where pedidos.id_producto=productos.id GROUP BY `id_producto` ORDER by numero desc LIMIT 4";
+    $resultado=$objPDO->query($query);
+    $html="";
+
+    if ($resultado->rowCount() > 0){
+        foreach ($resultado as $row) {
+            $producto=new producto($objPDO,$row['id_producto']);
+
+            $html.="<div class='producto  col-3' id='p".$producto->getid()."'>";
+
+            $html.="<img src='".$producto->getimagen()."' class='img-fluid imgvendidos' alt=''>";
+            $html.="<div  class='p-2 bg-light inf'>";
+                $html.="<div class='precio  text-danger'>Precio: ".$producto->getprecio()." €</div>";
+                $html.="<div class='nombre'>".$producto->getnombre()."</div>";
+            $html.="</div>
+            </div>";
+            unset($producto);
+        }
+    }else{
+        $html.="ERROR no hay nada en la BBDD";
+    }
+    return $html;
+
 }

@@ -65,6 +65,7 @@ function inicial(){
 }
 
 function eventos(){
+    
     $(".categoria").click(function(){
         if($(this).hasClass("activo")){
             $(this).removeClass("activo");

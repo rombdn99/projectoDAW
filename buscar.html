@@ -61,9 +61,10 @@
     </header>
 
     <!-- body -->
-    <div class="conteiner-fluid fondobody" style="min-height: 85vh"  >
-        <div class="row">
-            <div class="col-3 bg-light">
+    <div class="conteiner-fluid fondobody" style="min-height: 85vh">
+       
+        <div class="row w-100">
+            <div class="col-3 bg-light d-none d-lg-block">
                 <ul class="list-group categorias">
                     <li class="list-group-item deporte">Deporte
                         <ul class="list-group">
@@ -119,9 +120,74 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-9 pb-5" >
+            
+            <div class="col-12 col-lg-9 pb-5 pl-5" >
                 <h1 class="text-center">Buscador</h1>
-                <input type="text" id="buscadorb">
+                <div class="d-flex justify-content-between">
+                    <div class="btn-group dropright d-lg-none d-block">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Filtros
+                        </button>
+                        <div class="dropdown-menu">
+                            <ul class="list-group categorias">
+                                <li class="list-group-item deporte">Deporte
+                                    <ul class="list-group">
+                                        <li class="list-group-item categoria" id="correr">
+                                            Correr
+                                        </li>
+                                        <li class="list-group-item categoria" id="baloncesto">
+                                            Baloncesto
+                                        </li>
+                                        <li class="list-group-item categoria" id="ciclismo">
+                                            Ciclismo
+                                        </li>
+                                        <li class="list-group-item categoria" id="futbol">
+                                            Futbol
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="list-group-item">Genero
+                                    <ul class="list-group">
+                                        <li class="list-group-item categoria" id="hombre">
+                                            Hombre
+                                        </li>
+                                        <li class="list-group-item categoria" id="mujer">
+                                            Mujer
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="list-group-item">Ropa Deportiva
+                                    <ul class="list-group">
+                                        <li class="list-group-item categoria" id="">
+                                            Camisetas
+                                        </li>
+                                        <li class="list-group-item categoria">
+                                            Pantalones
+                                        </li>
+                                        <li class="list-group-item">
+                                            Sudaderas
+                                        </li>
+                                    </ul>
+                                </li>
+                                 <li class="list-group-item">Equipamiento
+                                    <ul class="list-group">
+                                        <li class="list-group-item categoria">
+                                            Pelotas
+                                        </li>
+                                        <li class="list-group-item categoria">
+                                            Mochila
+                                        </li>
+                                        <li class="list-group-item categoria">
+                                            Bolsas de deporte
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <label for="buscadorb" class="pl-3">Buscador: <input type="text" id="buscadorb"></label>
+
+                </div>
                 <div class="row" id="buscador">
                     <div class="col-3 pt-3">
                         <div class="bg-light producto">
