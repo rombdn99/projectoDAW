@@ -1,14 +1,15 @@
-.sortu.ASC .flecha, .sortp.ASC .flecha,.sortd.ASC .flecha,.sortr.ASC .flecha,.sorte.ASC .flecha,.sortg.ASC .flecha{
-    display: inline;
-    transform: rotate(180deg);
-    transition: all ease .5s;
-}
-.sortu.DESC .flecha, .sortp.DESC .flecha,.sortd.DESC .flecha,.sortr.DESC .flecha,.sorte.DESC .flecha,.sortg.DESC .flecha{
+.sortu.ASC .flecha, .sortp.ASC .flecha,.sortd.ASC .flecha,.sortr.ASC .flecha,.sorte.ASC .flecha,.sortg.ASC .flecha,.sortpe.ASC .flecha{
     display: inline;
     transform: rotate(0deg);
     transition: all ease .5s;
 }
-.sortu .flecha, .sortp .flecha,.sortd .flecha,.sortr .flecha,.sorte .flecha,.sortg .flecha{
+.sortu.DESC .flecha, .sortp.DESC .flecha,.sortd.DESC .flecha,.sortr.DESC .flecha,.sorte.DESC .flecha,.sortg.DESC .flecha,.sortpe.DESC .flecha{
+    
+    display: inline;
+    transform: rotate(180deg);
+    transition: all ease .5s;
+}
+.sortu .flecha, .sortp .flecha,.sortd .flecha,.sortr .flecha,.sorte .flecha,.sortg .flecha,.sortpe .flecha{
     display: none;
 }
 table td, table th{

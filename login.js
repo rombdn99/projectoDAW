@@ -7,9 +7,9 @@ $("#login").click(function(){
         location.replace("index.html")
         console.log("login ok");
       }else if(data=="bad"){
-        console.log("login nok");
+        $("#mensage").html("<i class='fa fa-close text-danger p-0 mt-1 mr-3'></i>Estos datos son incorrectos");
       }else{
-        console.log("error: error desconocido en login.php");
+        $("#mensage").html("<i class='fa fa-close text-danger p-0 mt-1 mr-3'></i>error: error desconocido en login.php");
         console.log(data)
       }
      // location.replace("login.html")

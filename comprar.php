@@ -1,5 +1,22 @@
 <?php
+include 'conexion.php';
+include 'datafactory.php';
     session_start();
-    unset($_SESSION['cesta']);
-    echo "Compra realizada con exito";
+    $result="good";
+    if(isset($_SESSION['cesta'])){
+        $num =count($_SESSION['cesta']);
+        for($i=0;$i<$num && $result=="good";$i++){
+            $result=cesta($_SESSION['id'],$_SESSION['cesta'][$i]['id'],$_SESSION['cesta'][$i]['talla'],$objPDO);
+        }
+        if($result=="good"){
+            unset($_SESSION['cesta']);
+            echo "Compra realizada con exito";
+        }else{
+            echo "ERROR: error en compra";
+        }
+    }else{
+        echo "No ha seleccionado ningun articulo";
+    }
+
+   
 ?>

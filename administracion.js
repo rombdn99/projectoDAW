@@ -798,6 +798,8 @@ function eventos(){
             
             //console.log("sortu"+$(this).attr("id"))
     })
+
+    
 }
 function eventoseliminarproducto(){
     console.log("entra producto")

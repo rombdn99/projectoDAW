@@ -10,6 +10,7 @@ class hproducto extends DataBoundObject {
     protected $genero;
     protected $ropa;
     protected $equipamiento;
+    protected $fecha;
 
 
 
@@ -28,6 +29,8 @@ class hproducto extends DataBoundObject {
                 "genero" => "genero",
                 "ropa" => "ropa",
                 "equipamiento" => "equipamiento",
+                "fecha" => "fecha",
+
         ));
         }
 

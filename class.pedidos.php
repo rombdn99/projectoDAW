@@ -4,6 +4,7 @@ class pedidos extends DataBoundObject {
         protected $id;
         protected $id_usuario;
         protected $id_producto;
+        protected $talla;
         protected $fecha;
         protected $hora;
 
@@ -18,6 +19,7 @@ class pedidos extends DataBoundObject {
                         "id_usuario" => "id_usuario",
                         "id_producto" => "id_producto",
                         "fecha" => "fecha",
+                        "talla" => "talla",
                         "hora" => "hora",
 
                 ));

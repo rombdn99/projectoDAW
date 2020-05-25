@@ -3,6 +3,7 @@ include 'abstract.databoundobject.php';
 include 'class.usuarios.php';
 include 'class.producto.php';
 include 'class.hproducto.php';
+include 'class.pedidos.php';
 
 include 'class.deporte.php';
 include 'class.equipamiento.php';
@@ -386,7 +387,9 @@ function nuevoprod($nombre,$imagen,$descripcion,$precio,$deporte,$genero,$ropa,$
         $producto = new producto($objPDO);
         $producto->setnombre($nombre)->setimagen($imagen)->setdescripcion($descripcion)->setprecio($precio)->setdeporte($deporte)->setgenero($genero)->setropa($ropa)->setequipamiento($equipamiento)->Save();
         $hproducto= new hproducto($objPDO);
-        $hproducto->setnombre($nombre)->setimagen($imagen)->setdescripcion($descripcion)->setprecio($precio)->setdeporte($deporte)->setgenero($genero)->setropa($ropa)->setequipamiento($equipamiento)->Save();
+        date_default_timezone_set('Europe/Madrid');
+        $fecha = date("Y-m-d H:i:s");                           // 20010310
+        $hproducto->setnombre($nombre)->setimagen($imagen)->setdescripcion($descripcion)->setprecio($precio)->setdeporte($deporte)->setgenero($genero)->setropa($ropa)->setequipamiento($equipamiento)->setfecha($fecha)->Save();
 
         return "good";
     }else{
@@ -725,7 +728,7 @@ function masvendidos($objPDO){
         foreach ($resultado as $row) {
             $producto=new producto($objPDO,$row['id_producto']);
 
-            $html.="<div class='producto  col-3' id='p".$producto->getid()."'>";
+            $html.="<div class='producto  col-md-3 col-12 mt-5 mt-md-0' id='p".$producto->getid()."'>";
 
             $html.="<img src='".$producto->getimagen()."' class='img-fluid imgvendidos' alt=''>";
             $html.="<div  class='p-2 bg-light inf'>";
@@ -740,4 +743,16 @@ function masvendidos($objPDO){
     }
     return $html;
 
+}
+
+function cesta($idu,$idp,$talla,$objPDO){
+    $pedido=new pedidos($objPDO);
+    date_default_timezone_set('Europe/Madrid');
+
+    $fecha = date("Y-m-d");     // 20010310
+    $hora = date("H:i:s");
+
+    $pedido->setid_usuario($idu)->setid_producto($idp)->settalla($talla)->setfecha($fecha)->sethora($hora)->SAVE();
+    return "good";
+    //return $idu . " ".$idp." ".$talla;
 }

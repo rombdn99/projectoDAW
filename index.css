@@ -24,7 +24,15 @@
     .deportes{
         background-position-y: 29% !important;
     }
+    .inf{
+        height: 40%;
+        width: 100%;
+    }
     
+}
+.inf{
+    height: 30%;
+    width: 100%;
 }
 @media (min-width: 576px) {
     .futbol{
@@ -199,8 +207,4 @@
 }
 .producto:hover >div{
 	border-bottom: 2px solid red;
-}
-.inf{
-    height: 40%;
-    width: 100%;
 }

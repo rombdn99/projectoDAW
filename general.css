@@ -18,8 +18,16 @@
 		margin-top: 0vh !important;
 		color: #9e9e9e;
 
-	}
+  }
+  
  }
+ @media (min-width:  960px) { 
+  #sesion div{
+    margin-left: -88% !important;
+  
+  }
+}
+
 .buscar{
   margin-left: -5vh!important;
 
@@ -100,6 +108,28 @@
   left: 0; 
 }
 #sesion div{
-  margin-left: -88% !important;
+  margin-left: 0% ;
 
+}
+.textofooter{
+  font-size: 20px;
+}
+.fondorojo{
+  background-color: #660204;
+}
+.redes:hover img{
+  filter: contrast(0);
+  -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+
+.redes img{
+  cursor: pointer;
+  filter: contrast(1);
+  -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
 }
