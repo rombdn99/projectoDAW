@@ -534,7 +534,8 @@ function eventos(){
             $(".errorropa").html("no puede estar vacio")
         }
     })
-    $((".eliminarr ")).click(function(){
+    $((".eliminarr")).click(function(){
+        console.log("entra")
         $(this).addClass("probable");
     })
     $("#noeliminarr").click(function(){

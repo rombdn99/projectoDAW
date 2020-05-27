@@ -111,7 +111,7 @@ function valnombre(){
     
     // console.log("nombre")
         $(this).attr("style","outline: initial");
-        var errores1 = /^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú0-9'\.\-\s\,]+[\s]*)+$/
+        var errores1 = /^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú0-9A-ZÁÉÍÓÚ'\-\s\,]+[\s]*)+$/
         var extepcion1=errores1.test($("#nombre").val())
     
         if(($("#nombre").val()!="")&&extepcion1){
@@ -119,7 +119,7 @@ function valnombre(){
             $("#errornombre").addClass("d-none");
             return true
         }else{
-            $("#errornombre").html("<i class='fa fa-close text-danger p-0 mt-1 col-1'></i><p class='text-dark col-11'>El nombre debe contener una letra mayuscula inicial, puede contener letras, numeros y los simbolos <b>' . - ,</b> </p>");
+            $("#errornombre").html("<i class='fa fa-close text-danger p-0 mt-1 col-1'></i><p class='text-dark col-11'>El nombre debe contener una letra mayuscula inicial, puede contener letras, numeros y los simbolos <b>'  - ,</b> </p>");
             $("#errornombre").removeClass("d-none");
             return false
         }
@@ -145,7 +145,7 @@ function valnombre(){
     function valdescripcion(){
        
         $(this).attr("style","outline: initial");
-        var errores1 =  /^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú0-9'\.\-\s\,]+[\s]*)+$/
+        var errores1 =  /^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú0-9A-ZÁÉÍÓÚ%'\.\-\s\,]+[\s]*)+$/
         var extepcion1=errores1.test($("#descripcion").val())
     
         if(($("#descripcion").val()!="")&&extepcion1 ){
@@ -153,7 +153,7 @@ function valnombre(){
             $("#errordescripcion").addClass("d-none");
             return true
         }else{
-            $("#errordescripcion").html("<i class='fa fa-close text-danger p-0 mt-1 col-1'></i><p class='text-dark col-11'>El nombre debe contener una letra mayuscula inicial, puede contener letras, numeros y los simbolos <b>' . - ,</b></p>");
+            $("#errordescripcion").html("<i class='fa fa-close text-danger p-0 mt-1 col-1'></i><p class='text-dark col-11'>El nombre debe contener una letra mayuscula inicial, puede contener letras, numeros y los simbolos <b>' - ,</b></p>");
             $("#errordescripcion").removeClass("d-none");
             return false
         }
@@ -208,13 +208,14 @@ function eventos(){
                         var file = $("#file-input")[0].files[0];
                         formData.append("file", file, replace);
                        // console.log(file['name'].split('.')[1]);
-                        if(file['name'].split('.')[1]=="jpg"){
+                        $arrayfile=file['name'].split('.');
+                        if($arrayfile[$arrayfile.length-1]=="jpg"){
                             extension="jpeg";
                         }else{
-                            extension=file['name'].split('.')[1];
+                            extension=$arrayfile[$arrayfile.length-1];
                         }
                        // console.log("HAy archivo")
-
+                        console.log("img/"+replace+"."+extension)
                         $.post('editarproducto.php',{query: "subirprod",fichero: ("img/"+replace+"."+extension), nombre: $("#nombre").val(),
                             precio: $("#precio").val(), 
                             genero: genero,
@@ -238,7 +239,7 @@ function eventos(){
                                         processData: false
                                     })
                                         .done(function(res){
-                                            //console.log("Respuesta: " + res);
+                                            console.log("Respuesta: " + res);
                                             location.replace("administracion.html")
                                     });
                                 }else{

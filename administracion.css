@@ -18,3 +18,6 @@ table td, table th{
 .imgprod{
     max-width: 150px;
 }
+.tabla{
+    max-height: 500px;
+}

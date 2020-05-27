@@ -42,7 +42,7 @@
     color: white;
 }
 .producto{
-    height: 300px;
+    height: 450px;
     overflow: hidden;
 }
 .nombre{
@@ -52,4 +52,7 @@
 .dropdown-menu{
     height: 81vh;
     overflow: scroll;
+}
+.producto{
+    cursor: pointer;
 }

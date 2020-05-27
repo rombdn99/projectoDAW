@@ -21,7 +21,11 @@ $.post('buscar.php',{query: "getcategorias"})
          
 function inicial(){
     selectini="select * from productos"
-    if(typeof getParams(window.location.href)['buscar']==='undefined'){
+     if(typeof getParams(window.location.href)['deporte']!=='undefined'){
+        console.log("entra")
+        $("#d-"+getParams(window.location.href)['deporte']).addClass("activo");
+        buscador();
+    }else if(typeof getParams(window.location.href)['buscar']==='undefined'){
         $.post('buscar.php',{query: "filtro",select: selectini})
         .done(function(data,textStatus,jqXHR){
             console.log("Solicitud se ha completado correctamente "+ textStatus);
@@ -41,6 +45,7 @@ function inicial(){
             console.log("header.php")
         })
     }else{
+        console.log()
         selectini+=" where nombre like ('%"+getParams(window.location.href)['buscar']+"%')";
         $.post('buscar.php',{query: "filtro", select: selectini})
         .done(function(data,textStatus,jqXHR){
@@ -120,80 +125,96 @@ function buscador(){
             
             switch(this.id.split("-")[0]){
                 case "d":
+                    if(this.id.split("-")[1]!=0){
+
+                        deporte[d]=" deporte="+this.id.split("-")[1]
+                        d++;
+                    }
                     
-                    deporte[d]=" deporte="+this.id.split("-")[1]
-                    d++;
 
                 break;
                 case "r":
-                    ropa[r]=" ropa="+this.id.split("-")[1]
-                    r++
+                    if(this.id.split("-")[1]!=0){
+                        ropa[r]=" ropa="+this.id.split("-")[1]
+                        r++
+                    }
                 break;
                 case "e":
-                    equip[e]=" equipamiento="+this.id.split("-")[1] 
-                e++;
+                    if(this.id.split("-")[1]!=0){
+
+                        equip[e]=" equipamiento="+this.id.split("-")[1] 
+                        e++;
+                    }
                 break;
                 case "g":
-                    genero[g]=" genero="+this.id.split("-")[1]
-                    g++;
+                    if(this.id.split("-")[1]!=0){
+                        genero[g]=" genero="+this.id.split("-")[1]
+                        g++;
+                    }
                 break;
             }
         });
         if(deporte.length>0 || ropa.length>0 || genero.length>0 || equip.length>0 || typeof getParams(window.location.href)['buscar']!=='undefined'){
-            select+=" where";
+            where=" where";
         }
+        filtros="";
         for(var i=0;i<deporte.length;i++){
-            if(i==deporte.length-1){
-                select+=deporte[i]
+                if(i==deporte.length-1){
+                    filtros+=deporte[i]
 
-            }else{
-            select+=deporte[i]+" or";
+                }else{
+                    filtros+=deporte[i]+" or";
 
-            }
+                }
+           
         }
         if(deporte.length>0 && ropa.length>0){
-            select+=" and";
+            filtros+=" and";
 
         }
         for(var i=0;i<ropa.length;i++){
             if(i==ropa.length-1){
-                select+=ropa[i]
+                filtros+=ropa[i]
 
             }else{
-            select+=ropa[i]+" or"
+                filtros+=ropa[i]+" or"
 
             }
         }
         if((deporte.length>0 || ropa.length>0) && genero.length>0){
-            select+=" and";
+            filtros+=" and";
         }
         for(var i=0;i<genero.length;i++){
             if(i==genero.length-1){
-                select+=genero[i]
+                filtros+=genero[i]
 
             }else{
-            select+=genero[i]+" or"
+                filtros+=genero[i]+" or"
 
             }
         }
         if((deporte.length>0 || ropa.length>0 || genero.length>0) && equip.length>0){
-            select+=" and";
+            filtros+=" and";
         }
         for(var i=0;i<equip.length;i++){
             if(i==equip.length-1){
-                select+=equip[i]
+                filtros+=equip[i]
 
             }else{
-            select+=equip[i]+" or"
+                filtros+=equip[i]+" or"
 
             }
         }
 
         if(typeof getParams(window.location.href)['buscar']!=='undefined'){
             if(deporte.length>0 || ropa.length>0 || genero.length>0 || equip.length>0){
-                select+=" and"
+                filtros+=" and"
             }
-            select+=" nombre like ('%"+getParams(window.location.href)['buscar']+"%')"
+            filtros+=" nombre like ('%"+getParams(window.location.href)['buscar']+"%')"
+        }
+
+        if(filtros!=""){
+            select+=where+filtros;
         }
         console.log(select)
         $.post('buscar.php',{query: "filtro",select: select})

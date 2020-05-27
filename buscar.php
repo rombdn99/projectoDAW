@@ -8,7 +8,12 @@ switch($_POST['query']){
         echo getcategoria($objPDO);
     break;
     case "filtro":
-        echo filtro($_POST['select'],$objPDO);
+        if(substr($_POST['select'], 0,6)=="select"){
+            echo filtro($_POST['select'],$objPDO);
+        }else{
+            echo "Solo se puede hacer un select";
+        }
+        //
 }
 
 

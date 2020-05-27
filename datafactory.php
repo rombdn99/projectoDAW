@@ -728,14 +728,18 @@ function masvendidos($objPDO){
         foreach ($resultado as $row) {
             $producto=new producto($objPDO,$row['id_producto']);
 
-            $html.="<div class='producto  col-md-3 col-12 mt-5 mt-md-0' id='p".$producto->getid()."'>";
 
-            $html.="<img src='".$producto->getimagen()."' class='img-fluid imgvendidos' alt=''>";
-            $html.="<div  class='p-2 bg-light inf'>";
-                $html.="<div class='precio  text-danger'>Precio: ".$producto->getprecio()." €</div>";
-                $html.="<div class='nombre'>".$producto->getnombre()."</div>";
-            $html.="</div>
-            </div>";
+            $html.="<div class='col-md-3 col-4 pt-3 productobody ' id='p".$producto->getid()."'>";
+            $html.=    "<div class='bg-light producto'>";
+            $html.=        "<div class='imgprod'>";
+            $html.=  "<div class='col  img-fluid p-0' style='background-image: url(\"".$producto->getimagen()."\")'></div>";
+
+            $html.=        "</div>";
+            $html.=        "<div class='col precio'>".$producto->getprecio()." €</div>";
+            $html.=        "<div class='col nombre'>".$producto->getnombre()."</div>";
+            $html.=    "</div>";
+            $html.= "</div>";
+
             unset($producto);
         }
     }else{

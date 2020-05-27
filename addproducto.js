@@ -77,7 +77,7 @@ function valnombre(){
     
 // console.log("nombre")
     $(this).attr("style","outline: initial");
-    var errores1 = /^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú0-9'\.\-\s\,]+[\s]*)+$/
+    var errores1 = /^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú0-9'\-\s\,]+[\s]*)+$/
     var extepcion1=errores1.test($("#nombre").val())
 
     if(($("#nombre").val()!="")&&extepcion1){
@@ -111,7 +111,7 @@ function valprecio(){
 function valdescripcion(){
    
     $(this).attr("style","outline: initial");
-    var errores1 =  /^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú0-9'\.\-\s\,]+[\s]*)+$/
+    var errores1 =  /^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú0-9A-ZÁÉÍÓÚ%'\.\-\s\,]+[\s]*)+$/
     var extepcion1=errores1.test($("#descripcion").val())
 
     if(($("#descripcion").val()!="")&&extepcion1 ){
@@ -166,11 +166,13 @@ function valdescripcion(){
         var formData = new FormData();
         var file = $("#file-input")[0].files[0];
         formData.append("file", file, replace);
-        console.log(file['name'].split('.')[1]);
-        if(file['name'].split('.')[1]=="jpg"){
+        $arrayfile=file['name'].split('.');
+
+        console.log($arrayfile[$arrayfile.length-1]);
+        if($arrayfile[$arrayfile.length-1]=="jpg"){
             extension="jpeg";
         }else{
-            extension=file['name'].split('.')[1];
+            extension=$arrayfile[$arrayfile.length-1];
         }
         $.post('addproducto.php',{query: "subirprod",fichero: ("img/"+replace+"."+extension), nombre: $("#nombre").val(),
             precio: $("#precio").val(), 

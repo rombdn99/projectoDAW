@@ -29,7 +29,8 @@ function eventos(){
             })
             .always(function(data,textStatus,jqXHR){
                 console.log("cesta2.php")
-            })        
+            })
+                
         })
         .fail(function(data,textStatus,jqXHR){
             console.log("Error: " + textStatus + ": " + jqXHR);
