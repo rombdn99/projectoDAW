@@ -559,7 +559,7 @@ function filtro($select,$objPDO){
     $html="";
     if ($resultado1->rowCount() > 0){
         foreach ($resultado1 as $row) {
-            $html.="<div class='col-md-3 col-4 pt-3 productobody pb-2' id='buscar".$row['id']."'>";
+            $html.="<div class='col-lg-3 col-12 col-md-4 pt-3 productobody pb-2' id='buscar".$row['id']."'>";
             $html.=    "<div class='bg-light producto'>";
             $html.=        "<div class='imgprod'>";
             $html.=  "<div class='col  img-fluid p-0' style='background-image: url(\"".$row['imagen']."\")'></div>";

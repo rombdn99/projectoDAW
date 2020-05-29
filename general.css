@@ -3,13 +3,21 @@
 *{
   font-family: 'Roboto', sans-serif;
 }
-
-.buscar{
+h1,h2,h3,h4,h5{
+  font-weight: bold !important;
+}
+.buscar {
 	position: relative;
 	/*margin-top: -20% !important;
 	margin-left: 80% !important;*/
-	color: #9e9e9e !important;
-	padding: 2% 3%;
+	color: black !important;
+	padding: 0% 0%;
+  height: 100%;
+  border-radius: 0px 4px 4px 0px;
+  border: 0px;
+}
+.borde{
+  border-radius: 4px 0px 0px 4px;
 
 }
 .buscar:hover{
@@ -20,10 +28,12 @@
 	.buscar{
 		position: relative;
 		margin-top: 0vh !important;
-		color: #9e9e9e;
 
   }
+  .carrito{
+    padding-top: 36% !important;
   
+  }
  }
  @media (min-width:  960px) { 
   #sesion div{
@@ -35,13 +45,11 @@
   background-color: #1e4b94 !important;
     border-color: #1e4b94 !important;
 }
-.buscar{
-  margin-left: -10%!important;
-}
 .carrito{
-  padding-top: 36%;
+  padding-top: 0%;
 
 }
+
 .form-control:focus {
     color: #495057;
     background-color: #f1f1f1;

@@ -8,6 +8,10 @@
     /* padding-left: 27%; */
     text-align: center;
 }
+.precio{
+    font-weight: bold;
+    font-size: 110%;
+}
 @media (min-width: 768px) { 
     .aventura{
         font-size: 100px;
@@ -53,7 +57,7 @@
     .imagenprincipal{
         padding-bottom: 2vh !important;
         background-size: 130% !important;
-        min-height: 28vh !important;
+        min-height: 24vh !important;
         background-position-y: center;
 
     }

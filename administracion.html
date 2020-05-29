@@ -34,18 +34,18 @@
                         <a class="nav-link dropbtn" href="buscar.html">Catalogo <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
-                <div class="col-lg-6 col-12 p-0 d-flex justify-content-center">
+                <div class="col-lg-5 col-12 p-0 d-flex justify-content-center">
                     <!-- buscador -->
-                    <form class="form-inline my-2 my-lg-0 col-11" action="headerbusqueda.php" method="POST">
-                        <input class="form-control mr-sm-2 buscadori " type="search" placeholder="Search" aria-label="Search" name="busca">
-                        <button class="btn btn-outline-success my-2 my-md-0 buscar border-0" type="submit"><i class="fas fa-search"></i></button>
+                    <form class="form-inline my-2 my-lg-0 col-12" action="headerbusqueda.php" method="POST">
+                        <input class="form-control  buscadori col-10 borde" type="search" placeholder="Search" aria-label="Search" name="busca">
+                        <button class="btn btn-outline-success  border-0 col-2 bg-light buscar " type="submit"><i class="fas fa-search"></i></button>
                     </form>
                 </div>
                 <!-- botones usuarios -->
                 <div class=" col-lg-3 col-12 d-flex justify-md-content-around p-0 ">
                     <ul class="navbar-nav flex-lg-row flex-column justify-lg-content-between justify-content-center col-12 text-center">
                         <li class="nav-item dropdown">
-                            <a class="nav-link d-flex justify-content-center dropbtn" href="cesta.html"><span class="d-lg-none d-block">Cesta: </span> <i class="fas fa-shopping-cart iconos mt-1 ml-2 ml-lg-0 mt-lg-0"></i></a>
+                            <a class="nav-link d-flex justify-content-center dropbtn carrito" href="cesta.html"><span class="d-lg-none d-block">Cesta: </span> <i class="fas fa-shopping-cart iconos mt-1 ml-2 ml-lg-0 mt-lg-0"></i></a>
                         </li>
                         <li class="nav-item dropdown" id="sesion">
                             <a class="nav-link dropbtn" href="#">Inicio de sesion</a>
@@ -60,150 +60,202 @@
   	<div class="conteiner-fluid fondobody pb-5 pt-5" style="min-height: 90vh;">
         <div class="container">
             <h1 class="text-center">Administración</h1>
-            <div class="row justify-content-between pt-5 pb-5">
-				<h3 class="">Administracion de usuarios</h3>
-				<a href="registro_admin.html" class="btn btn-primary mb-2 mr-4">Añadir Usuario</a>
-			</div>
-            <div class="col-12 overflow-auto tabla p-0">
-                <table class="col-12 ">
-                    <thead class="header text-light">
-                      <tr>
-                        <th scope="col" class="sortu " id="email">Email <i class="fas fa-angle-down flecha"></i></th>
-                        <th scope="col" class="sortu " id="nombre">Nombre <i class="fas fa-angle-down flecha"></i></th>
-                        <th scope="col" class="sortu " id="apellido">Apellido <i class="fas fa-angle-down flecha"></i></th>
-                        <th scope="col" class="sortu " id="direccion">Direccion <i class="fas fa-angle-down flecha"></i></th>
-                        <th scope="col" class="sortu " id="telefono">Telefono <i class="fas fa-angle-down flecha"></i></th>
-                        <th scope="col" class="sortu " id="tipo">Administrador <i class="fas fa-angle-down flecha"></i></th>
-                        <th scope="col" class="text-center">Eliminar</th>
-                      </tr>
-                    </thead>
-                  
-                    <tbody id="tusuarios" class="bg-light">
-                    </tbody>
 
-                </table>
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h2 class="mb-0" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Administracion de usuarios
+                    </h2>
+                  </div>
+              
+                  <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <div class="row justify-content-end pt-3 pb-4 pr-0 pl-0">
+                            <a href="registro_admin.html" class="btn btn-primary mb-2 mr-4">Añadir Usuario</a>
+                        </div>
+                        <div class="col-12 p-0 tabla overflow-auto">
+                            <table class="col-12 border">
+                                <thead class="header text-light">
+                                  <tr>
+                                    <th scope="col" class="sortu " id="email">Email <i class="fas fa-angle-down flecha"></i></th>
+                                    <th scope="col" class="sortu " id="nombre">Nombre <i class="fas fa-angle-down flecha"></i></th>
+                                    <th scope="col" class="sortu " id="apellido">Apellido <i class="fas fa-angle-down flecha"></i></th>
+                                    <th scope="col" class="sortu " id="direccion">Direccion <i class="fas fa-angle-down flecha"></i></th>
+                                    <th scope="col" class="sortu " id="telefono">Telefono <i class="fas fa-angle-down flecha"></i></th>
+                                    <th scope="col" class="sortu " id="tipo">Administrador <i class="fas fa-angle-down flecha"></i></th>
+                                    <th scope="col" class="text-center">Eliminar</th>
+                                  </tr>
+                                </thead>
+                              
+                                <tbody id="tusuarios" class="bg-light ">
+                                </tbody>
+            
+                            </table>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card mt-3">
+                    <div class="card-header" id="headingTwo">
+                      <h2 class="mb-0" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapsetwo">
+                        Administracion de productos
+                      </h2>
+                    </div>
+                
+                    <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <div class="row justify-content-end pt-3 pb-4">
+                                <a href="addproducto.html" class="btn btn-primary mb-2 mr-4">Añadir producto</a>
+                            </div>
+                            <div class="col-12 overflow-auto p-0 tabla">
+                                <table class="col-12  ">
+                                    <thead class="header text-light">
+                                      <tr>
+                                        <th scope="col" class="sortp " id="nombre">Nombre <i class="fas fa-angle-down flecha"></i></th>
+                                        <th scope="col" class="sortp " id="imagen">Imagen <i class="fas fa-angle-down flecha"></i></th>
+                                        <th scope="col" class="sortp " id="descripcion">Descripcion <i class="fas fa-angle-down flecha"></i></th>
+                                        <th scope="col" class="sortp " id="precio">Precio <i class="fas fa-angle-down flecha"></i></th>
+                                        <th scope="col">Categorias</th>
+                                        
+                
+                                        <th scope="col" class="text-center">Opciones</th>
+                                      </tr>
+                                    </thead>
+                                  
+                                    <tbody id="tproductos" class="bg-light">
+                                    </tbody>
+                
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-3">
+                    <div class="card-header" id="headingTres">
+                        <h2 class="mb-0" type="button" data-toggle="collapse" data-target="#collapseTres" aria-expanded="true" aria-controls="collapseTres">
+                            Monitor de pedidos
+                        </h2>
+                    </div>
+                
+                    <div id="collapseTres" class="collapse " aria-labelledby="headingTres" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <div class="row justify-content-end pt-3 ">
+                            </div>
+                            <div class="col-12 overflow-auto tabla p-0 ">
+                                <table class="col-12 ">
+                                    <thead class="header text-light">
+                                      <tr>
+                                        <th scope="col" class="sortpe " id="email">Email usuario <i class="fas fa-angle-down flecha"></i></th>
+                                        <th scope="col" class="sortpe " id="nombre">Nombre producto <i class="fas fa-angle-down flecha"></i></th>
+                                        <th scope="col" class="sortpe " id="talla">Talla <i class="fas fa-angle-down flecha"></i></th>
+                                        <th scope="col" class="sortpe " id="fecha">Fecha <i class="fas fa-angle-down flecha"></i></th>
+                                        <th scope="col" class="sortpe " id="hora">Hora <i class="fas fa-angle-down flecha"></i></th>
+                                      </tr>
+                                    </thead>
+                                  
+                                    <tbody id="tpedidos" class="bg-light">
+                                    </tbody>
+                
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-3">
+                    <div class="card-header" id="headingCuatro">
+                        <h2 class="mb-0" type="button" data-toggle="collapse" data-target="#collapseCuatro" aria-expanded="true" aria-controls="collapseCuatro">
+                            Categorias
+                        </h2>
+                    </div>
+                
+                    <div id="collapseCuatro" class="collapse " aria-labelledby="headingCuatro" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <div class="row justify-content-around pt-3 pb-5">
+
+                                <a data-toggle='modal' data-target='#insertardeporte' class='insertd btn btn-primary btn text-light mb-2 '>Añadir Deporte</a>
+                                <a data-toggle='modal' data-target='#insertarropa' class='insertr btn btn-primary btn text-light mb-2 '>Añadir Ropa</a>
+                                <a data-toggle='modal' data-target='#insertarequipamiento' class='inserte btn btn-primary btn text-light mb-2 '>Añadir Equipamiento</a>
+                
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-12 overflow-auto mt-5 tabla">
+                
+                                    <table class="col-12 ">
+                                        <thead class="header text-light">
+                                            <tr >
+                                                <th colspan="2" class="text-center">Deportes</th>
+                                            </tr>
+                                        <tr>
+                                            <th scope="col" class="sortd " id="nombre">Nombre <i class="fas fa-angle-down flecha"></i></th>
+                                            <th scope="col" class="text-center">Eliminar</th>
+                                        </tr>
+                                        </thead>
+                                    
+                                        <tbody id="tdeportes" class="bg-light">
+                                        </tbody>
+                
+                                    </table>
+                                </div>
+                                <div class="col-lg-3 col-12 overflow-auto mt-5 tabla">
+                                    <table class="col-12">
+                                        <thead class="header text-light">
+                                            <tr>
+                                                <th colspan='2' class="text-center">Ropa</th>
+                                            </tr>
+                                        <tr>
+                                            <th scope="col" class="sortr " id="tipo">Tipo <i class="fas fa-angle-down flecha"></i></th>
+                                            <th scope="col" class="text-center">Eliminar</th>
+                                        </tr>
+                                        </thead>
+                                    
+                                        <tbody id="tropa" class="bg-light">
+                                        </tbody>
+                
+                                    </table>
+                                </div>
+                                <div class="col-lg-3 col-12 overflow-auto mt-5 tabla">
+                                    <table class="col-12">
+                                        <thead class="header text-light">
+                                            <tr>
+                                                <th colspan='2' class="text-center">Equipamiento</th>
+                                            </tr>
+                                        <tr>
+                                            <th scope="col" class="sorte " id="tipo">Tipo <i class="fas fa-angle-down flecha"></i></th>
+                                            <th scope="col" class="text-center">Eliminar</th>
+                                        </tr>
+                                        </thead>
+                                    
+                                        <tbody id="tequipamiento" class="bg-light">
+                                        </tbody>
+                
+                                    </table>
+                                </div>
+                                <div class="col-lg-3 col-12 overflow-auto mt-5 tabla">
+                                    <table class="col-12">
+                                        <thead class="header text-light">
+                                            
+                                        <tr rowspan="2">
+                                            <th  scope="col" class="sortg " id="genero">Genero <i class="fas fa-angle-down flecha"></i></th>
+                                        </tr>
+                                        
+                                        </thead>
+                                    
+                                        <tbody id="tgenero" class="bg-light">
+                                        </tbody>
+                
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-			<div class="row justify-content-between pt-5 pb-5">
-				<h3 class="">Administracion de productos</h3>
-				<a href="addproducto.html" class="btn btn-primary mb-2 mr-4">Añadir producto</a>
-			</div>
-            <div class="col-12 overflow-auto p-0 tabla">
-                <table class="col-12  ">
-                    <thead class="header text-light">
-                      <tr>
-                        <th scope="col" class="sortp " id="nombre">Nombre <i class="fas fa-angle-down flecha"></i></th>
-                        <th scope="col" class="sortp " id="imagen">Imagen <i class="fas fa-angle-down flecha"></i></th>
-                        <th scope="col" class="sortp " id="descripcion">Descripcion <i class="fas fa-angle-down flecha"></i></th>
-                        <th scope="col" class="sortp " id="precio">Precio <i class="fas fa-angle-down flecha"></i></th>
-                        <th scope="col">Categorias</th>
-                        
-
-                        <th scope="col" class="text-center">Opciones</th>
-                      </tr>
-                    </thead>
-                  
-                    <tbody id="tproductos" class="bg-light">
-                    </tbody>
-
-                </table>
-            </div>
-            <div class="row justify-content-between pt-5 pb-5">
-				<h3 class="">Monitor de pedidos</h3>
-			</div>
-            <div class="col-12 overflow-auto tabla p-0">
-                <table class="col-12 ">
-                    <thead class="header text-light">
-                      <tr>
-                        <th scope="col" class="sortpe " id="email">Email usuario <i class="fas fa-angle-down flecha"></i></th>
-                        <th scope="col" class="sortpe " id="nombre">Nombre producto <i class="fas fa-angle-down flecha"></i></th>
-                        <th scope="col" class="sortpe " id="talla">Talla <i class="fas fa-angle-down flecha"></i></th>
-                        <th scope="col" class="sortpe " id="fecha">Fecha <i class="fas fa-angle-down flecha"></i></th>
-                        <th scope="col" class="sortpe " id="hora">Hora <i class="fas fa-angle-down flecha"></i></th>
-                      </tr>
-                    </thead>
-                  
-                    <tbody id="tpedidos" class="bg-light">
-                    </tbody>
-
-                </table>
-			</div>
-			<div class="row justify-content-between pt-5 pb-5">
-
-				<h3 class="">Categorias</h3>
-				<a data-toggle='modal' data-target='#insertardeporte' class='insertd btn btn-primary btn text-light mb-2 mr-4'>Añadir Deporte</a>
-				<a data-toggle='modal' data-target='#insertarropa' class='insertr btn btn-primary btn text-light mb-2 mr-4'>Añadir Ropa</a>
-				<a data-toggle='modal' data-target='#insertarequipamiento' class='inserte btn btn-primary btn text-light mb-2 mr-4'>Añadir Equipamiento</a>
-
-			</div>
-			<div class="row">
-                <div class="col-md-3 col-12 overflow-auto mt-5 tabla">
-
-                    <table class="col-12 ">
-                        <thead class="header text-light">
-                            <tr >
-                                <th colspan="2" class="text-center">Deportes</th>
-                            </tr>
-                        <tr>
-                            <th scope="col" class="sortd " id="nombre">Nombre <i class="fas fa-angle-down flecha"></i></th>
-                            <th scope="col" class="text-center">Eliminar</th>
-                        </tr>
-                        </thead>
-                    
-                        <tbody id="tdeportes" class="bg-light">
-                        </tbody>
-
-                    </table>
-                </div>
-                <div class="col-md-3 col-12 overflow-auto mt-5 tabla">
-                    <table class="col-12">
-                        <thead class="header text-light">
-                            <tr>
-                                <th colspan='2' class="text-center">Ropa</th>
-                            </tr>
-                        <tr>
-                            <th scope="col" class="sortr " id="tipo">Tipo <i class="fas fa-angle-down flecha"></i></th>
-                            <th scope="col" class="text-center">Eliminar</th>
-                        </tr>
-                        </thead>
-                    
-                        <tbody id="tropa" class="bg-light">
-                        </tbody>
-
-                    </table>
-                </div>
-                <div class="col-md-3 col-12 overflow-auto mt-5 tabla">
-                    <table class="col-12">
-                        <thead class="header text-light">
-                            <tr>
-                                <th colspan='2' class="text-center">Equipamiento</th>
-                            </tr>
-                        <tr>
-                            <th scope="col" class="sorte " id="tipo">Tipo <i class="fas fa-angle-down flecha"></i></th>
-                            <th scope="col" class="text-center">Eliminar</th>
-                        </tr>
-                        </thead>
-                    
-                        <tbody id="tequipamiento" class="bg-light">
-                        </tbody>
-
-                    </table>
-                </div>
-                <div class="col-md-3 col-12 overflow-auto mt-5 tabla">
-                    <table class="col-12">
-                        <thead class="header text-light">
-                            
-                        <tr rowspan="2">
-                            <th  scope="col" class="sortg " id="genero">Genero <i class="fas fa-angle-down flecha"></i></th>
-                        </tr>
-                        
-                        </thead>
-                    
-                        <tbody id="tgenero" class="bg-light">
-                        </tbody>
-
-                    </table>
-                </div>
-            </div>
+            
+			
+            
+            
+			
         </div>
   	</div>
 
