@@ -86,7 +86,7 @@ function selectu($objPDO){
     $resultado=$objPDO->query("select * from usuarios");
     if ($resultado->rowCount() > 0){
     	foreach ($resultado as $row) {
-            $html.="<tr>";
+            $html.="<tr style='border-bottom:1px solid black'>>";
                 $html.="<td>".$row['email']."</td>";
                 $html.="<td>".$row['nombre']."</td>";
                 $html.="<td>".$row['apellido']."</td>";
@@ -112,7 +112,7 @@ function order($sort,$by, $objPDO){
     $resultado=$objPDO->query($query);
     if ($resultado->rowCount() > 0){
     	foreach ($resultado as $row) {
-            $html.="<tr>";
+            $html.="<tr style='border-bottom:1px solid black'>>";
                 $html.="<td>".$row['email']."</td>";
                 $html.="<td>".$row['nombre']."</td>";
                 $html.="<td>".$row['apellido']."</td>";
@@ -137,7 +137,7 @@ function selectp($objPDO){
     $resultado=$objPDO->query("select * from productos");
     if ($resultado->rowCount() > 0){
     	foreach ($resultado as $row) {
-            $html.="<tr>";
+            $html.="<tr style='border-bottom:1px solid black'>>";
                 $html.="<td>".$row['nombre']."</td>";
                $html.="<td><img src='".$row['imagen']."' class='img-fluid imgprod'></td>";
 
@@ -194,7 +194,7 @@ function orderp($sort,$by, $objPDO){
     $resultado=$objPDO->query($query);
     if ($resultado->rowCount() > 0){
     	foreach ($resultado as $row) {
-            $html.="<tr >";
+            $html.="<tr style='border-bottom:1px solid black'>>";
                 $html.="<td>".$row['nombre']."</td>";
                 $html.="<td><img src='".$row['imagen']."' class='img-fluid imgprod'></td>";
                 $html.="<td>".$row['descripcion']."</td>";
@@ -258,7 +258,7 @@ function selectd($objPDO){
     if ($resultado->rowCount() > 0){
         $html="";
     	foreach ($resultado as $row) {
-            $html.="<tr>";
+            $html.="<tr style='border-bottom:1px solid black'>>";
             $html.="<td>".$row['nombre']."</td>";
             $html.="<td  class='text-center d-flex justify-content-center'><a type='button'  data-toggle='modal' data-target='#eliminardeporte' class='eliminard btn btn-danger' id='eliminard".$row['id']."'><i class='fas fa-times '></i></a></td>";
 
@@ -275,7 +275,7 @@ function selectr($objPDO){
     if ($resultado->rowCount() > 0){
         $html="";
     	foreach ($resultado as $row) {
-            $html.="<tr>";
+            $html.="<tr style='border-bottom:1px solid black'>>";
             $html.="<td>".$row['tipo']."</td>";
             $html.="<td  class='text-center d-flex justify-content-center'><a type='button'  data-toggle='modal' data-target='#eliminarropa' class='eliminarr btn btn-danger' id='eliminarr".$row['id']."'><i class='fas fa-times '></i></a></td>";
 
@@ -292,7 +292,7 @@ function selecte($objPDO){
     if ($resultado->rowCount() > 0){
         $html="";
     	foreach ($resultado as $row) {
-            $html.="<tr>";
+            $html.="<tr style='border-bottom:1px solid black'>>";
             $html.="<td>".$row['tipo']."</td>";
             $html.="<td  class='text-center d-flex justify-content-center'><a type='button'  data-toggle='modal' data-target='#eliminarequip' class='eliminare btn btn-danger' id='eliminare".$row['id']."'><i class='fas fa-times '></i></a></td>";
 
@@ -308,7 +308,7 @@ function selectg($objPDO){
     if ($resultado->rowCount() > 0){
         $html="";
     	foreach ($resultado as $row) {
-            $html.="<tr>";
+            $html.="<tr style='border-bottom:1px solid black'>>";
             $html.="<td>".$row['genero']."</td>";
 
             $html.="</tr>";
@@ -512,7 +512,7 @@ function getcategoria($objPDO){
     $html="";
     $resultado2=$objPDO->query("select * from deporte");
     if ($resultado2->rowCount() > 0){
-        $html.="<li class='list-group-item deporte'>Deporte <ul>";
+        $html.="<li class='list-group-item deporte pt-5'>Deporte <ul class='p-0'>";
         foreach ($resultado2 as $row2) {
             $html.="<li class='list-group-item categoria' id='d-".$row2['id']."'>".$row2['nombre']."</li>";
         }
@@ -520,7 +520,7 @@ function getcategoria($objPDO){
     }
     $resultado2=$objPDO->query("select * from genero ");
     if ($resultado2->rowCount() > 0){
-        $html.="<li class='list-group-item deporte'>Genero <ul>";
+        $html.="<li class='list-group-item genero'>Genero <ul class='p-0'>";
 
         foreach ($resultado2 as $row2) {
             $html.="<li class='list-group-item categoria' id='g-".$row2['id']."'>".$row2['genero']."</li>";
@@ -530,7 +530,7 @@ function getcategoria($objPDO){
     }
         $resultado2=$objPDO->query("select * from ropa ");
         if ($resultado2->rowCount() > 0){
-            $html.="<li class='list-group-item deporte'>Ropa <ul>";
+            $html.="<li class='list-group-item ropa'>Ropa <ul class='p-0'>";
 
             foreach ($resultado2 as $row2) {
                 $html.="<li class='list-group-item categoria' id='r-".$row2['id']."'>".$row2['tipo']."</li>";
@@ -541,7 +541,7 @@ function getcategoria($objPDO){
     
         $resultado2=$objPDO->query("select * from equipamiento ");
         if ($resultado2->rowCount() > 0){
-            $html.="<li class='list-group-item deporte'>Equipamiento <ul>";
+            $html.="<li class='list-group-item equipamiento'>Equipamiento <ul class='p-0'>";
 
             foreach ($resultado2 as $row2) {
                 $html.="<li class='list-group-item categoria' id='e-".$row2['id']."'>".$row2['tipo']."</li>";
@@ -559,7 +559,7 @@ function filtro($select,$objPDO){
     $html="";
     if ($resultado1->rowCount() > 0){
         foreach ($resultado1 as $row) {
-            $html.="<div class='col-md-3 col-4 pt-3 productobody ' id='buscar".$row['id']."'>";
+            $html.="<div class='col-md-3 col-4 pt-3 productobody pb-2' id='buscar".$row['id']."'>";
             $html.=    "<div class='bg-light producto'>";
             $html.=        "<div class='imgprod'>";
             $html.=  "<div class='col  img-fluid p-0' style='background-image: url(\"".$row['imagen']."\")'></div>";
@@ -581,7 +581,7 @@ function sortd($sort,$direccion,$objPDO){
     if ($resultado->rowCount() > 0){
         $html="";
     	foreach ($resultado as $row) {
-            $html.="<tr>";
+            $html.="<tr style='border-bottom:1px solid black'>>";
             $html.="<td>".$row['nombre']."</td>";
             $html.="<td  class='text-center d-flex justify-content-center'><a type='button'  data-toggle='modal' data-target='#eliminardeporte' class='eliminard btn btn-danger' id='eliminard".$row['id']."'><i class='fas fa-times '></i></a></td>";
 
@@ -612,7 +612,7 @@ function sorte($sort,$direccion,$objPDO){
     if ($resultado->rowCount() > 0){
         $html="";
     	foreach ($resultado as $row) {
-            $html.="<tr>";
+            $html.="<tr style='border-bottom:1px solid black'>>";
             $html.="<td>".$row['tipo']."</td>";
             $html.="<td  class='text-center d-flex justify-content-center'><a type='button'  data-toggle='modal' data-target='#eliminarequip' class='eliminare btn btn-danger' id='eliminare".$row['id']."'><i class='fas fa-times '></i></a></td>";
 
@@ -628,7 +628,7 @@ function sortg($sort,$direccion,$objPDO){
     if ($resultado->rowCount() > 0){
         $html="";
     	foreach ($resultado as $row) {
-            $html.="<tr>";
+            $html.="<tr style='border-bottom:1px solid black'>>";
             $html.="<td>".$row['genero']."</td>";
 
             $html.="</tr>";
@@ -685,7 +685,7 @@ function selectpe($objPDO){
     if ($resultado->rowCount() > 0){
         $html="";
     	foreach ($resultado as $row) {
-            $html.="<tr>";
+            $html.="<tr style='border-bottom:1px solid black'>>";
             $html.="<td>".$row['email']."</td>";
             $html.="<td>".$row['nombre']."</td>";
             $html.="<td>".$row['talla']."</td>";
@@ -705,7 +705,7 @@ function sortpe($sort,$by, $objPDO){
     if ($resultado->rowCount() > 0){
         $html="";
     	foreach ($resultado as $row) {
-            $html.="<tr>";
+            $html.="<tr style='border-bottom:1px solid black'>>";
             $html.="<td>".$row['email']."</td>";
             $html.="<td>".$row['nombre']."</td>";
             $html.="<td>".$row['talla']."</td>";

@@ -15,7 +15,7 @@ session_start();
                    // echo "<br>".count($_SESSION['cesta']);
                     $arrayproducto=json_decode(getproducto($objPDO,$_SESSION['cesta'][$i]['id']),true);
                     //print_r($arrayproducto);
-                    $html.="<tr>";
+                    $html.="<tr style='border-bottom:1px solid black'>";
                     $html.="<td>".$arrayproducto['nombre']."</td>";
                     $html.="<td><img src='".$arrayproducto['imagen']."' class='img-fluid imgcesta'></td>";
                     $html.="<td class='pl-2 pr-2'>".$arrayproducto['precio']."€</td>";

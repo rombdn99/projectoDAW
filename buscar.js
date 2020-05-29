@@ -20,6 +20,11 @@ $.post('buscar.php',{query: "getcategorias"})
     })
          
 function inicial(){
+    $("#d-0").addClass("activo");
+    $("#g-0").addClass("activo");
+    $("#r-0").addClass("activo");
+    $("#e-0").addClass("activo");
+
     selectini="select * from productos"
      if(typeof getParams(window.location.href)['deporte']!=='undefined'){
         console.log("entra")
@@ -47,6 +52,7 @@ function inicial(){
     }else{
         console.log()
         selectini+=" where nombre like ('%"+getParams(window.location.href)['buscar']+"%')";
+        $("#mensagebuscar").html("<b>Buscando por:<b> "+getParams(window.location.href)['buscar']);
         $.post('buscar.php',{query: "filtro", select: selectini})
         .done(function(data,textStatus,jqXHR){
             console.log("Solicitud se ha completado correctamente "+ textStatus);
@@ -74,11 +80,72 @@ function eventos(){
     $(".categoria").click(function(){
         if($(this).hasClass("activo")){
             $(this).removeClass("activo");
-            
         }else{
             $(this).addClass("activo");
-           
         }
+        if(
+            $(this).attr("id")=="d-0" ||
+            $(this).attr("id")=="g-0" ||
+            $(this).attr("id")=="r-0" ||
+            $(this).attr("id")=="e-0"
+        ){
+            switch($(this).attr("id").split("-")[0]){
+                case "d":
+                    $(".deporte .categoria").removeClass("activo");
+                    $("#d-0").addClass("activo");
+                    break;
+                case "g":
+                    $(".genero .categoria").removeClass("activo");
+                    $("#g-0").addClass("activo");
+                    break;
+                case "r":
+                    $(".ropa .categoria").removeClass("activo");
+                    $("#r-0").addClass("activo");
+                    break;
+                case "e":
+                    $(".equipamiento .categoria").removeClass("activo");
+                    $("#e-0").addClass("activo");
+                    break;
+            }
+        }else{
+            console.log(typeof $(".deporte .activo").html())
+                switch($(this).attr("id").split("-")[0]){
+                    case "d":
+                        if(typeof $(".deporte .activo").html()=="undefined"){
+                             $("#d-0").addClass("activo");
+                        }else{
+                            $("#d-0").removeClass("activo");
+                        }
+                        break;
+                    case "g":
+                        if(typeof $(".genero .activo").html()=="undefined"){
+                            $("#g-0").addClass("activo");
+                       }else{
+                           $("#g-0").removeClass("activo");
+                       }
+
+                        break;
+                    case "r":
+                        if(typeof $(".ropa .activo").html()=="undefined"){
+                            $("#r-0").addClass("activo");
+                       }else{
+                           $("#r-0").removeClass("activo");
+                       }
+
+                        break;
+                    case "e":
+                        if(typeof $(".equipamiento .activo").html()=="undefined"){
+                            $("#e-0").addClass("activo");
+                       }else{
+                           $("#e-0").removeClass("activo");
+                       }
+                        break;
+                }
+            
+                    
+            }
+        
+        
         buscador();
     })
     $("#buscadorb").keyup(function(){
@@ -131,7 +198,6 @@ function buscador(){
                         d++;
                     }
                     
-
                 break;
                 case "r":
                     if(this.id.split("-")[1]!=0){
@@ -210,7 +276,9 @@ function buscador(){
             if(deporte.length>0 || ropa.length>0 || genero.length>0 || equip.length>0){
                 filtros+=" and"
             }
-            filtros+=" nombre like ('%"+getParams(window.location.href)['buscar']+"%')"
+            filtros+=" nombre like ('%"+getParams(window.location.href)['buscar']+"%')";
+            $("#mensagebuscar").html("<b>Buscando por: </b>"+getParams(window.location.href)['buscar']);
+
         }
 
         if(filtros!=""){
@@ -228,7 +296,7 @@ function buscador(){
                 }
                         // location.replace("login.html")
                 //eventos();
-                
+                eventosproductos();
             })
             .fail(function(data,textStatus,jqXHR){
                 console.log("Error: " + textStatus + ": " + jqXHR);

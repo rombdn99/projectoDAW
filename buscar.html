@@ -28,11 +28,11 @@
             <div class="collapse navbar-collapse col p-0 menu" id="navbarSupportedContent">
                 <!-- navegador -->
                 <ul class="navbar-nav col-lg-3 col-12 text-center">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+                    <li class="nav-item active dropdown">
+                        <a class="nav-link dropbtn" href="index.html">Inicio <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="buscar.html">Catalogo <span class="sr-only">(current)</span></a>
+                    <li class="nav-item active dropdown">
+                        <a class="nav-link dropbtn" href="buscar.html">Catalogo <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
                 <div class="col-lg-6 col-12 p-0 d-flex justify-content-center">
@@ -45,11 +45,11 @@
                 <!-- botones usuarios -->
                 <div class=" col-lg-3 col-12 d-flex justify-md-content-around p-0 ">
                     <ul class="navbar-nav flex-lg-row flex-column justify-lg-content-between justify-content-center col-12 text-center">
-                        <li class="nav-item ">
-                            <a class="nav-link d-flex justify-content-center" href="cesta.html"><span class="d-lg-none d-block">Cesta: </span> <i class="fas fa-shopping-cart iconos mt-1 ml-2 ml-lg-0 mt-lg-0"></i></a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link d-flex justify-content-center dropbtn" href="cesta.html"><span class="d-lg-none d-block">Cesta: </span> <i class="fas fa-shopping-cart iconos mt-1 ml-2 ml-lg-0 mt-lg-0"></i></a>
                         </li>
                         <li class="nav-item dropdown" id="sesion">
-                            <a class="nav-link" href="#">Inicio de sesion</a>
+                            <a class="nav-link dropbtn" href="#">Inicio de sesion</a>
                         </li>
                     </ul>
                 </div>
@@ -59,13 +59,13 @@
     </header>
 
     <!-- body -->
-    <div class="conteiner-fluid fondobody" style="min-height: 85vh">
+    <div class="conteiner-fluid fondobody " style="min-height: 85vh">
        
-        <div class="row w-100">
-            <div class="col-3 bg-light d-none d-lg-block">
-                <ul class="list-group categorias">
+        <div class="row w-100 ">
+            <div class="col-3 bg-light d-none d-lg-block pr-0 ">
+                <ul class="list-group categorias p-0 ">
                     <li class="list-group-item deporte">Deporte
-                        <ul class="list-group">
+                        <ul class="list-group ">
                             <li class="list-group-item categoria" id="correr">
                                 Correr
                             </li>
@@ -119,7 +119,7 @@
                 </ul>
             </div>
             
-            <div class="col-12 col-lg-9 pb-5 pl-5" >
+            <div class="col-12 col-lg-9 pb-5 pl-5 pt-4" >
                 <h1 class="text-center">Buscador</h1>
                 <div class="d-flex justify-content-between">
                     <div class="btn-group dropright d-lg-none d-block">
@@ -184,8 +184,9 @@
                         </div>
                     </div>
                     <label for="buscadorb" class="pl-3">Buscador: <input type="text" id="buscadorb"></label>
-
+                    
                 </div>
+                <div class="row"><div class="col-12" id="mensagebuscar"></div></div>
                 <div class="row" id="buscador">
                     <div class="col-12 justify-content-center d-flex">
                         <div class="spinner-border " role="status">

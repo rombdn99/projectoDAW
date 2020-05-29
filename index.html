@@ -27,28 +27,28 @@
             <div class="collapse navbar-collapse col p-0 menu" id="navbarSupportedContent">
                 <!-- navegador -->
                 <ul class="navbar-nav col-lg-3 col-12 text-center">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+                    <li class="nav-item active dropdown">
+                        <a class="nav-link dropbtn" href="index.html">Inicio <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="buscar.html">Catalogo <span class="sr-only">(current)</span></a>
+                    <li class="nav-item active dropdown">
+                        <a class="nav-link dropbtn" href="buscar.html">Catalogo <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
-                <div class="col-lg-6 col-12 p-0 d-flex justify-content-center">
+                <div class="col-lg-5 col-12 p-0 d-flex justify-content-center">
                     <!-- buscador -->
                     <form class="form-inline my-2 my-lg-0 col-11" action="headerbusqueda.php" method="POST">
-                        <input class="form-control mr-sm-2 buscadori " type="search" placeholder="Search" aria-label="Search" name="busca">
-                        <button class="btn btn-outline-success my-2 my-md-0 buscar border-0" type="submit"><i class="fas fa-search"></i></button>
+                        <input class="form-control mr-sm-2 buscadori col-lg-11" type="search" placeholder="Search" aria-label="Search" name="busca">
+                        <button class="btn btn-outline-success buscar border-0 col-lg-1" type="submit"><i class="fas fa-search"></i></button>
                     </form>
                 </div>
                 <!-- botones usuarios -->
                 <div class=" col-lg-3 col-12 d-flex justify-md-content-around p-0 ">
                     <ul class="navbar-nav flex-lg-row flex-column justify-lg-content-between justify-content-center col-12 text-center">
-                        <li class="nav-item ">
-                            <a class="nav-link d-flex justify-content-center" href="cesta.html"><span class="d-lg-none d-block">Cesta: </span> <i class="fas fa-shopping-cart iconos mt-1 ml-2 ml-lg-0 mt-lg-0"></i></a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link d-flex justify-content-center dropbtn carrito" href="cesta.html"><span class="d-lg-none d-block">Cesta: </span> <i class="fas fa-shopping-cart iconos mt-1 ml-2 ml-lg-0 mt-lg-0"></i></a>
                         </li>
                         <li class="nav-item dropdown" id="sesion">
-                            <a class="nav-link" href="#">Inicio de sesion</a>
+                            <a class="nav-link dropbtn" href="#">Inicio de sesion</a>
                         </li>
                     </ul>
                 </div>
@@ -103,7 +103,7 @@
   			</div>
   		</div>
   		<div class="container mt-5 mb-5 ">
-  			<h5>Mas vendidos</h5>
+  			<h4>Mas vendidos</h4>
   			
 				
 			<div class=" d-flex justify-content-between masvendidos flex-md-row flex-column">
@@ -145,27 +145,26 @@
 		
 		<div class="row ">
 			<div class="col-lg-6 col-12 header text-light p-4">
-				<h3>Contacta</h3>
-					<div class="row  justify-content-center textofooter">
-						<div class='col-6'>
+				<h3 class="text-center">Contacta</h3>
+					<div class=" flex-column  justify-content-center textofooter">
+						<div class='col-12 text-center'>
 							<b>Telefono:</b> +32 987 654 321
 						</div>
-						<div class="col-6">
+						<div class="col-12 text-center">
 							<b>Email:</b> 	  Email@gmail.com
 						</div>
-							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d186.9409028065855!2d2.2171487421397993!3d41.43804027358068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4bca24e536f7d%3A0x28f1c015d9bdd22!2zRlBMbGVmacOg!5e0!3m2!1ses!2ses!4v1590429621907!5m2!1ses!2ses"class="justify-content-center mt-3" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 					</div>
 			</div>
 			<div class="col-lg-6 col-12 fondorojo p-4 text-light">
-				<h3>Redes sociales</h3>
+				<h3 class="text-center">Redes sociales</h3>
 				<div class="row justify-content-center textofooter">
-					<a href="https://es-es.facebook.com/" target="_blanck" class="col-6 pl-3 d-flex justify-content-center redes">
+					<a href="https://es-es.facebook.com/" target="_blanck" class="col-4 pl-3 d-flex justify-content-center redes">
 						<img src="img/facebook.svg" class="col-3 redes p-0" alt="">
 					</a>
-					<a href="https://twitter.com/home?lang=es" target="_blanck" class="col-6 pl-3 d-flex justify-content-center redes">
+					<a href="https://twitter.com/home?lang=es" target="_blanck" class="col-4 pl-3 d-flex justify-content-center redes">
 						<img src="img/twitter.svg" class="col-3 redes p-0" alt="">
 					</a>
-					<a href="https://www.instagram.com/?hl=es" target="_blanck" class="col-6 pl-3 d-flex justify-content-center redes">
+					<a href="https://www.instagram.com/?hl=es" target="_blanck" class="col-4 pl-3 d-flex justify-content-center redes">
 						<img src="img/instagram.svg" target="_blanck" class="col-3  p-0" alt="">
 					</a>
 				</div>

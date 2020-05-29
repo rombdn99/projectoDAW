@@ -1,11 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Teko:wght@600&display=swap');
 .aventura{
 	position: relative;
     padding-top: 5%;
     /* width: 50%; */
     color: #660204;
     line-height: 50px;
-    font-family: 'Teko', sans-serif;
     font-size: 50px;
     /* padding-left: 27%; */
     text-align: center;
@@ -13,7 +11,7 @@
 @media (min-width: 768px) { 
     .aventura{
         font-size: 100px;
-        line-height: 70px;
+        line-height: 80px;
         padding-top: 10%;
 
     }
@@ -76,6 +74,9 @@
 	margin-top: 5%;
 	font-size: 23px;
 }
+.botonindex:hover{
+    color: #660204
+}
 .ciclismo{
 	background-image: url("img/ciclismo.jpg");
 
@@ -93,7 +94,7 @@
 	background-image: url("img/futbol.jpg");
 }
 .rojo{
-	background-color: #660204;
+	background-color: #1e4b94;
 	color: white
 }
 .deportes{
@@ -139,7 +140,7 @@
 
 .nombred{
 	display: none;
-    font-size: 35px;
+    font-size: 230%;
     color: #ffffff !important;
     font-family: sans-serif;
     text-align: center;
