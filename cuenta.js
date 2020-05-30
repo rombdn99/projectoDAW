@@ -6,11 +6,11 @@ $.post('cuenta.php')
 		//$("#sesion").html(data)
 		// location.replace("login.html")
 	    separado = data.split(",");
-	    $("#nombre").val(separado[0]);
-	   	$("#apellido").val(separado[1]);
+	    $("#nombre").html(separado[0]);
+	   	$("#apellido").html(separado[1]);
 	    $("#tel").val(separado[2]);
 	    $("#direc").val(separado[3]);
-	    $("#mail").val(separado[5]);
+	    $("#mail").html(separado[5]);
 
 	})
 	.fail(function(data,textStatus,jqXHR){

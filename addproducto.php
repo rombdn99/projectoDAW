@@ -10,21 +10,21 @@ include 'datafactory.php';
             $nombre=false;
             $descripcion=false;
             $precio=false;
-
+            $html="";
             if(preg_match("/^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú0-9'\.\-\s\,]+[\s]*)+$/",$_POST['nombre'])) {
                 $nombre=true;
             }else{
-                $html= "Nombre mal";
+                $html.= "Nombre mal";
             }
             if(preg_match("/^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú0-9'\.\-\s\,]+[\s]*)+$/",$_POST['descripcion'])) {
                 $descripcion=true;            
             }else{
-                $html= "Descripcion mal";
+                $html.= "Descripcion mal";
             }
             if(preg_match("/^\d*\.?\d*$/",$_POST['precio'])) {
-                $precio= "Precio mal";
+                $precio= true;
             }else{
-                $html= "Mal muy mal3";
+                $html.= "Precio mal";
             }
             if($nombre && $precio && $descripcion){
                 echo nuevoprod($_POST['nombre'],$_POST['fichero'],$_POST['descripcion'],$_POST['precio'],$_POST['deporte'],$_POST['genero'],$_POST['ropa'],$_POST['equipamiento'], $objPDO);
