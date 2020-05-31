@@ -11,12 +11,12 @@ include 'datafactory.php';
             $descripcion=false;
             $precio=false;
             $html="";
-            if(preg_match("/^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú0-9'\.\-\s\,]+[\s]*)+$/",$_POST['nombre'])) {
+            if(preg_match("/^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú0-9A-ZÁÉÍÓÚ%'\.\-\s\,]+[\s]*)+$/",$_POST['nombre'])) {
                 $nombre=true;
             }else{
                 $html.= "Nombre mal";
             }
-            if(preg_match("/^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú0-9'\.\-\s\,]+[\s]*)+$/",$_POST['descripcion'])) {
+            if(preg_match("/^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú0-9A-ZÁÉÍÓÚ%'\.\-\s\,]+[\s]*)+$/",$_POST['descripcion'])) {
                 $descripcion=true;            
             }else{
                 $html.= "Descripcion mal";

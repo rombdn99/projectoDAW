@@ -2,22 +2,22 @@
 <!doctype html>
 
 <html lang="en"><head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="general.css">
-    <link rel="stylesheet" type="text/css" href="producto.css">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="general.css">
+	<link rel="stylesheet" type="text/css" href="producto.css">
 
-    <title>Tienda online inicio</title>
-    <style>
+	<title>Tienda online inicio</title>
+	<style>
 
-    </style>
+	</style>
 </head>
 <body>
-    <header class="header">
+	<header class="header">
         <nav class="navbar navbar-expand-lg navbar-light textoh">
             <!-- logo -->
             <a class="navbar-brand col-2 text-light" href="index.html">Deportes Osuna</a>
@@ -35,18 +35,18 @@
                         <a class="nav-link dropbtn" href="buscar.html">Catalogo <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
-                <div class="col-lg-6 col-12 p-0 d-flex justify-content-center">
+                <div class="col-lg-5 col-12 p-0 d-flex justify-content-center">
                     <!-- buscador -->
-                    <form class="form-inline my-2 my-lg-0 col-11" action="headerbusqueda.php" method="POST">
-                        <input class="form-control mr-sm-2 buscadori " type="search" placeholder="Search" aria-label="Search" name="busca">
-                        <button class="btn btn-outline-success my-2 my-md-0 buscar border-0" type="submit"><i class="fas fa-search"></i></button>
+                    <form class="form-inline my-2 my-lg-0 col-12" action="headerbusqueda.php" method="POST">
+                        <input class="form-control  buscadori col-10 borde" type="search" placeholder="Search" aria-label="Search" name="busca">
+                        <button class="btn btn-outline-success  border-0 col-2 bg-light buscar " type="submit"><i class="fas fa-search"></i></button>
                     </form>
                 </div>
                 <!-- botones usuarios -->
                 <div class=" col-lg-3 col-12 d-flex justify-md-content-around p-0 ">
                     <ul class="navbar-nav flex-lg-row flex-column justify-lg-content-between justify-content-center col-12 text-center">
                         <li class="nav-item dropdown">
-                            <a class="nav-link d-flex justify-content-center dropbtn" href="cesta.html"><span class="d-lg-none d-block">Cesta: </span> <i class="fas fa-shopping-cart iconos mt-1 ml-2 ml-lg-0 mt-lg-0"></i></a>
+                            <a class="nav-link d-flex justify-content-center dropbtn carrito" href="cesta.html"><span class="d-lg-none d-block">Cesta: </span> <i class="fas fa-shopping-cart iconos mt-1 ml-2 ml-lg-0 mt-lg-0"></i></a>
                         </li>
                         <li class="nav-item dropdown" id="sesion">
                             <a class="nav-link dropbtn" href="#">Inicio de sesion</a>
@@ -58,120 +58,119 @@
         </nav>
     </header>
 
-    <div class="conteiner-fluid fondobody pb-5" style="min-height: 90vh"  >
-        <div class="container pt-4">
-            <div class="d-flex justify-content-end">
-                <div id="error" class="pr-5"></div>
-                <button class="btn btn-primary" id="guardar">Guardar</button>
-            </div>
-            <h1>Nombre del producto</h1>
-            <input type="text" class="col" id="nombre">
-            <div id="errornombre" class="row"></div>
-            <hr class=" mt-1 mb-4">
-            <div class="row">
-                <div class="col-md-4 col-12">
-                    <div class="row">
-                        <div class="col-12">
-                            <h5>Precio:</h5>
-                            <div class="col-12 precio d-flex ">   
-                                <input type="number" placeholder="1.0" step="0.01" min="0" id="precio">
-                                €
-                            </div>
-                            <div id="errorprecio" class="row"></div>
-                        </div>
-                    </div>
-                    <div class="col p-0">
-                        <h5>Descripcion</h5>
-                        <textarea name="descripcion" id="descripcion" class="col-12" rows="10" id="descripcion"></textarea>
-                        <div id="errordescripcion" class="row"></div>
-                    </div>
-                    <div class="col mt-3 p-0"> 
-                        <h5>Categorias</h5>
-                        <div id="categorias" class="pl-2">
-                            <div id="deportesr">
-                                <div class="font-weight-bold">Deportes</div>
-                                <input type="radio" id="correr" name="deporte" value="correr">
-                                <label for="correr">Correr</label><br>
-                                <input type="radio" id="baloncesto" name="deporte" value="baloncesto">
-                                <label for="baloncesto">Baloncesto</label><br>
-                                <input type="radio" id="ciclismo" name="deporte" value="ciclismo">
-                                <label for="ciclismo">Ciclismo</label><br>
-                                <input type="radio" id="futbol" name="deporte" value="futbol">
-                                <label for="futbol">Futbol</label>
-                            </div>
-                            <div id="deportesr">
-                                <div class="font-weight-bold">Genero</div>
-                                <input type="radio" id="hombre" name="deporte" value="hombre">
-                                <label for="hombre">Hombre</label><br>
-                                <input type="radio" id="mujer" name="deporte" value="mujer">
-                                <label for="mujer">Mujer</label><br>
-                                
-                            </div>
-                            <div id="deportesr">
-                                <div class="font-weight-bold">Ropa</div>
-                                <input type="radio" id="correr" name="deporte" value="correr">
-                                <label for="correr">Correr</label><br>
-                                <input type="radio" id="baloncesto" name="deporte" value="baloncesto">
-                                <label for="baloncesto">Baloncesto</label><br>
-                                <input type="radio" id="ciclismo" name="deporte" value="ciclismo">
-                                <label for="ciclismo">Ciclismo</label><br>
-                                <input type="radio" id="futbol" name="deporte" value="futbol">
-                                <label for="futbol">Futbol</label>
-                            </div>
-                            <div id="deportesr">
-                                <div class="font-weight-bold">Equipamiento</div>
-                                <input type="radio" id="correr" name="deporte" value="correr">
-                                <label for="correr">Correr</label><br>
-                                <input type="radio" id="baloncesto" name="deporte" value="baloncesto">
-                                <label for="baloncesto">Baloncesto</label><br>
-                                <input type="radio" id="ciclismo" name="deporte" value="ciclismo">
-                                <label for="ciclismo">Ciclismo</label><br>
-                                <input type="radio" id="futbol" name="deporte" value="futbol">
-                                <label for="futbol">Futbol</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-8 col-12 row pb-4 pr-0 pl-4">
-                    <div class="col-12  p-1">
-                        <h5>Imagen</h5>
-                        <input name="file-input" id="file-input" type="file" />
-                        <div id="errorimg" class="row col-12"></div>
-                       <br/>
-                       <img id="imgSalida" class="img-fluid border bordegris w-100 producto" width="50%" height="50%" src="" />
-                    </div>
-                   
+	<div class="conteiner-fluid fondobody pb-5" style="min-height: 90vh"  >
+		<div class="container pt-4">
+			<div class="d-flex justify-content-end">
+				<div id="error" class="pr-5"></div>
+				<button class="btn btn-primary" id="guardar">Guardar</button>
+			</div>
+			<h1>Nombre del producto</h1>
+			<input type="text" class="col" id="nombre">
+			<div id="errornombre" class="row"></div>
+			<hr class=" mt-1 mb-4">
+			<div class="row">
+				<div class="col-md-4 col-12">
+					<div class="row">
+						<div class="col-12">
+							<h5>Precio:</h5>
+							<div class="col-12 precio d-flex ">   
+								<input type="number" placeholder="1.0" step="0.01" min="0" id="precio">
+								€
+							</div>
+							<div id="errorprecio" class="row"></div>
+						</div>
+					</div>
+					<div class="col p-0">
+						<h5>Descripcion</h5>
+						<textarea name="descripcion" id="descripcion" class="col-12" rows="10" id="descripcion"></textarea>
+						<div id="errordescripcion" class="row"></div>
+					</div>
+					<div class="col mt-3 p-0"> 
+						<h5>Categorias</h5>
+						<div id="categorias" class="pl-2">
+							<div id="deportesr">
+								<div class="font-weight-bold">Deportes</div>
+								<input type="radio" id="correr" name="deporte" value="correr">
+								<label for="correr">Correr</label><br>
+								<input type="radio" id="baloncesto" name="deporte" value="baloncesto">
+								<label for="baloncesto">Baloncesto</label><br>
+								<input type="radio" id="ciclismo" name="deporte" value="ciclismo">
+								<label for="ciclismo">Ciclismo</label><br>
+								<input type="radio" id="futbol" name="deporte" value="futbol">
+								<label for="futbol">Futbol</label>
+							</div>
+							<div id="deportesr">
+								<div class="font-weight-bold">Genero</div>
+								<input type="radio" id="hombre" name="deporte" value="hombre">
+								<label for="hombre">Hombre</label><br>
+								<input type="radio" id="mujer" name="deporte" value="mujer">
+								<label for="mujer">Mujer</label><br>
 
-                </div> 
-            </div>
-            
-        </div>
-    </div>
-    <div class="container-fluid footer ">
-		
+							</div>
+							<div id="deportesr">
+								<div class="font-weight-bold">Ropa</div>
+								<input type="radio" id="correr" name="deporte" value="correr">
+								<label for="correr">Correr</label><br>
+								<input type="radio" id="baloncesto" name="deporte" value="baloncesto">
+								<label for="baloncesto">Baloncesto</label><br>
+								<input type="radio" id="ciclismo" name="deporte" value="ciclismo">
+								<label for="ciclismo">Ciclismo</label><br>
+								<input type="radio" id="futbol" name="deporte" value="futbol">
+								<label for="futbol">Futbol</label>
+							</div>
+							<div id="deportesr">
+								<div class="font-weight-bold">Equipamiento</div>
+								<input type="radio" id="correr" name="deporte" value="correr">
+								<label for="correr">Correr</label><br>
+								<input type="radio" id="baloncesto" name="deporte" value="baloncesto">
+								<label for="baloncesto">Baloncesto</label><br>
+								<input type="radio" id="ciclismo" name="deporte" value="ciclismo">
+								<label for="ciclismo">Ciclismo</label><br>
+								<input type="radio" id="futbol" name="deporte" value="futbol">
+								<label for="futbol">Futbol</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-8 col-12 row pb-4 pr-0 pl-4">
+					<div class="col-12  p-1">
+						<h5>Imagen</h5>
+						<input name="file-input" id="file-input" type="file" />
+						<div id="errorimg" class="row col-12"></div>
+						<br/>
+						<img id="imgSalida" class="img-fluid border bordegris w-100 producto" width="50%" height="50%" src="" />
+					</div>
+
+
+				</div> 
+			</div>
+
+		</div>
+	</div>
+	<div class="container-fluid footer ">
+
 		<div class="row ">
 			<div class="col-lg-6 col-12 header text-light p-4">
-				<h3>Contacta</h3>
-					<div class="row  justify-content-center textofooter">
-						<div class='col-6'>
-							<b>Telefono:</b> +32 987 654 321
-						</div>
-						<div class="col-6">
-							<b>Email:</b> 	  Email@gmail.com
-						</div>
-							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d186.9409028065855!2d2.2171487421397993!3d41.43804027358068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4bca24e536f7d%3A0x28f1c015d9bdd22!2zRlBMbGVmacOg!5e0!3m2!1ses!2ses!4v1590429621907!5m2!1ses!2ses"class="justify-content-center mt-3" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+				<h3 class="text-center">Contacta</h3>
+				<div class=" flex-column  justify-content-center textofooter">
+					<div class='col-12 text-center'>
+						<b>Telefono:</b> +32 987 654 321
 					</div>
+					<div class="col-12 text-center">
+						<b>Email:</b> 	  Email@gmail.com
+					</div>
+				</div>
 			</div>
 			<div class="col-lg-6 col-12 fondorojo p-4 text-light">
-				<h3>Redes sociales</h3>
+				<h3 class="text-center">Redes sociales</h3>
 				<div class="row justify-content-center textofooter">
-					<a href="https://es-es.facebook.com/" target="_blanck" class="col-6 pl-3 d-flex justify-content-center redes">
+					<a href="https://es-es.facebook.com/" target="_blanck" class="col-4 pl-3 d-flex justify-content-center redes">
 						<img src="img/facebook.svg" class="col-3 redes p-0" alt="">
 					</a>
-					<a href="https://twitter.com/home?lang=es" target="_blanck" class="col-6 pl-3 d-flex justify-content-center redes">
+					<a href="https://twitter.com/home?lang=es" target="_blanck" class="col-4 pl-3 d-flex justify-content-center redes">
 						<img src="img/twitter.svg" class="col-3 redes p-0" alt="">
 					</a>
-					<a href="https://www.instagram.com/?hl=es" target="_blanck" class="col-6 pl-3 d-flex justify-content-center redes">
+					<a href="https://www.instagram.com/?hl=es" target="_blanck" class="col-4 pl-3 d-flex justify-content-center redes">
 						<img src="img/instagram.svg" target="_blanck" class="col-3  p-0" alt="">
 					</a>
 				</div>
@@ -183,14 +182,14 @@
 			</div>
 		</div>
 	</div>
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        <script src="https://kit.fontawesome.com/a1f3c267d8.js" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="header.js"></script>
-        <script src="addproducto.js"></script> 
-    </body>
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/a1f3c267d8.js" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="header.js"></script>
+	<script src="addproducto.js"></script> 
+</body>
 </html>

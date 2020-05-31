@@ -111,15 +111,15 @@ function valnombre(){
     
     // console.log("nombre")
         $(this).attr("style","outline: initial");
-        var errores1 = /^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú0-9A-ZÁÉÍÓÚ'\-\s\,]+[\s]*)+$/
+        var errores1 = /^([A-ZÁÉÍÓÚ]{1}[a-z0-9ñáéíóú0-9A-ZÁÉÍÓÚ'\-\s\,]+[\s]*)+$/
         var extepcion1=errores1.test($("#nombre").val())
     
-        if(($("#nombre").val()!="")&&extepcion1){
+        if(($("#nombre").val()!="")&&extepcion1 && $("#nombre").val().length<45){
         // console.log("nombre: entra")
             $("#errornombre").addClass("d-none");
             return true
         }else{
-            $("#errornombre").html("<i class='fa fa-close text-danger p-0 mt-1 col-1'></i><p class='text-dark col-11'>El nombre debe contener una letra mayuscula inicial, puede contener letras, numeros y los simbolos <b>'  - ,</b> </p>");
+            $("#errornombre").html("<i class='fa fa-close text-danger p-0 mt-1 col-1'></i><p class='text-dark col-11'>El nombre debe contener una letra mayuscula inicial, puede contener letras, numeros y los simbolos <b>' . - ,</b><br>No puede ser superior a 45 caracteres </p>");
             $("#errornombre").removeClass("d-none");
             return false
         }
@@ -143,17 +143,17 @@ function valnombre(){
         }
     }
     function valdescripcion(){
-       
+   
         $(this).attr("style","outline: initial");
         var errores1 =  /^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú0-9A-ZÁÉÍÓÚ%'\.\-\s\,]+[\s]*)+$/
         var extepcion1=errores1.test($("#descripcion").val())
     
-        if(($("#descripcion").val()!="")&&extepcion1 ){
+        if(($("#descripcion").val()!="")&&extepcion1 && $("#descripcion").val().length<255 ){
             console.log("entra")
             $("#errordescripcion").addClass("d-none");
             return true
         }else{
-            $("#errordescripcion").html("<i class='fa fa-close text-danger p-0 mt-1 col-1'></i><p class='text-dark col-11'>El nombre debe contener una letra mayuscula inicial, puede contener letras, numeros y los simbolos <b>' - ,</b></p>");
+            $("#errordescripcion").html("<i class='fa fa-close text-danger p-0 mt-1 col-1'></i><p class='text-dark col-11'>El nombre debe contener una letra mayuscula inicial, puede contener letras, numeros y los simbolos <b>' . - ,</b><br>Debe tener una maximo de 255 caracteres</p>");
             $("#errordescripcion").removeClass("d-none");
             return false
         }

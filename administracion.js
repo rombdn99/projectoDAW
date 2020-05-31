@@ -646,7 +646,7 @@ function eventos(){
                     if(data!="bad"){
                         $("#noeliminarp").click();
                         $("#tequipamiento").html(data)
-                        eventoseliminarropa();
+                        eventoseliminarequipamiento();
                         $(".close").click()
                     }else{
                         //console.log("No hay usuarios")
@@ -822,11 +822,18 @@ function eventoeliminaruser(){
     })
 }
 function eventoseliminardeportes(){
-
+    $((".eliminard ")).click(function(){
+        $(this).addClass("probable");
+    })
 }
 function eventoseliminarropa(){
-
+    $((".eliminarr")).click(function(){
+        console.log("entra")
+        $(this).addClass("probable");
+    })
 }
 function eventoseliminarequipamiento(){
-
+    $((".eliminare ")).click(function(){
+        $(this).addClass("probable");
+    })
 }

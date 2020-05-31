@@ -1,339 +1,248 @@
 
 <!doctype html>
 
-<html lang="en"><head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="general.css">
-    <link rel="stylesheet" type="text/css" href="buscas.css">
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="general.css">
+		<link rel="stylesheet" type="text/css" href="buscas.css">
 
-    <title>Tienda online inicio</title>
-    <style>
+		<title>Tienda online inicio</title>
+		<style>
 
-    </style>
-</head>
-<body>
-    <header class="header">
-        <nav class="navbar navbar-expand-lg navbar-light textoh">
-            <!-- logo -->
-            <a class="navbar-brand col-2 text-light" href="index.html">Deportes Osuna</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+		</style>
+	</head>
+	<body>
+		<header class="header">
+			<nav class="navbar navbar-expand-lg navbar-light textoh">
+				<!-- logo -->
+				<a class="navbar-brand col-2 text-light" href="index.html">Deportes Osuna</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
 
-            <div class="collapse navbar-collapse col p-0 menu" id="navbarSupportedContent">
-                <!-- navegador -->
-                <ul class="navbar-nav col-lg-3 col-12 text-center">
-                    <li class="nav-item active dropdown">
-                        <a class="nav-link dropbtn" href="index.html">Inicio <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item active dropdown">
-                        <a class="nav-link dropbtn" href="buscar.html">Catalogo <span class="sr-only">(current)</span></a>
-                    </li>
-                </ul>
-                <div class="col-lg-5 col-12 p-0 d-flex justify-content-center">
-                    <!-- buscador -->
-                    <form class="form-inline my-2 my-lg-0 col-12" action="headerbusqueda.php" method="POST">
-                        <input class="form-control  buscadori col-10 borde" type="search" placeholder="Search" aria-label="Search" name="busca">
-                        <button class="btn btn-outline-success  border-0 col-2 bg-light buscar " type="submit"><i class="fas fa-search"></i></button>
-                    </form>
-                </div>
-                <!-- botones usuarios -->
-                <div class=" col-lg-3 col-12 d-flex justify-md-content-around p-0 ">
-                    <ul class="navbar-nav flex-lg-row flex-column justify-lg-content-between justify-content-center col-12 text-center">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link d-flex justify-content-center dropbtn carrito" href="cesta.html"><span class="d-lg-none d-block">Cesta: </span> <i class="fas fa-shopping-cart iconos mt-1 ml-2 ml-lg-0 mt-lg-0"></i></a>
-                        </li>
-                        <li class="nav-item dropdown" id="sesion">
-                            <a class="nav-link dropbtn" href="#">Inicio de sesion</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+				<div class="collapse navbar-collapse col p-0 menu" id="navbarSupportedContent">
+					<!-- navegador -->
+					<ul class="navbar-nav col-lg-3 col-12 text-center">
+						<li class="nav-item active dropdown">
+							<a class="nav-link dropbtn" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item active dropdown">
+							<a class="nav-link dropbtn" href="buscar.html">Catalogo <span class="sr-only">(current)</span></a>
+						</li>
+					</ul>
+					<div class="col-lg-5 col-12 p-0 d-flex justify-content-center">
+						<!-- buscador -->
+						<form class="form-inline my-2 my-lg-0 col-12" action="headerbusqueda.php" method="POST">
+							<input class="form-control  buscadori col-10 borde" type="search" placeholder="Search" aria-label="Search" name="busca">
+							<button class="btn btn-outline-success  border-0 col-2 bg-light buscar " type="submit"><i class="fas fa-search"></i></button>
+						</form>
+					</div>
+					<!-- botones usuarios -->
+					<div class=" col-lg-3 col-12 d-flex justify-md-content-around p-0 ">
+						<ul class="navbar-nav flex-lg-row flex-column justify-lg-content-between justify-content-center col-12 text-center">
+							<li class="nav-item dropdown">
+								<a class="nav-link d-flex justify-content-center dropbtn carrito" href="cesta.html"><span class="d-lg-none d-block">Cesta: </span> <i class="fas fa-shopping-cart iconos mt-1 ml-2 ml-lg-0 mt-lg-0"></i></a>
+							</li>
+							<li class="nav-item dropdown" id="sesion">
+								<a class="nav-link dropbtn" href="#">Inicio de sesion</a>
+							</li>
+						</ul>
+					</div>
+				</div>
 
-        </nav>
-    </header>
+			</nav>
+		</header>
 
-    <!-- body -->
-    <div class="conteiner-fluid fondobody " style="min-height: 85vh">
-       
-        <div class="row w-100 ">
-            <div class="col-3 bg-light d-none d-lg-block pr-0 ">
-                <ul class="list-group categorias p-0 ">
-                    <li class="list-group-item deporte">Deporte
-                        <ul class="list-group ">
-                            <li class="list-group-item categoria" id="correr">
-                                Correr
-                            </li>
-                            <li class="list-group-item categoria" id="baloncesto">
-                                Baloncesto
-                            </li>
-                            <li class="list-group-item categoria" id="ciclismo">
-                                Ciclismo
-                            </li>
-                            <li class="list-group-item categoria" id="futbol">
-                                Futbol
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="list-group-item">Genero
-                        <ul class="list-group">
-                            <li class="list-group-item categoria" id="hombre">
-                                Hombre
-                            </li>
-                            <li class="list-group-item categoria" id="mujer">
-                                Mujer
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="list-group-item">Ropa Deportiva
-                        <ul class="list-group">
-                            <li class="list-group-item categoria" id="">
-                                Camisetas
-                            </li>
-                            <li class="list-group-item categoria">
-                                Pantalones
-                            </li>
-                            <li class="list-group-item">
-                                Sudaderas
-                            </li>
-                        </ul>
-                    </li>
-                     <li class="list-group-item">Equipamiento
-                        <ul class="list-group">
-                            <li class="list-group-item categoria">
-                                Pelotas
-                            </li>
-                            <li class="list-group-item categoria">
-                                Mochila
-                            </li>
-                            <li class="list-group-item categoria">
-                                Bolsas de deporte
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="col-12 col-lg-9 pb-5 pl-5 pt-4" >
-                <h1 class="text-center">Buscador</h1>
-                <div class="d-flex justify-content-between">
-                    <div class="btn-group dropright d-lg-none d-block">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Filtros
-                        </button>
-                        <div class="dropdown-menu">
-                            <ul class="list-group categorias">
-                                <li class="list-group-item deporte">Deporte
-                                    <ul class="list-group">
-                                        <li class="list-group-item categoria" id="correr">
-                                            Correr
-                                        </li>
-                                        <li class="list-group-item categoria" id="baloncesto">
-                                            Baloncesto
-                                        </li>
-                                        <li class="list-group-item categoria" id="ciclismo">
-                                            Ciclismo
-                                        </li>
-                                        <li class="list-group-item categoria" id="futbol">
-                                            Futbol
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="list-group-item">Genero
-                                    <ul class="list-group">
-                                        <li class="list-group-item categoria" id="hombre">
-                                            Hombre
-                                        </li>
-                                        <li class="list-group-item categoria" id="mujer">
-                                            Mujer
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="list-group-item">Ropa Deportiva
-                                    <ul class="list-group">
-                                        <li class="list-group-item categoria" id="">
-                                            Camisetas
-                                        </li>
-                                        <li class="list-group-item categoria">
-                                            Pantalones
-                                        </li>
-                                        <li class="list-group-item">
-                                            Sudaderas
-                                        </li>
-                                    </ul>
-                                </li>
-                                 <li class="list-group-item">Equipamiento
-                                    <ul class="list-group">
-                                        <li class="list-group-item categoria">
-                                            Pelotas
-                                        </li>
-                                        <li class="list-group-item categoria">
-                                            Mochila
-                                        </li>
-                                        <li class="list-group-item categoria">
-                                            Bolsas de deporte
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <label for="buscadorb" class="pl-3">Buscador: <input type="text" id="buscadorb"></label>
-                    
-                </div>
-                <div class="row"><div class="col-12" id="mensagebuscar"></div></div>
-                <div class="row" id="buscador">
-                    <div class="col-12 justify-content-center d-flex">
-                        <div class="spinner-border " role="status">
-                            <span class="sr-only">Loading...</span>
-                        </div>
-                    </div>
-                    
-                    <!-- <div class="col-3 pt-3">
-                        <div class="bg-light producto">
-                            <div class="imgprod">
-                                <img src="img/zapatillas.jpg" class="col img-fluid p-0">
-                            </div>
-                            <div class="col">Precio</div>
-                            <div class="col nombre">Nombre</div>
-                        </div>
-                    </div>
-                    <div class="col-3 pt-3">
-                        <div class="bg-light producto">
-                            <div class="imgprod">
-                                <img src="img/zapatillas.jpg" class="col img-fluid p-0">
-                            </div>
-                            <div class="col">Precio</div>
-                            <div class="col nombre">Nombre</div>
-                        </div>
-                    </div>
-                    <div class="col-3 pt-3">
-                        <div class="bg-light producto">
-                            <div class="imgprod">
-                                <img src="img/zapatillas.jpg" class="col img-fluid p-0">
-                            </div>
-                            <div class="col">Precio</div>
-                            <div class="col nombre">Nombre</div>
-                        </div>
-                    </div>
-                    <div class="col-3 pt-3">
-                        <div class="bg-light producto">
-                            <div class="imgprod">
-                                <img src="img/zapatillas.jpg" class="col img-fluid p-0">
-                            </div>
-                            <div class="col">Precio</div>
-                            <div class="col nombre">Nombre</div>
-                        </div>
-                    </div>
-                    <div class="col-3 pt-3">
-                        <div class="bg-light producto">
-                            <div class="imgprod">
-                                <div class="col img-fluid p-0" style="background-image: url('img/basket.jpg');"></div>
-                            </div>
-                            <div class="col">Precio</div>
-                            <div class="col nombre">Nombre</div>
-                        </div>
-                    </div>
-                    <div class="col-3 pt-3">
-                        <div class="bg-light producto">
-                            <div class="imgprod">
-                                <img src="img/zapatillas.jpg" class="col img-fluid p-0">
-                            </div>
-                            <div class="col">Precio</div>
-                            <div class="col nombre">Nombre</div>
-                        </div>
-                    </div>
-                    <div class="col-3 pt-3">
-                        <div class="bg-light producto">
-                            <div class="imgprod">
-                                <img src="img/zapatillas.jpg" class="col img-fluid p-0">
-                            </div>
-                            <div class="col">Precio</div>
-                            <div class="col nombre">Nombre</div>
-                        </div>
-                    </div>
-                    <div class="col-3 pt-3">
-                        <div class="bg-light producto">
-                            <div class="imgprod">
-                                <img src="img/zapatillas.jpg" class="col img-fluid p-0">
-                            </div>
-                            <div class="col">Precio</div>
-                            <div class="col nombre">Nombre</div>
-                        </div>
-                    </div>
-                    <div class="col-3 pt-3">
-                        <div class="bg-light producto">
-                            <div class="imgprod">
-                                <img src="img/zapatillas.jpg" class="col img-fluid p-0">
-                            </div>
-                            <div class="col">Precio</div>
-                            <div class="col nombrenombre">Nombre</div>
-                        </div>
-                    </div>
-                    <div class="col-3 pt-3">
-                        <div class="bg-light">
-                            <div class="imgprod">
-                                <img src="img/zapatillas.jpg" class="col img-fluid p-0">
-                            </div>
-                            <div class="col">Precio</div>
-                            <div class="col nombre">Nombre</div>
-                        </div>
-                    </div> -->
-                </div>
-            </div>
-        </div>
-    </div>
-<!-- footer -->
-<div class="container-fluid footer ">
-		
-    <div class="row ">
-        <div class="col-lg-6 col-12 header text-light p-4">
-            <h3>Contacta</h3>
-                <div class="row  justify-content-center textofooter">
-                    <div class='col-6'>
-                        <b>Telefono:</b> +32 987 654 321
-                    </div>
-                    <div class="col-6">
-                        <b>Email:</b> 	  Email@gmail.com
-                    </div>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d186.9409028065855!2d2.2171487421397993!3d41.43804027358068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4bca24e536f7d%3A0x28f1c015d9bdd22!2zRlBMbGVmacOg!5e0!3m2!1ses!2ses!4v1590429621907!5m2!1ses!2ses"class="justify-content-center mt-3" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                </div>
-        </div>
-        <div class="col-lg-6 col-12 fondorojo p-4 text-light">
-            <h3>Redes sociales</h3>
-            <div class="row justify-content-center textofooter">
-                <a href="https://es-es.facebook.com/" target="_blanck" class="col-6 pl-3 d-flex justify-content-center redes">
-                    <img src="img/facebook.svg" class="col-3 redes p-0" alt="">
-                </a>
-                <a href="https://twitter.com/home?lang=es" target="_blanck" class="col-6 pl-3 d-flex justify-content-center redes">
-                    <img src="img/twitter.svg" class="col-3 redes p-0" alt="">
-                </a>
-                <a href="https://www.instagram.com/?hl=es" target="_blanck" class="col-6 pl-3 d-flex justify-content-center redes">
-                    <img src="img/instagram.svg" target="_blanck" class="col-3  p-0" alt="">
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="row ">
-        <div class="bg-dark text-light text-center col-12">			
-            Pagina web realizada para educacion
-        </div>
-    </div>
-</div>
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        <script src="https://kit.fontawesome.com/a1f3c267d8.js" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="header.js"></script>
-        <script src="buscar.js"></script>
+		<!-- body -->
+		<div class="conteiner-fluid fondobody " style="min-height: 85vh">
 
-</body>
+			<div class="row w-100 ">
+				<div class="col-3 bg-light d-none d-lg-block pr-0 ">
+					<ul class="list-group categorias p-0 ">
+						<li class="list-group-item deporte">Deporte
+							<ul class="list-group ">
+								<li class="list-group-item categoria" id="correr">
+									Correr
+								</li>
+								<li class="list-group-item categoria" id="baloncesto">
+									Baloncesto
+								</li>
+								<li class="list-group-item categoria" id="ciclismo">
+									Ciclismo
+								</li>
+								<li class="list-group-item categoria" id="futbol">
+									Futbol
+								</li>
+							</ul>
+						</li>
+						<li class="list-group-item">Genero
+							<ul class="list-group">
+								<li class="list-group-item categoria" id="hombre">
+									Hombre
+								</li>
+								<li class="list-group-item categoria" id="mujer">
+									Mujer
+								</li>
+							</ul>
+						</li>
+						<li class="list-group-item">Ropa Deportiva
+							<ul class="list-group">
+								<li class="list-group-item categoria" id="">
+									Camisetas
+								</li>
+								<li class="list-group-item categoria">
+									Pantalones
+								</li>
+								<li class="list-group-item">
+									Sudaderas
+								</li>
+							</ul>
+						</li>
+						<li class="list-group-item">Equipamiento
+							<ul class="list-group">
+								<li class="list-group-item categoria">
+									Pelotas
+								</li>
+								<li class="list-group-item categoria">
+									Mochila
+								</li>
+								<li class="list-group-item categoria">
+									Bolsas de deporte
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+
+				<div class="col-12 col-lg-9 pb-5 pl-5 pt-4" >
+					<h1 class="text-center">Buscador</h1>
+					<div class="d-flex justify-content-between">
+						<div class="btn-group dropright d-lg-none d-block">
+							<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Filtros
+							</button>
+							<div class="dropdown-menu">
+								<ul class="list-group categorias">
+									<li class="list-group-item deporte">Deporte
+										<ul class="list-group">
+											<li class="list-group-item categoria" id="correr">
+												Correr
+											</li>
+											<li class="list-group-item categoria" id="baloncesto">
+												Baloncesto
+											</li>
+											<li class="list-group-item categoria" id="ciclismo">
+												Ciclismo
+											</li>
+											<li class="list-group-item categoria" id="futbol">
+												Futbol
+											</li>
+										</ul>
+									</li>
+									<li class="list-group-item">Genero
+										<ul class="list-group">
+											<li class="list-group-item categoria" id="hombre">
+												Hombre
+											</li>
+											<li class="list-group-item categoria" id="mujer">
+												Mujer
+											</li>
+										</ul>
+									</li>
+									<li class="list-group-item">Ropa Deportiva
+										<ul class="list-group">
+											<li class="list-group-item categoria" id="">
+												Camisetas
+											</li>
+											<li class="list-group-item categoria">
+												Pantalones
+											</li>
+											<li class="list-group-item">
+												Sudaderas
+											</li>
+										</ul>
+									</li>
+									<li class="list-group-item">Equipamiento
+										<ul class="list-group">
+											<li class="list-group-item categoria">
+												Pelotas
+											</li>
+											<li class="list-group-item categoria">
+												Mochila
+											</li>
+											<li class="list-group-item categoria">
+												Bolsas de deporte
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<label for="buscadorb" class="pl-3">Buscador: <input type="text" id="buscadorb"></label>
+
+					</div>
+					<div class="row"><div class="col-12" id="mensagebuscar"></div></div>
+					<div class="row" id="buscador">
+						<div class="col-12 justify-content-center d-flex">
+							<div class="spinner-border " role="status">
+								<span class="sr-only">Loading...</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- footer -->
+		<div class="container-fluid footer ">
+
+			<div class="row ">
+				<div class="col-lg-6 col-12 header text-light p-4">
+					<h3 class="text-center">Contacta</h3>
+					<div class=" flex-column  justify-content-center textofooter">
+						<div class='col-12 text-center'>
+							<b>Telefono:</b> +32 987 654 321
+						</div>
+						<div class="col-12 text-center">
+							<b>Email:</b> 	  Email@gmail.com
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-12 fondorojo p-4 text-light">
+					<h3 class="text-center">Redes sociales</h3>
+					<div class="row justify-content-center textofooter">
+						<a href="https://es-es.facebook.com/" target="_blanck" class="col-4 pl-3 d-flex justify-content-center redes">
+							<img src="img/facebook.svg" class="col-3 redes p-0" alt="">
+						</a>
+						<a href="https://twitter.com/home?lang=es" target="_blanck" class="col-4 pl-3 d-flex justify-content-center redes">
+							<img src="img/twitter.svg" class="col-3 redes p-0" alt="">
+						</a>
+						<a href="https://www.instagram.com/?hl=es" target="_blanck" class="col-4 pl-3 d-flex justify-content-center redes">
+							<img src="img/instagram.svg" target="_blanck" class="col-3  p-0" alt="">
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="row ">
+				<div class="bg-dark text-light text-center col-12">			
+					Pagina web realizada para educacion
+				</div>
+			</div>
+		</div>
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		<script src="https://kit.fontawesome.com/a1f3c267d8.js" crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="header.js"></script>
+		<script src="buscar.js"></script>
+
+	</body>
 </html>

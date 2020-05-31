@@ -10,7 +10,7 @@ include 'datafactory.php';
         }
         if($result=="good"){
             unset($_SESSION['cesta']);
-            echo "Compra realizada con exito";
+            echo "<i class='fas fa-check text-success mr-2'></i>Compra realizada con exito";
         }else{
             echo "ERROR: error en compra";
         }
