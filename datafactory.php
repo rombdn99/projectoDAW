@@ -729,7 +729,7 @@ function masvendidos($objPDO){
             $producto=new producto($objPDO,$row['id_producto']);
 
 
-            $html.="<div class='col-md-3 col-4 pt-3 productobody ' id='p".$producto->getid()."'>";
+            $html.="<div class='col-md-3 col-12 pt-3 productobody ' id='p".$producto->getid()."'>";
             $html.=    "<div class='bg-light producto'>";
             $html.=        "<div class='imgprod'>";
             $html.=  "<div class='col  img-fluid p-0' style='background-image: url(\"".$producto->getimagen()."\")'></div>";

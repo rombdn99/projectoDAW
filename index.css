@@ -13,12 +13,7 @@
     font-size: 110%;
 }
 @media (min-width: 768px) { 
-    .aventura{
-        font-size: 100px;
-        line-height: 80px;
-        padding-top: 10%;
-
-    }
+    
     .botonindex{
         margin-top: 9%;
         font-size: 23px;
@@ -41,8 +36,14 @@
         background-position-y: 90% !important;
 
     }
+    .aventura{
+        font-size: 100px;
+        line-height: 80px;
+        padding-top: 10%;
 
+    }
 }
+
 @media (max-width: 576px) {
     .aventura{
         padding-top: 2% !important;

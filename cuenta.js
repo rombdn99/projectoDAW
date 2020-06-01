@@ -30,7 +30,7 @@ $("#saveNuevaContra").click(function(){
 			.done(function(data,textStatus,jqXHR){
 				console.log("Solicitud se ha completado correctamente "+ textStatus);
 				console.log(data);
-				if(data=="good"){
+				if(data!="bad"){
 					$("#errorcontraigual").addClass("d-none");
 					$("#errorcontraigual").removeClass("d-flex");
 					$("#cerrar").click()
